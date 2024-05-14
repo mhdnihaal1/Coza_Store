@@ -1,0 +1,542 @@
+<% include('../layouts/header.ejs') %>
+
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modernize Free</title>
+  <link rel="shortcut icon" type="image/png" href="/adminAsset/vendor/src/assets/images/logos/favicon.png" />
+  <link rel="stylesheet" href="/adminAsset/vendor/src/assets/css/styles.min.css" />
+</head>
+
+<body>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <a href="#" class="logo">
+            <img src="/asset/vendor/images/icons/logo-01.png" alt="IMG-LOGO" />
+          </a>
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-8"></i>
+          </div>
+        </div>
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">Home</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="dashboard" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Dashboard</span>
+              </a>
+            </li>
+          
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="userDetails" aria-expanded="false">
+                <span>
+                  <i class="ti ti-article"></i>
+                </span>
+                <span class="hide-menu">User Details</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link " href="productDetails" aria-expanded="false">
+                <span>
+                  <i class="ti ti-alert-circle"></i>
+                </span>
+                <span class="hide-menu">Product Details</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="category" aria-expanded="false">
+                <span>
+                  <i class="ti ti-cards"></i>
+                </span>
+                <span class="hide-menu">Category</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link active" href="/orders" aria-expanded="false">
+                <span>
+                  <i class="ti ti-file-description"></i>
+                </span>
+                <span class="hide-menu">Orders</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/offer" aria-expanded="false">
+                <span>
+                  <i class="ti ti-typography"></i>
+                </span>
+                <span class="hide-menu">Offers</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/coupon" aria-expanded="false">
+                <span>
+                  <i class="ti ti-typography"></i>
+                </span>
+                <span class="hide-menu">Coupon</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/discount" aria-expanded="false">
+                <span>
+                  <i class="ti ti-typography"></i>
+                </span>
+                <span class="hide-menu">Discount</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">AUTH</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-login"></i>
+                </span>
+                <span class="hide-menu">Logout</span>
+              </a>
+            </li>
+        
+          
+          
+          
+          </ul>
+
+        </nav>
+          </ul>
+
+        </nav>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+    <!--  Sidebar End -->
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      
+      <!--  Header Start -->
+      <!-- <header class="app-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <ul class="navbar-nav">
+            <li class="nav-item d-block d-xl-none">
+              <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
+                <i class="ti ti-menu-2"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-icon-hover" href="javascript:void(0)">
+                <i class="ti ti-bell-ringing"></i>
+                <div class="notification bg-primary rounded-circle"></div>
+              </a>
+            </li>
+          </ul>
+          <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
+            <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+              <li class="nav-item dropdown">
+                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <img src="/adminAsset/vendor/src/assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
+                </a>
+                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
+                  <div class="message-body">
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-user fs-6"></i>
+                      <p class="mb-0 fs-3">My Profile</p>
+                    </a>
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-mail fs-6"></i>
+                      <p class="mb-0 fs-3">My Account</p>
+                    </a>
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-list-check fs-6"></i>
+                      <p class="mb-0 fs-3">My Task</p>
+                    </a>
+                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header> -->
+      <style>
+        table {
+          border-collapse: collapse;
+          width: 100%;
+          margin-top: 20px; 
+        }
+  
+        th,
+        td {
+          border: 1px solid #ddd;
+          padding: 12px;
+          text-align: left;
+        }
+  
+        th {
+          background-color: #f2f2f2;
+        }
+  
+        button {
+          padding: 8px 16px;
+          cursor: pointer;
+        }
+  
+        .block {
+          background-color: #ff6347; /* Tomato color */
+          color: #fff;
+          border: none;
+        }
+  
+        .unblock {
+          background-color: #5cb85c; /* Green color */
+          color: #fff;
+          border: none;
+        }
+        
+      
+</style>
+       <style>
+        table {
+          border-collapse: collapse;
+          width: 100%;
+          border: 1px solid black; /* Set a strong 1px border for the table */
+        }
+    
+       
+
+        input,
+    textarea {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 12px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+      </style> 
+    </head>
+    
+    <h1 class="d-flex align-items-center justify-content-center" style="height:100px; background-color:  rgb(133, 18, 18); color: rgb(239, 239, 239);">Order Details</h1>
+
+		
+		<div class="card">
+			<!-- <div class="card-body">  -->
+	        </div>
+
+
+          <div class="container">
+          
+                <div class="order">
+                    <% orders.products.forEach(product => { %>
+                        <div class="d-flex justify-content-evenly" >
+                        <div class="">
+                          <div style="width: 100px; height: 100px;">
+                            <img src="<%= product.productId.productImage[0] %>" alt="" style="width: 100%; height: 100%;" >
+                            
+                        </div>
+                        <div>
+                          <%= product.productId.productName %>
+                        </div>
+                        </div>
+                          
+                        
+                            <div class="pt-2">
+                                <p>Quantity: <%= product.Quantity %></p>
+                                <!-- Assuming each product has its own payment method -->
+                                <p>Payment Method: <%= orders.payment[0] %></p>
+                                <p>Ordered Date: <%= orders.createdAt.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }) %></p>
+                                <!-- Add expected date if available -->
+                                <p>Expected Date: <%= orders.expectedDate ? order.expectedDate.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }) : 'N/A' %></p>
+                            </div>
+                            <div class="pt-4">
+                                orderstatus:
+                                <br>
+                                  <div class="dropdown">
+                                    
+                                    <% if (product.orderStatus == "Request" ) { %>
+                                      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"   aria-expanded="false">
+                                        <%= product.orderStatus %>
+                                     </button>
+                                      <div class="dropdown">
+
+                                      <ul class="dropdown-menu bg-light">
+                                        
+                                        <li><button class="dropdown-item orderstatusbtn" data-order-status="Accept" orderid="<%= orders._id %>" userId="<%= orders.userId %>" >Accept</button></li>
+                                        <li><button class="dropdown-item orderstatusbtn" data-order-status="Decline" orderid="<%= orders._id %>" userId="<%= orders.userId %>">Decline</button></li>
+                                </ul>
+                                </div>
+                                      <%  }else{ %>
+                                       
+
+                                    <% if (product.orderStatus == "Delivered" ) { %>
+                                      <button class="btn btn-secondary " type="button"  aria-expanded="false">
+                                        <%= product.orderStatus %>
+                                     </button>
+                                      
+                                      <% }else if(product.orderStatus == "cancelled"){%> 
+                                        <button class="btn btn-secondary " type="button"  aria-expanded="false">
+                                          <%= product.orderStatus %>
+                                      </button>
+                                      <% }else if(product.orderStatus == "Returned"){%> 
+                                        <button class="btn btn-secondary " type="button"  aria-expanded="false">
+                                          <%= product.orderStatus %>
+                                      </button>
+                                      <% }  else { %>
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                          <%= product.orderStatus %>
+                                      </button>
+                                      <ul class="dropdown-menu bg-light">
+                                        <% if (product.orderStatus == "pending") { %>
+                                            <li><button class="dropdown-item orderstatusbtn" data-order-status="pending" orderid="<%= orders._id %>" userId="<%= orders.userId %>">Pending</button></li>
+                                            <li><button class="dropdown-item orderstatusbtn" data-order-status="Shipped" orderid="<%= orders._id %>" userId="<%= orders.userId %>">Shipped</button></li>
+                                            <li><button class="dropdown-item orderstatusbtn" data-order-status="Delivered" orderid="<%= orders._id %>" userId="<%= orders.userId %>">Delivered</button></li>
+                                       
+                                            <% }else if(product.orderStatus == "Shipped"){ %>
+                                              <li><button class="dropdown-item orderstatusbtn" data-order-status="Shipped" orderid="<%= orders._id %>" userId="<%= orders.userId %>">Shipped</button></li>
+                                              <li><button class="dropdown-item orderstatusbtn" data-order-status="Delivered" orderid="<%= orders._id %>" userId="<%= orders.userId %>">Delivered</button></li>
+
+                                            <% }else if(product.orderStatus == "Delivered"){ %>
+                                              <li><button class="dropdown-item orderstatusbtn" data-order-status="Delivered" orderid="<%= orders._id %>" userId="<%= orders.userId %>">Delivered</button></li>
+
+                                              <% } %>
+                                    </ul>
+
+
+                                    
+
+                                    
+                                        <% } %>
+                                  </div>
+
+                             
+                                    <%  } %>
+
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+          
+        </div>
+        
+
+			<div class="m-1 text-container" style="border-radius: 4px; display: inline-block; width: 1123px; height: 200px; background-color: rgb(133, 18, 18);">
+				<div>
+
+          <p><h1 class="p-3 styled-text" style="color: rgb(255, 255, 255);"> <%= orders.address[0].name %></h1></p>
+              <p class="" style="padding-left:15px; color: rgb(255, 255, 255);"> <%= orders.address[0].city %>,<%= orders.address[0].state %></p>
+							<p class="" style="padding-left:15px; color: rgb(255, 255, 255);"><%= orders.address[0].mobile %></p>
+							<p class="" style="padding-left:15px; color: rgb(255, 255, 255);"> <%= orders.address[0].pincode %>,<%= orders.address[0].area %></p>
+
+            </div>
+          </div>
+					<style>
+						/* General text styles */
+body {
+    font-family: Arial, sans-serif; /* Set the default font for the entire document */
+    color: #333; /* Set the default text color */
+}
+
+/* Container for the text */
+/* .text-container {
+    width: 80%; 
+    margin: 0 auto; 
+    padding: 20px;
+} */
+
+/* Styled text */
+.styled-text {
+    font-size: 24px; /* Set the font size */
+    font-weight: bold; /* Make the text bold */
+    color: #7b2c50; /* Set the text color */
+     /* Center the text */
+    line-height: 1.5; /* Set the line height for better readability */
+    letter-spacing: 1px; /* Add some space between letters */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a shadow to the text */
+}
+
+					</style>
+			
+
+<script>
+	//====================fetch
+document.addEventListener('DOMContentLoaded', function() {
+    // Select all buttons with the class 'order-status-btn'
+	const statusButtons = document.querySelectorAll('.orderstatusbtn');
+
+statusButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+		const Status = this.dataset.orderStatus;
+        const orderId = this.getAttribute('orderId')
+        const userId = this.getAttribute('userId')
+
+
+        console.log('Clicked button with orderId:', orderId,userId);
+        console.log('Selected status:', Status);
+// URL of your server endpoint that will handle the 
+
+const data={
+  userId:userId,
+	Status:Status,
+	orderId:orderId
+}
+            const url = `/orderDetails`;
+
+            // Send the selected status to the server
+            fetch(url, {
+                method: 'POST', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => {
+             const res = response.json();
+            }).then(data => {
+                console.log('Success:', data);
+                // window.location.href='/orderDetails';
+                window.location.reload()
+                // Handle the response from the server
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                // Handle the error
+            });
+        });
+    });
+});
+</script>
+
+
+			
+          	<!-- </div> -->
+	
+
+    <!-- <script>
+    //-------------------------------- for list product -----------------------------------
+
+    document.querySelectorAll('.actionbtn').forEach(function(button) {
+  button.addEventListener('click', function() {
+    console.log('Hello');
+    const productId = this.getAttribute('productId');
+    const productState = this.getAttribute('productState'); 
+
+    const data = {
+      productId: productId,
+      productState: productState
+    };
+
+    console.log(data);
+    if (productState === 'List') {
+            url = '/productDetails/UnList'; 
+        } else {
+            url = '/productDetails/List'; 
+        }
+
+    fetch(url, {
+      method: 'post',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+
+        if (data.message) {
+          console.log(data);
+          if (productState === 'List') { 
+            this.setAttribute('productState', 'UnList');
+            this.textContent = 'List';
+            this.classList.replace('actionbtn-danger', 'actionbtn-success'); // Corrected class names
+
+            Swal.fire({
+              title: "Are you sure?",
+              text: "You want to List product",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "#3085d6",
+              cancelButtonColor: "#d33",
+              confirmButtonText: "Yes, List it!"
+            }).then((result) => {
+              if (result.isConfirmed) {
+                Swal.fire({
+                  title: "List",
+                  text: "Your product has been Listed",
+                  icon: "success"
+                }).then(() => {
+                  setTimeout(() => {
+                    location.reload();
+                  });
+                });
+              }
+            })
+          } else {
+            this.setAttribute('productState', 'List');
+            this.textContent = 'UnList';
+            this.classList.replace('actionbtn-success', 'actionbtn-danger'); // Corrected class names
+
+            Swal.fire({
+              title: "Are you sure?",
+              text: "You want to UnList product",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "#3085d6",
+              cancelButtonColor: "#d33",
+              confirmButtonText: "Yes, UnList it!"
+            }).then((result) => {
+              if (result.isConfirmed) {
+                Swal.fire({
+                  title: "UnListed",
+                  text: "Your product has been UnListed",
+                  icon: "success",
+                }).then(() => {
+                  setTimeout(() => {
+                    location.reload();
+                  });
+                });
+              }
+            });
+          }
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  });
+});
+
+
+    
+    </script> -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="/adminAsset/vendor/src/assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="/adminAsset/vendor/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/adminAsset/vendor/src/assets/js/sidebarmenu.js"></script>
+  <script src="/adminAsset/vendor/src/assets/js/app.min.js"></script>
+  <script src="/adminAsset/vendor/src/assets/libs/simplebar/dist/simplebar.js"></script>
+</body>
+
+
+<% include('../layouts/footer.ejs') %>

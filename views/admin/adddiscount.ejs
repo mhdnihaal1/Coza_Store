@@ -1,0 +1,128 @@
+<% include('../layouts/header.ejs')%>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Product</title>
+  <!-- <link rel="stylesheet" href="cropperjs/cropper.css">
+  <script src="cropperjs/cropper.js"></script> -->
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.css" integrity="sha512-bs9fAcCAeaDfA4A+NiShWR886eClUcBtqhipoY5DM60Y1V3BbVQlabthUBal5bq8Z8nnxxiyb1wfGX2n76N1Mw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+      body {
+        background-image: url('/adminAsset/vendor/src/assets/images/backgrounds/bg2.jpg');
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f8f8;
+
+        }
+    
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    input,
+    textarea {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 12px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+    .preview-div{
+    width:250px;
+    height: 150px;
+    border: 2px solid red;
+}
+.preview-div > img{
+    width: 100%;
+    object-fit: contain;
+}
+
+  </style>
+<body>
+
+<div class="container">
+    <a href="discount">
+        <span>
+        <button>Go to discount</button>
+      </span>
+        </a>
+        
+  <h1>Add discount</h1>
+  <form action="/adddiscount" method="post">
+
+    <label for="discountPrice">discount Price:</label>
+    <input type="number" id="discountPrice" name="discountPrice" required>
+
+
+    <label for="discountStarted">discount started :</label>
+    <input type="date" id="discountStarted" name="discountStarted" required>
+
+    <label for="discountEnd">discount End :</label>
+    <input type="date" id="discountEnd" name="discountEnd" required>
+
+    
+
+    <button type="submit" class="btn btnaction">Submit</button>
+  </form>
+
+
+
+
+  
+ 
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js" integrity="sha512-9KkIqdfN7ipEW6B6k+Aq20PV31bjODg4AA52W+tYtAE0jE0kMx49bjJ3FgvS56wzmyfMUHbQ4Km2b7l9+Y/+Eg==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+
+   
+
+              <% if (typeof message !== 'undefined') { %>
+                 <p class="success-message"><%= message %></p>
+              <% } %>
+</div>
+
+
+</body>
+<% include('../layouts/footer.ejs')%>

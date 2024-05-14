@@ -1,0 +1,271 @@
+<% include('../layouts/header.ejs') %>
+
+<head>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      background: url("https://source.unsplash.com/random/1920x1080") no-repeat
+        center center fixed;
+      background-size: cover;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .content-container {
+      background-color: rgba(255, 255, 255, 0.95);
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      padding: 30px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .otp-input {
+      width: 40px;
+      height: 40px;
+      font-size: 18px;
+      text-align: center;
+      margin: 0 8px;
+      border: 2px solid #6c757d; /* Slightly thicker border */
+      border-radius: 8px;
+      outline: none;
+      padding: 10px; /* Adjusted padding for better appearance */
+    }
+
+    .submit-btn {
+      background-color: #1aff00;
+      color: #fff;
+      padding: 12px 20px; /* Adjusted padding for better appearance */
+      font-size: 16px;
+      border: 2px solid #1aff00; /* Matching border color with background */
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #00cc00;
+    }
+
+    h2,
+    p {
+      margin-bottom: 20px;
+      color: #333; /* Slightly darker text color */
+    }
+    .timer button:disabled {
+      color: rgb(173, 145, 145);
+      cursor: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid py-5">
+    <div class="row">
+      <!-- OTP Entry Form Container -->
+      <div class="col-md-6 mx-auto">
+        <div class="content-container">
+          <h2 class="mb-4">Enter OTP</h2>
+          <p>We have sent a otp to your mobile email.</p>
+
+          <form action="/submitOTP" method="post" id="otpForm">
+            <input
+              class="otp-input"
+              name="otp1"
+              id="otp1"
+              type="text"
+              maxlength="1"
+              oninput="jumpToNext(this, 'otp2')"
+            />
+            <input
+              class="otp-input"
+              name="otp2"
+              id="otp2"
+              type="text"
+              maxlength="1"
+              oninput="jumpToNext(this, 'otp3', 'otp1')"
+            />
+            <input
+              class="otp-input"
+              name="otp3"
+              id="otp3"
+              type="text"
+              maxlength="1"
+              oninput="jumpToNext(this, 'otp4', 'otp2')"
+            />
+            <input
+              class="otp-input"
+              name="otp4"
+              id="otp4"
+              type="text"
+              maxlength="1"
+              oninput="jumpToNext(this, 'otp5', 'otp3')"
+            />
+            <input
+              class="otp-input"
+              name="otp5"
+              id="otp5"
+              type="text"
+              maxlength="1"
+              oninput="jumpToNext(this, 'otp6', 'otp4')"
+            />
+            <input
+              class="otp-input"
+              name="otp6"
+              id="otp6"
+              type="text"
+              maxlength="1"
+              oninput="jumpToNext(this, '', 'otp5')"
+            />
+
+            <button class="submit-btn" type="submit">Submit OTP</button>
+          </form>
+
+          <span>
+            <div class="timer">
+              Didn't recieve code :
+
+              <button type="button" id="resend">Click to resend</button>
+              <span class="time"></span>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    //===========================submit otp======================================
+
+    document
+      .getElementById("otpForm")
+      .addEventListener("submit", async function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const otp1 = document.getElementById("otp1").value;
+        const otp2 = document.getElementById("otp2").value;
+        const otp3 = document.getElementById("otp3").value;
+        const otp4 = document.getElementById("otp4").value;
+        const otp5 = document.getElementById("otp5").value;
+        const otp6 = document.getElementById("otp6").value;
+
+        // Serialize form data
+        const formData = {
+          otp1: otp1,
+          otp2: otp2,
+          otp3: otp3,
+          otp4: otp4,
+          otp5: otp5,
+          otp6: otp6,
+        };
+        console.log(typeof formData);
+
+        fetch("/submitOTP", {
+          method: "POST", // or 'GET', 'PUT', etc.
+          headers: {
+            "Content-Type": "application/json",
+            // Add any other headers if needed
+          },
+          body: JSON.stringify(formData), // You can pass data in the body if needed
+        })
+          .then((response) => {
+            if (response.ok) {
+              // If response is ok, parse the response JSON
+               response.json(); // Return the promise here
+               window.location.href ='/login';
+            } else {
+              // If response is not ok, throw an error
+              return response.json()
+              .then((data) => {
+                alert(data.message);
+              });
+            }
+          })
+            //   .then((data) => {
+            //     // Handle the response data as needed
+            //     console.log(data);
+            //     alert(data); // This will not work as expected since data is not a string. You might want to alert a specific property of data.
+            //   })
+          .catch((error) => {
+            // Handle error
+            alert(error.message);
+            console.log("Error:");
+          });
+      });
+    //
+  </script>
+  <script>
+    // =======================================resend otp==============================
+    const resendButton = document.getElementById("resend");
+
+    // Add click event listener
+    resendButton.addEventListener("click", function () {
+      const data = {
+        name: "nihal",
+      };
+
+      fetch("/resendOTP", {
+        method: "POST", // or 'GET', 'PUT', etc.
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+          // Add any other headers if needed
+        },
+        body: JSON.stringify(data), // You can pass data in the body if needed
+      })
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+        })
+        .then((data) => {
+          // Handle response data if needed
+          console.log(data);
+        })
+        .catch((error) => {
+          // Handle errors
+          console.error("Error:");
+        });
+    });
+  </script>
+
+  <script>
+    //==================timer=
+
+    function timer(n) {
+      document.getElementById("resend").disabled = true;
+      const interval = setInterval(() => {
+        if (n == 0) {
+          clearInterval(interval);
+          document.getElementById("resend").disabled = false;
+        }
+        document.querySelector(".time").innerHTML = n;
+        n = n - 1;
+      }, 1000);
+    }
+
+    timer(30);
+
+    document.getElementById("resend").onclick = function () {
+      timer(30);
+    };
+  </script>
+
+  <script>
+    function jumpToNext(currentInput, nextInputName, prevInputName) {
+      if (currentInput.value.length === 1) {
+        if (nextInputName !== "") {
+          document.getElementsByName(nextInputName)[0].focus();
+        }
+      } else if (currentInput.value.length === 0 && prevInputName !== "") {
+        document.getElementsByName(prevInputName)[0].focus();
+      }
+    }
+  </script>
+
+  <% include('../layouts/footer.ejs') %>
+</body>

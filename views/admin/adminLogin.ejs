@@ -1,0 +1,106 @@
+<% include('../layouts/header.ejs') %>
+
+<head>
+    <style>
+        body {
+            background-image: url('/adminAsset/vendor/src/assets/images/backgrounds/bg2.jpg');
+            background-size: cover;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ccc;
+            border-radius: 10px; /* Increased border-radius for a rounded appearance */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Increased box-shadow for depth */
+            padding: 30px; /* Increased padding for a more spacious feel */
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .form-control {
+            border: 2px solid #6c757d; /* Slightly thicker border */
+            border-radius: 8px; /* Rounded corners for form elements */
+            margin-bottom: 20px; /* Increased margin for better spacing */
+            padding: 15px; /* Increased padding for input fields */
+            width: 100%;
+            transition: border-color 0.3s ease; /* Smooth transition on border color change */
+        }
+
+        .form-control:focus {
+            border-color: #1aff00; /* Highlight border color on focus */
+        }
+
+        .btn-primary {
+            background-color: #1aff00;
+            border: 2px solid #1aff00;
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            transition: background-color 0.3s ease; /* Smooth transition on background color change */
+        }
+
+        .btn-primary:hover {
+            background-color: #00cc00;
+        }
+
+        h1, h4, h6 {
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 32px; /* Increased font size for a more prominent heading */
+            color: #333; /* Slightly darker text color */
+        }
+
+        a {
+            color: #007bff; /* Styled link color */
+        }
+
+        a:hover {
+            text-decoration: underline; /* Underline link on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid py-5">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="content-container">
+                    <h1>Login</h1>
+                    <% if (typeof message !== 'undefined') { %>
+                        <h4><%= message %></h4>
+                    <% } %>
+
+                    <form action="/adminLogin" method="post">
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" required placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control" required placeholder="Password">
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary">Sign In</button>
+                        </div>
+                    </form>
+
+               
+                        
+                  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<% include('../layouts/footer.ejs') %>

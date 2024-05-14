@@ -1,0 +1,209 @@
+<% include('../layouts/header.ejs') %>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+   <style>
+#login-form input[type="password"],
+#login-form input[type="text"]{
+    width: 100%;
+ /* padding-left: 200px; */
+}
+ .fa-eye{
+            /* margin-top: 10px; */
+            margin-left: 250px;
+            /* margin-top: 10px; */
+            cursor:pointer;
+            color:lightgray;
+        }
+        body {
+            background: url('https://source.unsplash.com/random/1920x1080') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            margin-left: 10px;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .Container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ccc;
+            border-radius: 10px; /* Increased border-radius for a rounded appearance */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Increased box-shadow for depth */
+            padding: 30px; /* Increased padding for a more spacious feel */
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .form-control {
+            border: 2px solid #6c757d; /* Slightly thicker border */
+            border-radius: 8px; /* Rounded corners for form elements */
+            margin-bottom: 20px; /* Increased margin for better spacing */
+            padding: 15px;
+            width: 100%;
+            transition: border-color 0.3s ease; /* Smooth transition on border color change */
+            /* margin-left: 200px; */
+        }
+
+        .form-control:focus {
+            border-color: #1aff00; /* Highlight border color on focus */
+        }
+
+        .btn-primary {
+            background-color: #1aff00;
+            border: 2px solid #1aff00;
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            transition: background-color 0.3s ease; /* Smooth transition on background color change */
+            /* margin-left: 200px; */
+        }
+
+        .btn-primary:hover {
+            background-color: #00cc00;
+        }
+
+        h1, h4, h6 {
+            margin-bottom: 20px;
+            /* margin-left: 200px; */
+        }
+
+        h1 {
+            font-size: 32px; /* Increased font size for a more prominent heading */
+            color: #333; /* Slightly darker text color */
+            /* margin-left: 200px; */
+        }
+
+        a {
+            color: #007bff; /* Styled link color */
+            /* margin-left: 200px; */
+        }
+
+        a:hover {
+            text-decoration: underline; /* Underline link on hover */
+        }
+       
+    </style>
+    <style>
+        .google-signin-btn {
+          background-color: #ffffff;
+          color: #757575;
+          border: 1px solid #757575;
+          border-radius: 4px;
+          font-size: 16px;
+          font-weight: bold;
+          padding: 10px 20px;
+          /* text-transform: none; */
+          /* transition: background-color 0.3s ease; */
+        }
+      
+        /* .google-signin-btn:hover {
+          background-color: #f8f8f8;
+        } */
+      
+        .google-logo {
+          width: 20px;
+          height: 20px;
+          margin-right: 10px;
+          vertical-align: middle;
+        }
+      </style>
+</head>
+
+<body>
+
+    <style>
+    .logo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .logo {
+        font-size: 36px;
+        color: #333;
+        margin: 0;
+        padding: 10px 20px;
+        background-color: #1aff00; /* Background color */
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Drop shadow */
+    }
+    </style>
+<div class="d-flex" style="">
+ <div class="d-flex">
+<img src="https://r2.erweima.ai/imgcompressed/compressed_78c0b821c0fa3fb0f3159b33c480bac2.webp" alt="" style="width: 400px; " >
+</div>
+    <!-- <div> -->
+ 
+    <!-- </div> -->
+      
+<!-- <div class="container-fluid py-5"> -->
+    <!-- <div class="row"> -->
+        <!-- <div class="col-md-6 mx-auto"> -->
+            <div class="Container" style="width: 400px; ">
+                <!-- Company Name -->
+                <h1>Login </h1>
+                
+                <!-- Message -->
+                <% if (typeof message !== 'undefined') { %>
+                    <h4><%= message %></h4>
+                <% } %>
+
+                <!-- Login Form -->
+                <form action="/login" method="post" id="login-form">
+                    <input type="hidden" value="">
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control" id="email" required placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" id="password" required placeholder="Password">
+                        <i class="fa-solid fa-eye" id="showpassword"></i>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary">Log In</button>
+                    </div>
+                </form>
+
+                <!-- Sign Up Section -->
+                <div class="mt-3">
+                    <h6>Don't have an account?</h6>
+                    <form action="/register">
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                        <br><br>
+                    </form>
+                    
+                    <!-- Google Sign In -->
+                    <a href="/auth/google" class="btn btn-primary google-signin-btn">
+                        <img src="/asset/vendor/images/googleimage.icon2.webp" alt="Google Logo" class="google-logo" style="width: 30px; height: 30px;">
+                        Login with Google
+                    </a>
+                    <br><br>
+                    
+                    <!-- Forgot Password -->
+                    <a href="/forget">Forgot Password?</a>
+                </div>
+            </div>
+        <!-- </div> -->
+    <!-- </div> -->
+</div>
+
+    <script>
+        const showPassword = document.querySelector("#showpassword");
+        const password = document.querySelector("#password");
+    
+        showPassword.addEventListener("click", function() {
+            this.classList.toggle("fa-eye-slash");
+            const type = password.getAttribute("type") === "password" ? "text" : "password";
+            password.setAttribute("type", type);
+        });
+    </script>
+    
+</body>
+
+<% include('../layouts/footer.ejs') %>

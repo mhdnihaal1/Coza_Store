@@ -1,0 +1,1277 @@
+<% include('../layouts/header.ejs') %>
+
+<head>
+	<title>Checkout</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="/asset/vendor/images/icons/favicon.png"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/fonts/linearicons-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/slick/slick.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/MagnificPopup/magnific-popup.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/css/main.css">
+<!--===============================================================================================-->
+<link rel="shortcut icon" type="image/png" href="/adminAsset/vendor/src/assets/images/logos/favicon.png" />
+<link rel="stylesheet" href="/adminAsset/vendor/src/assets/css/styles.min.css" />
+<!--===============================================================================================-->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<style>
+    .icon-header-item {
+        margin-right:  20px; /* Adjust the value as needed */
+    }
+
+    .cart-icon {
+        margin-right:  20px; /* Adjust the value as needed */
+    }
+
+    .nav-icon-hover {
+        margin-right:  20px; /* Adjust the value as needed */
+    }
+
+    /* Existing styles */
+    .cart-icon img:hover {
+        filter: brightness(0) invert(1);
+    }
+    .left-sidebar{
+        position: relative;
+    }
+</style>
+
+</head>
+<header class="header-v4">
+    <!-- Header desktop -->
+    <div class="container-menu-desktop">
+        <!-- Topbar -->
+        <div class="top-bar">
+            <div class="content-topbar flex-sb-m h-full container">
+                <div class="left-top-bar">
+                    Free shipping for standard order over $100
+                </div>
+
+                <div class="right-top-bar flex-w h-full">
+                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        Help & FAQs
+                    </a>
+
+                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        My Account
+                    </a>
+
+                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        EN
+                    </a>
+
+                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        USD
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="wrap-menu-desktop how-shadow1" style="background-color: #eaeaea; height: 90px;">
+            <h1 class="d-flex" style="justify-content: center; padding-top: 20px;">Checkout</h1>
+        </div>   
+        <!-- breadcrumb -->
+    <div class="container">
+        <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg" style="margin-top: 60px;">
+            <a href="/product" class="stext-109 cl8 hov-cl1 trans-04">
+                <span class="stext-109 cl4">
+                    Shop
+                </span>
+                <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+            </a>
+
+            <a href="/productDetail" class="stext-109 cl8 hov-cl1 trans-04">
+                <span class="stext-109 cl4">
+                    Product
+                </span>
+                <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+            </a>
+
+        <a href="/cart" class="stext-109 cl8 hov-cl1 trans-04">
+            <span class="stext-109 cl4">
+                Cart
+            </span>
+        </a>
+        </div>
+    </div>   	
+    </div>
+	
+    
+
+   
+</header>
+
+        <style>
+        .box {
+            padding: 50px;
+            margin: 20px;
+            width: 500px;
+            height: 180px;
+            /* border: 2px solid #000;  */
+            border-radius: 10px;
+    background-color: #c1b9b9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);        }
+    </style>
+ 
+
+            
+        <style>
+            .box {
+                padding: 50px;
+                margin: 20px;
+                width: 500px;
+                height: 180px;
+                /* border: 2px solid #000;  */
+                border-radius: 10px;
+    background-color: #c1b9b9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+            }
+        </style>
+      <div class="d-flex " style="padding-top: 20px;"> 
+        <div class="flex-col align-items-end"><br><br>
+  
+         <div >
+            <h3 class="" style="padding-left: 40%;">Address</h3>
+
+            <% if(address){ %>
+                
+            <% for (let i = 0; i < address.address.length; i++) { %>
+                
+                <div class="box" id="mainDiv" style="background-color: #c0bcbc;">
+                    
+                    <%= address.address[i].name %>, <%= address.address[i].mobile %> <br>
+                    <%= address.address[i].Housenumber %>, <%= address.address[i].area %>, <%= address.address[i].state %>-<%= address.address[i].pincode %>
+                    <br>
+                    <div class="btn-group">
+                 <!-- Button trigger modal -->
+                                <button type="button" class="btn bg-primary" data-bs-toggle="modal" data-bs-target="#editAddressModal">
+                                    Edit
+                                </button>
+                                
+                                <!-- Edit Address Modal -->
+                                <div class="modal fade" id="editAddressModal" tabindex="-1" aria-labelledby="editAddressModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="editAddressModalLabel">Edit Address</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                    <form action="/checkoutEditAddress" id="addAddressForm" method="post">
+                                                <div class="mb-3">
+                                            <input type="hidden" name="_id" value=" <%= address.address[i]._id %>">
+                                            <label for="name" class="form-label">Name</label>
+                                            <input type="text" class="form-control" id="name" name="name" value="<%= address.address[i].name %>" >
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="mobile" class="form-label">Mobile</label>
+                                            <input type="number" class="form-control" id="mobile" name="mobile" value="<%= address.address[i].mobile %>" >
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="Housenumber" class="form-label">House Number</label>
+                                            <input type="number" class="form-control" id="Housenumber" name="housenumber" value="<%= address.address[i].Housenumber %>">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="area" class="form-label">Area</label>
+                                            <input type="text" class="form-control" id="area" name="area" value="<%= address.address[i].area %>" >
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="state" class="form-label">State</label>
+                                            <select id="cars" name="select">
+                                                <option value="State">State</option>
+                                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                                <option value="Haryana">Haryana</option>
+                                                <option value="Kerala">Kerala</option>
+                                                <option value="Assam">Assam</option>
+                                                <option value="Nagaland">Nagaland</option>
+                                                <option value="Telangana">Telangana</option>
+                                                <option value="Arunachal">Arunachal </option>
+                                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                                <option value="Odisha">Odisha</option>
+                                                <option value="Tripura">Tripura</option>
+                                                <option value="Bihar">Bihar</option>
+                                                <option value="Jharkhand">Jharkhand</option>
+                                                <option value="Maharashtra">Maharashtra</option>
+                                                <option value="Punjab">Punjab</option>
+                                                <option value="Uttarakhand">Uttarakhand</option>
+                                              </select>
+                                
+                                              <div class="mb-3">
+                                                <label for="City" class="form-label">City</label>
+                                                <input type="text" class="form-control" id="City" name="city" value="<%= address.address[i].city %>" >
+                                            </div>  
+                                            <div class="mb-3">
+                                                <label for="Landmark" class="form-label">Landmark</label>
+                                                <input type="text" class="form-control" id="Landmark" name="landmark" value="<%= address.address[i].landmark %>" >
+                                            </div>                           
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="pincode" class="form-label">Pincode</label>
+                                            <input type="number" class="form-control" id="pincode" name="pincode" value="<%= address.address[i].pincode %>" >
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="input-group">
+                                                <!-- <label for="gender">Gender</label> -->
+                                                <div class="gender-options" name="official">
+                                                    <input type="checkbox" id="male" name="official" value="Home">
+                                                    <label for="male">Home</label>
+                                                    <input type="checkbox" id="female" name="official" value="Work">
+                                                    <label for="female">Work</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                        </div>
+                                        </form>
+                                        </div>
+                                        
+                                    </div>
+                                    </div>
+                                </div>
+                                    <button class="btn btn-muted choose-address-button" id="chooseAddress" 
+                                    data-index="<%= i %>" 
+                                    data-addressid="<%= address._id %>" 
+                                    data-userid="<%= address.userId %>">
+                                    Choose
+                                  </button>
+                  </div>
+                </div>
+            <% } %>
+            <% }else{ %>
+                <div class="" style="padding-left: 120px; padding-top: 140px;">
+                    <h1 >Address is not available</h1>
+                </div>
+            <% } %>
+        </div>
+        
+       <% if(address){%>
+        <button class="btn bg-primary align-items-center" style="height: 40px; width: 120px" data-bs-toggle="modal" data-bs-target="#addAddressModal">Add Address</button>
+         <% }else{%>
+            <%}%>
+        <!-- Add Address Modal -->
+        
+        <div class="modal fade" id="addAddressModal" tabindex="-1" aria-labelledby="addAddressModalLabel1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/checkoutAddress" id="addAddressForm" method="post">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" >
+                            </div>
+                            <div class="mb-3">
+                                <label for="mobile" class="form-label">Mobile</label>
+                                <input type="number" class="form-control" id="mobile" name="mobile" placeholder="Enter mobile number" >
+                            </div>
+                            <div class="mb-3">
+                                <label for="Housenumber" class="form-label">House Number</label>
+                                <input type="number" class="form-control" id="Housenumber" name="Housenumber" placeholder="Enter house number" >
+                            </div>
+                            <div class="mb-3">
+                                <label for="area" class="form-label">Area</label>
+                                <input type="text" class="form-control" id="area" name="area" placeholder="Enter area" >
+                            </div>
+                            <div class="mb-3">
+                                <label for="state" class="form-label">State</label>
+                                <select id="cars" name="select">
+                                    <option value="State">State</option>
+                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                    <option value="Haryana">Haryana</option>
+                                    <option value="Kerala">Kerala</option>
+                                    <option value="Assam">Assam</option>
+                                    <option value="Nagaland">Nagaland</option>
+                                    <option value="Telangana">Telangana</option>
+                                    <option value="Arunachal">Arunachal </option>
+                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                    <option value="Odisha">Odisha</option>
+                                    <option value="Tripura">Tripura</option>
+                                    <option value="Bihar">Bihar</option>
+                                    <option value="Jharkhand">Jharkhand</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                    <option value="Punjab">Punjab</option>
+                                    <option value="Uttarakhand">Uttarakhand</option>
+                                  </select>
+                    
+                                  <div class="mb-3">
+                                    <label for="City" class="form-label">City</label>
+                                    <input type="text" class="form-control" id="City" name="City" placeholder="City" >
+                                </div>  
+                                <div class="mb-3">
+                                    <label for="Landmark" class="form-label">Landmark</label>
+                                    <input type="text" class="form-control" id="Landmark" name="Landmark" placeholder="Landmark(optional)" >
+                                </div>                           
+                            </div>
+                            <div class="mb-3">
+                                <label for="pincode" class="form-label">Pincode</label>
+                                <input type="number" class="form-control" id="pincode" name="pincode" placeholder="Enter pincode" >
+                            </div>
+                            <div class="mb-3">
+                                <div class="input-group">
+                                    <!-- <label for="gender">Gender</label> -->
+                                    <div class="gender-options" name="official">
+                                        <input type="checkbox" id="male" name="official" value="Home">
+                                        <label for="male">Home</label>
+                                        <input type="checkbox" id="female" name="official" value="Work">
+                                        <label for="female">Work</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-muted">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%
+    let subtotal = 0;
+    
+    for (let i = 0; i < cart.products.length; i++) {	
+        subtotal += cart.products[i].productId.productPrice * cart.products[i].Quantity;
+    }
+    %>
+    
+    <% 
+    for (let i = 0; i < cart.products.length; i++) { 
+        subtotal -= cart.products[i].productId.discount[0].discountPrice;
+   } 
+   %>
+        <div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50" style="padding-top: 40px;">
+            <div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
+                <h4 class="mtext-109 cl2 p-b-30">
+                    Price Details
+                </h4>
+               
+                <div class="flex-w flex-t p-b-13" style="width: 400px;">
+                    <div class="size-208" style="width: 100px;">
+                        Price (<%= cart.products.length %> items):
+                    </div>
+                    <div class="size-209">
+                        <span class="mtext-110 cl2" style="margin-left: 100px;">
+                            &#8377;<%= subtotal %>
+                        </span>
+                    </div>
+              </div>
+              <div class="flex-w flex-t p-b-13" style="width: 400px;">
+                <div class="size-208" style="width: 100px;">
+                    <div class="flex-w flex-t p-b-13" style="width: 400px;">
+                        <div class="size-208 " style="width: 100px;">
+                            <select id="mySelect" style="width: 100px;" onchange="updateTotal()">
+                                <option value="">Coupon</option>
+                                <% let subtotal1 =0 %>
+                                <% let couponPrice = 0 %>
+                                <% for (let i = 0; i < coupon.length; i++) { %>
+                                    <% if (subtotal >= coupon[i].minimumPurchaseAmount) { %>    
+                                        <option value="<%= coupon[i].couponPrice %>">&bull;<%= coupon[i].couponCode %> -- &bull;<%= coupon[i].couponPrice %></option>
+                                    <% } %>
+                                <% } %>
+                            </select>
+                            <% if (cart.couponPrice == 0 ) { %>
+                                <button class="btn btn-muted" id="applycoupon" style="width: 100px;  height: 24px; padding-top: 0%;" onclick="applycoupon('<%= subtotal %>')">Apply</button>
+                            <% } else { %>
+                                <button class="btn btn-muted" id="removecoupon" style="width: 100px;  height: 24px; padding-top: 0%; padding-left: 20px;" onclick="removecoupon()">Remove</button>
+                            <% } %>
+
+                        </div>
+                       
+                        <div class="size-209">
+                            <div id="subtotal1" class="mtext-110 cl2" style="margin-left: 100px;">
+                                &#8377;<%= cart.couponPrice %>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex-w flex-t p-b-13" style="width: 400px;">
+                        <div class="size-208" style="width: 100px;">
+                            Delivery Charge:
+                        </div>
+                        <div class="size-209">
+                            <span class="mtext-110 cl2" style="margin-left: 100px;">
+                                &#8377;<%= 50 %>
+                            </span>
+                        </div>
+                  </div>
+                    
+                    <script>
+    //=======================================
+                        function updateTotal() {
+                            var select = document.getElementById("mySelect");
+                            var selectedCouponPrice = select.options[select.selectedIndex].value;
+                            console.log('selectedCouponPrice'+selectedCouponPrice);
+                    
+                            var subtotalElement = document.getElementById("subtotal1");
+                            var currentSubtotal = parseFloat(subtotalElement.innerText.substring(1)); // Remove the ₹ symbol and parse as float
+                    
+                            var newSubtotal = parseFloat(selectedCouponPrice);
+                            
+                            subtotalElement.innerText =  newSubtotal.toFixed(2);
+
+                            var subtota1=  subtotalElement.innerText;
+                            
+                            console.log('subtota1'+subtota1);
+
+                    }
+
+    //====================================apply coupon 
+                       
+                            function applycoupon (totalprice){
+                                console.log(totalprice)
+
+                                var select = document.getElementById("mySelect");
+                                var selectedCouponPrice = select.options[select.selectedIndex].value;
+                                
+
+                            let data ={
+                                couponPrice:selectedCouponPrice,
+                                totalprice:totalprice
+                            }
+                            console.log(data);
+
+                            fetch('/checkoutCoupon',{
+                                method:'post',
+                                headers: {
+                                  'Content-Type': 'application/json'
+                                           },
+                                 body: JSON.stringify(data)
+                           })
+                                   .then(res => {
+                                    console.log(res);
+
+                                    // Check if the response is not okay
+                                    if (!res.ok) {
+                                        throw new Error('Response not okay');
+                                    }
+                                  const removeCouponButton =  document.getElementById("removecoupon");
+                                    removeCouponButton.innerHTML = '';
+
+                                    // Create a new text node with the desired text
+                                    const newText = document.createTextNode("Remove");
+
+                                    // Append the new text node to the button
+                                    removeCouponButton.appendChild(newText);
+                                    return res.json();
+                                })
+                                .then(data => {
+                                    console.log(data);
+                                    document.getElementById("removecoupon").innerText = "Remove";
+                                })
+                                .catch(error => {
+                                    document.getElementById("removecoupon").innerText = "Remove";
+                                    console.log(error);
+                                });
+                            }
+
+//====================================remove coupon
+
+                            function removecoupon (){
+
+                            var select = document.getElementById("mySelect");
+                            var selectedCouponPrice = select.options[select.selectedIndex].value;
+
+                            let data ={
+                            couponPrice:selectedCouponPrice
+                            }
+                            console.log(data);
+
+                            fetch('/checkoutCouponremove',{
+                            method:'post',
+                            headers: {
+                            'Content-Type': 'application/json'
+                                    },
+                            body: JSON.stringify(data)
+                            })
+                            .then(res => {
+                            if (!res.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                             res.json();
+                        })
+                        .then(data => {
+                            window.location.reload();
+                        })
+                        .catch(error => {
+                            window.location.reload();
+                        });
+                        }
+                                </script>
+                    
+          </div>
+                <div class="flex-w flex-t p-t-27 p-b-33" style="width: 400px;">
+                    <div class="size-208" style="width: 100px;">
+                        <span class="mtext-101 cl2">
+
+                        Total:
+                            </span>
+                    </div>
+                    <div class="size-209 p-t-1">
+                        <span >
+                        
+                            <%   Total = subtotal - cart.couponPrice %>
+                             
+                             </span>
+                             <div class="mtext-110 cl2 TotalPrice" style="margin-left: 100px;" id="TotalPrice" >
+                                &#8377;<%= Total-50  %>                
+                             </div>
+                                 
+                    </div>
+                </div>
+                <div class="input-group d-flex">
+                    <label for="Paymentmethod">Payment method :</label> 
+                    <div class="Paymentmethod-options " style="margin-left: 50px; margin-top: 20px;">
+
+                                <label for="Cashondelivery">COD :</label>
+                                <input type="radio" id="Cashondelivery" name="Paymentmethod" value="COD">
+
+                        <label for="Onlinepayment">Online payment :</label>
+                        <input type="radio" id="Onlinepayment" name="Paymentmethod" value="Onlinepayment">
+                    </div>
+                </div>
+                
+                <!-- <a href="/order"> -->
+                    <% if(address){%>
+                    <button class="btn bg-muted text-light" id="orderplaced" style="height:40px; width:120px; margin-top:30px;" data-userid="<%= address.address.userId %>" style="background-color: #333;">Place Order</button>
+                    <% }else{ %>
+                        <% } %>
+                <!-- </a> -->
+            </div>
+        </div>
+     </div>  
+     </div> 
+     
+     <style>
+        /* Custom styling for Price Details section */
+.bor10 {
+    border-radius: 10px;
+    background-color: #c1b9b9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+     </style>
+
+<script>
+
+//=========================orderplaced
+
+
+
+        
+var index,userid,addressid,checkboxes;
+document.querySelectorAll('.choose-address-button').forEach(button => {
+    button.addEventListener('click', function() {
+         index = event.target.dataset.index;
+         userid = event.target.dataset.userid;
+         addressid = event.target.dataset.addressid;
+        console.log(index, userid, addressid);
+           index++
+        Swal.fire({
+            
+                    title: index+"th : Address Selected",
+                    showClass: {
+                        popup: `
+      animate__animated
+      animate__fadeInUp
+      animate__faster
+    `
+                    },
+                    hideClass: {
+                        popup: `
+      animate__animated
+      animate__fadeOutDown
+      animate__faster
+    `
+                    }
+                });
+    });
+    return
+
+});
+
+
+document.getElementById('Onlinepayment').addEventListener('click', function() {
+    
+    const amountString = document.querySelector("#TotalPrice").innerText;
+const amount = parseInt(amountString.replace("₹", ""), 10);
+console.log(typeof amount, amount);
+    const orderId = ''; 
+// console.log(orderId);
+    setupRazorpay(orderId, amount);
+});
+
+function setupRazorpay(orderId, amount) {
+            console.log("setupRazorpay");
+            console.log(checkboxes);
+
+
+
+            var options = {
+                key: "rzp_test_Mufod828rplfnf",
+                amount: amount * 100,
+                currency: "INR",
+                name: "Coza store",
+                description: "Test Transaction",
+                image: "Coza white.png",
+                order_id: orderId,
+                handler: async function (response) {
+                    const paymentData = {
+                        payment_id: response.razorpay_payment_id,
+                        order_id: response.razorpay_order_id,
+                        signature: response.razorpay_signature,
+                    };
+                    let amount = document
+                        .querySelector("#TotalPrice")
+                        .innerText.replace("₹", "");
+                    console.log(amount);
+                    try {
+                        console.log("verifyPayment");
+                        const response = await fetch("/verify-payment", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify(paymentData),
+                        });
+                        if (response.ok) {
+                // If the response is successful, assign "Onlinepayment" to the checkbox
+                    checkboxes = ["Onlinepayment"];
+                    console.log(checkboxes)
+            } else {
+                // If the response is not successful, assign "Pending" to the checkbox
+                    checkboxes = ["pending"];
+                    console.log(checkboxes)
+
+            }
+                         
+                    } catch (error) {
+                        console.log(error);
+                    }
+                },
+                theme: {
+                    color: "#3399cc",
+                },
+            };
+            var rzp1 = new Razorpay(options);
+
+            rzp1.on("payment.failed", function (response) {
+                checkboxes=["pending"]
+                console.log(checkboxes)
+
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: response.error.description
+                });
+            });
+            rzp1.open();
+        }
+
+
+        
+
+     document.getElementById('Cashondelivery').addEventListener('click', function() {
+    checkboxes = ['COD'];
+    console.log(checkboxes);
+
+    const amountString = document.querySelector("#TotalPrice").innerText;
+const amount5 = parseInt(amountString.replace("₹", ""), 10);
+
+   if( amount5 > 50000 ){
+ 
+    const amountString = document.querySelector("#TotalPrice").innerText;
+const amount1 = parseInt(amountString.replace("₹", ""), 10);
+console.log(amount1)
+    const orderId = ''; 
+
+    const amount2 = amount1 / 2;
+const amount3 = amount1 - amount2;
+console.log(amount3)
+
+setupRazorpayCOD(orderId,amount3)
+
+   }
+
+});
+
+    function setupRazorpayCOD(orderId, amount) {
+            console.log("setupRazorpayCOD");
+            console.log(checkboxes);
+
+            var options = {
+                key: "rzp_test_Mufod828rplfnf",
+                amount: amount * 100,
+                currency: "INR",
+                name: "Coza store",
+                description: "Test Transaction",
+                image: "Coza white.png",
+                order_id: orderId,
+                handler: async function (response) {
+                    const paymentData = {
+                        payment_id: response.razorpay_payment_id,
+                        order_id: response.razorpay_order_id,
+                        signature: response.razorpay_signature,
+                    };
+                    let amount = document
+                        .querySelector("#TotalPrice")
+                        .innerText.replace("₹", "");
+                    console.log(amount);
+                    try {
+                        console.log("verifyPayment");
+                        const response = await fetch("/verify-paymentCODonline", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify(paymentData),
+                        });
+                        if (response.ok) {
+
+                            // checkboxes = ["Onlinepayment"];
+                    // console.log(checkboxes)
+            } else {
+
+                // checkboxes = ["pending"];
+                    // console.log(checkboxes)
+
+            }
+                         
+                    } catch (error) {
+                        console.log(error);
+                    }
+                },
+                theme: {
+                    color: "#3399cc",
+                },
+            };
+            var rzp1 = new Razorpay(options);
+
+            rzp1.on("payment.failed", function (response) {
+                // checkboxes=["pending"]
+                // console.log(checkboxes)
+
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: response.error.description
+                });
+            });
+            rzp1.open();
+        }
+
+   
+
+  
+console.log(index,userid+'hlkoo');
+    document.getElementById('orderplaced').addEventListener('click', function() {   
+
+        const subtotalElement = document.getElementById('subtotal1');
+        const couponPrice = subtotalElement.textContent;
+        const value = couponPrice.replace('₹', '');
+        const couponprice = parseFloat(value);
+        console.log(couponprice);
+
+        console.log(index,userid+'Inside');
+
+        const userId = document.getElementById('userId');
+        const TotalPrice = document.querySelector("#TotalPrice").innerText;
+        console.log(TotalPrice);
+        console.log(checkboxes+'123');
+   
+     
+            const data = {
+            paymentmethod : checkboxes,
+            index:index,
+            userid:userid,
+            addressid:addressid,
+            TotalPrice:TotalPrice,
+            couponprice:couponprice
+
+        }
+        console.log(data);
+
+      console.log(data);
+
+         fetch('/checkout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(res => {
+            console.log(res);
+            if(res.ok){
+            window.location.href='/order'
+            }else{
+                Swal.fire({
+				icon: 'ERROR',
+				title: 'Double check the address and the payments',
+				text: 'Your payment and the coupon and address do!'
+				});
+            }
+        }).catch(error => {
+            console.log(error);
+        });
+   
+    });
+    
+    </script>
+    
+        <!-- </div>
+    </div> -->
+  <!-- Footer -->
+	<footer class="bg3 p-t-75 p-b-32">
+        
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Categories
+					</h4>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Women
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Men
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Shoes
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Watches
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Help
+					</h4>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Track Order
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Returns 
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Shipping
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								FAQs
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						GET IN TOUCH
+					</h4>
+
+					<p class="stext-107 cl7 size-201">
+						Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+					</p>
+
+					<div class="p-t-27">
+						<!-- <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"> -->
+							<i class="fa fa-facebook"></i>
+						</a>
+
+						<!-- <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"> -->
+							<i class="fa fa-instagram"></i>
+						</a>
+
+						<!-- <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"> -->
+							<i class="fa fa-pinterest-p"></i>
+						</a>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Newsletter
+					</h4>
+
+					<form>
+						<div class="wrap-input1 w-full p-b-4">
+							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
+							<div class="focus-input1 trans-04"></div>
+						</div>
+
+						<div class="p-t-18">
+							<button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+								Subscribe
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="p-t-40">
+				<div class="flex-c-m flex-w p-b-18">
+					<!-- <a href="#" class="m-all-1"> -->
+						<img src="/asset/vendor/images/icons/icon-pay-01.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="/asset/vendor/images/icons/icon-pay-02.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="/asset/vendor/images/icons/icon-pay-03.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="/asset/vendor/images/icons/icon-pay-04.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="/asset/vendor/images/icons/icon-pay-05.png" alt="ICON-PAY">
+					</a>
+				</div>
+
+				<p class="stext-107 cl6 txt-center">
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+				</p>
+			</div>
+		</div>
+	</footer>
+</body>
+
+
+   
+
+
+<!--===============================================================================================-->	
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/adminAsset/vendor/src/assets/libs/jquery/dist/jquery.min.js"></script>
+<script src="/adminAsset/vendor/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/adminAsset/vendor/src/assets/js/sidebarmenu.js"></script>
+<script src="/adminAsset/vendor/src/assets/js/app.min.js"></script>
+<script src="/adminAsset/vendor/src/assets/libs/simplebar/dist/simplebar.js"></script>
+
+<!--===============================================================================================-->	
+<script src="/asset/vendor/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/bootstrap/js/popper.js"></script>
+<script src="/asset/vendor/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/select2/select2.min.js"></script>
+<script>
+    $(".js-select2").each(function(){
+        $(this).select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $(this).next('.dropDownSelect2')
+        });
+    })
+</script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/daterangepicker/moment.min.js"></script>
+<script src="/asset/vendor/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/slick/slick.min.js"></script>
+<script src="/asset/vendor/js/slick-custom.js"></script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/parallax100/parallax100.js"></script>
+<script>
+    $('.parallax100').parallax100();
+</script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+<script>
+    $('.gallery-lb').each(function() { // the containers for all your galleries
+        $(this).magnificPopup({
+            delegate: 'a', // the selector for gallery item
+            type: 'image',
+            gallery: {
+                enabled:true
+            },
+            mainClass: 'mfp-fade'
+        });
+    });
+</script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/isotope/isotope.pkgd.min.js"></script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/sweetalert/sweetalert.min.js"></script>
+<script>
+    $('.js-addwish-b2, .js-addwish-detail').on('click', function(e){
+        e.preventDefault();
+    });
+
+    $('.js-addwish-b2').each(function(){
+        var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+        $(this).on('click', function(){
+            swal(nameProduct, "is added to wishlist !", "success");
+
+            $(this).addClass('js-addedwish-b2');
+            $(this).off('click');
+        });
+    });
+
+    $('.js-addwish-detail').each(function(){
+        var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+
+        $(this).on('click', function(){
+            swal(nameProduct, "is added to wishlist !", "success");
+
+            $(this).addClass('js-addedwish-detail');
+            $(this).off('click');
+        });
+    });
+
+    /*---------------------------------------------*/
+
+    $('.js-addcart-detail').each(function(){
+        var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+        $(this).on('click', function(){
+            swal(nameProduct, "is added to cart !", "success");
+        });
+    });
+
+</script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script>
+    $('.js-pscroll').each(function(){
+        $(this).css('position','relative');
+        $(this).css('overflow','hidden');
+        var ps = new PerfectScrollbar(this, {
+            wheelSpeed: 1,
+            scrollingThreshold: 1000,
+            wheelPropagation: false,
+        });
+
+        $(window).on('resize', function(){
+            ps.update();
+        })
+    });
+</script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/js/main.js"></script>
+<style>
+
+.row-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows the items to wrap onto multiple lines if needed */
+    gap: 20px; /* Adds space between the sidebar and the content */
+}
+
+/* Ensure the sidebar and content take up the full width on smaller screens */
+@media (max-width: 768px) {
+    .col-12 {
+        flex: 100%;
+    }
+    .sidebar-content {
+        flex: 100%;
+    }
+}
+
+.col-12 {
+    padding: 0; /* Removes default padding */
+}
+
+.profile-sidebar {
+    background-color: #f8f9fa; /* Light background color */
+    padding: 20px; /* Padding inside the sidebar */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.profile-options {
+    list-style-type: none; /* Removes default list styling */
+    padding: 0; /* Removes default padding */
+}
+
+.profile-options li {
+    margin-bottom: 10px; /* Space between list items */
+}
+
+.profile-options a {
+    display: block; /* Makes the links block elements */
+    padding: 10px; /* Padding inside the links */
+    color: #333; /* Text color */
+    text-decoration: none; /* Removes default underline */
+    border-radius: 5px; /* Rounded corners for links */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.profile-options a:hover {
+    background-color: #e9ecef; /* Background color on hover */
+    color: #007bff; /* Text color on hover */
+}
+
+.profile-options a.active {
+    background-color: #007bff; /* Active link background color */
+    color: #fff; /* Active link text color */
+}
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Aligns items to the center */
+    gap: 10px; /* Adds space between inputs */
+}
+
+.sidebar-content input {
+    padding: 5px;
+    border: none; /* Removes border */
+    border-radius: 3px;
+    width: 80%; /* Adjusts the width as needed */
+    margin-bottom: 10px; /* Adds space below each input */
+}
+
+.sidebar-content button {
+    padding: 5px 10px; /* Makes the button small */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 80%; /* Adjusts the width as needed */
+}
+
+.sidebar-content button:hover {
+    background-color: #0056b3;
+}
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Aligns items to the center */
+    gap: 10px; /* Adds space between inputs */
+}
+
+.sidebar-content label {
+    margin-bottom: 5px; /* Adds space below each label */
+}
+
+.sidebar-content input, .sidebar-content select {
+    padding: 5px;
+    border: 1px solid #ddd; /* Adds a border to the inputs */
+    border-radius: 3px;
+    width: 80%; /* Adjusts the width as needed */
+    margin-bottom: 10px; /* Adds space below each input */
+}
+
+.gender-options {
+    display: flex;
+    gap: 10px; /* Adds space between checkboxes */
+}
+
+.gender-options input[type="checkbox"] {
+    margin-right: 5px; /* Adds space to the right of each checkbox */
+}
+
+.sidebar-content button {
+    padding: 5px 10px; /* Makes the button small */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 80%; /* Adjusts the width as needed */
+}
+
+.sidebar-content button:hover {
+    background-color: #0056b3;
+}
+.sidebar-content .input-group {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* Aligns items to the top */
+    gap: 10px; /* Adds space between the label and input */
+    margin-bottom: 20px; /* Adds space below each input group */
+}
+
+.sidebar-content .input-group label {
+    margin-right: 10px; /* Adds space to the right of the label */
+}
+
+.sidebar-content .input-group input,
+.sidebar-content .input-group select {
+    flex-grow: 1; /* Allows the input to take up the remaining space */
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.gender-options {
+    display: flex;
+    flex-direction: row;
+    gap: 10px; /* Adds space between checkboxes */
+}
+
+.gender-options input[type="checkbox"] {
+    margin-right: 5px; /* Adds space to the right of each checkbox */
+}
+
+
+
+</style>
+
+
+
+<% include('../layouts/footer.ejs') %>

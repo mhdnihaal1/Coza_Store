@@ -1,0 +1,805 @@
+<% include('../layouts/header.ejs') %>
+
+<head>
+	<title>Product</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="/asset/vendor/images/icons/favicon.png"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/fonts/linearicons-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/slick/slick.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/MagnificPopup/magnific-popup.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/css/main.css">
+<!--===============================================================================================-->
+<link rel="shortcut icon" type="image/png" href="/adminAsset/vendor/src/assets/images/logos/favicon.png" />
+<link rel="stylesheet" href="/adminAsset/vendor/src/assets/css/styles.min.css" />
+<!--===============================================================================================-->
+<style>
+    .icon-header-item {
+        margin-right:  20px; /* Adjust the value as needed */
+    }
+
+    .cart-icon {
+        margin-right:  20px; /* Adjust the value as needed */
+    }
+
+    .nav-icon-hover {
+        margin-right:  20px; /* Adjust the value as needed */
+    }
+
+    /* Existing styles */
+    .cart-icon img:hover {
+        filter: brightness(0) invert(1);
+    }
+    .left-sidebar{
+        position: relative;
+    }
+</style>
+
+</head>
+<header class="header-v4">
+    <!-- Header desktop -->
+    <div class="container-menu-desktop">
+        <!-- Topbar -->
+        <div class="top-bar">
+            <div class="content-topbar flex-sb-m h-full container">
+                <div class="left-top-bar">
+                    Free shipping for standard order over $100
+                </div>
+
+                <div class="right-top-bar flex-w h-full">
+                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        Help & FAQs
+                    </a>
+
+                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        My Account
+                    </a>
+
+                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        EN
+                    </a>
+
+                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        USD
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrap-menu-desktop how-shadow1">
+            <nav class="limiter-menu-desktop container">
+                
+                <!-- Logo desktop -->		
+                <a href="#" class="logo">
+                    <img src="/asset/vendor/images/icons/logo-01.png" alt="IMG-LOGO">
+                </a>
+
+                <!-- Menu desktop -->
+                <div class="menu-desktop">
+                    <ul class="main-menu">
+                        <li>
+                            <li class="active-menu">
+                            <a href="/">Home</a>
+                            
+                        </li>
+                        <li class="active-menu">
+                            <a href="product">Shop</a>
+                        </li>
+
+                        <li>
+                            <a href="about">About</a>
+                        </li>
+
+                        <li>
+                            <a href="contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>	
+
+                <!-- Icon header -->
+              <!-- Icon header -->
+<div class="wrap-icon-header flex-w flex-r-m">
+    <a href="/cart" class="dis-block icon-header-item cl2 p-l-22 p-r-11 cart-icon" width="20" height="20">
+        <i class="zmdi zmdi-favorite-outline"></i>
+    </a>
+
+    <a href="/cart" class="cart-icon">
+        <img src="/asset/vendor/images/1.cart.png" alt="image" class="hov-cl1 trans-04" width="28" height="27">
+        <p id="count"></p>
+    </a>
+
+    <a class="nav-link nav-icon-hover" href="/userProfile" id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="/adminAsset/vendor/src/assets/images/profile/user-1.jpg" alt="" width="30" height="30" class="rounded-circle">
+    </a>
+</div>
+
+            </nav>
+        </div>	
+    </div>
+
+    
+
+    <!-- Modal Search -->
+    <div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
+        <div class="container-search-header">
+            <button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
+                <img src="/asset/vendor/images/icons/icon-close2.png" alt="CLOSE">
+            </button>
+
+            <form class="wrap-search-header flex-w p-l-15">
+                <button class="flex-c-m trans-04">
+                    <i class="zmdi zmdi-search"></i>
+                </button>
+                <input class="plh3" type="text" name="search" placeholder="Search...">
+            </form>
+        </div>
+    </div>
+</header>
+
+<!-- 
+     <div>
+        Sidebar Start
+        <aside class="left-sidebar">
+          Sidebar scroll
+          <div>
+              <nav>
+            <div class="brand-logo d-flex align-items-center justify-content-between">
+              <a href="./index.html" class="text-nowrap logo-img">
+                <img src="/adminAsset/vendor/src/assets/images/logos/dark-logo.svg" width="180" alt="" />
+              </a>
+              <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+                <i class="ti ti-x fs-8"></i>
+              </div>
+            </div>
+            Sidebar navigation
+            <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+              <ul id="sidebarnav">
+                <li class="nav-small-cap">
+                  <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                  <span class="hide-menu">Home</span>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="dashboard" aria-expanded="false">
+                    <span>
+                      <i class="ti ti-layout-dashboard"></i>
+                    </span>
+                    <span class="hide-menu">Dashboard</span>
+                  </a>
+                </li>
+              
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="userDetails" aria-expanded="false">
+                    <span>
+                      <i class="ti ti-article"></i>
+                    </span>
+                    <span class="hide-menu">User Details</span>
+                  </a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="productDetails" aria-expanded="false">
+                    <span>
+                      <i class="ti ti-alert-circle"></i>
+                    </span>
+                    <span class="hide-menu">Product Details</span>
+                  </a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="category" aria-expanded="false">
+                    <span>
+                      <i class="ti ti-cards"></i>
+                    </span>
+                    <span class="hide-menu">Category</span>
+                  </a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
+                    <span>
+                      <i class="ti ti-file-description"></i>
+                    </span>
+                    <span class="hide-menu">Forms</span>
+                  </a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="./ui-typography.html" aria-expanded="false">
+                    <span>
+                      <i class="ti ti-typography"></i>
+                    </span>
+                    <span class="hide-menu">Typography</span>
+                  </a>
+                </li>
+                <li class="nav-small-cap">
+                  <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                  <span class="hide-menu">AUTH</span>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+                    <span>
+                      <i class="ti ti-login"></i>
+                    </span>
+                    <span class="hide-menu">Logout</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            End Sidebar navigation
+          </div>
+         dhgadrhgdrsgzdfh
+        </aside>
+     </div>
+     End Sidebar scroll
+     <body>
+zfdhzaafd
+-->
+<div class="">
+        <div class="row-container">
+        <div class="col-12 col-md-5 col-lg-3">
+            <div class="profile-sidebar">
+                <style>
+                    .list-unstyled {
+                        list-style: none;
+                        padding: 0;
+                    }
+            
+                   
+            
+                    .profile-options a {
+                        text-decoration: none;
+                        color: black;
+                    }
+            
+                    .profile-options a.active {
+                        color: blue;
+                    }
+                </style>
+        
+            
+                <ul class="list-unstyled profile-options">
+                    <li><a href="/userProfile" class="active">Account</a></li>
+                    <li><a href="/userProfilepasswordchange">Change Password</a></li>
+                    <li><a href="/orderhistory">My orders</a></li>
+                    <li><a href="/cart">Shopping Cart</a></li>
+                    <li><a href="/wishlist">Wishlist</a></li>
+                    <li><a href="/address">Address</a></li>
+                    <li><a href="/addaddress">Add Address</a></li>
+                    <li><a href="/wallet">Wallet</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            
+            </div>
+        </div>
+
+        <style>
+            .profile {
+              display: flex;
+              align-items: center;
+              margin-bottom: 20px;
+            }
+            .profile img {
+              width: 100px; /* Adjust the size of the profile image */
+              height: 100px;
+              border-radius: 50%; /* Ensures the image appears rounded */
+              margin-right: 20px; /* Spacing between the image and text */
+            }
+            .profile-info {
+              font-size: 18px; /* Adjust the font size of the profile information */
+            }
+          </style>
+          </head>
+          <body> 
+            <div class="profile-container " style="margin-left: 20%; margin-top: 10px; border: 1px solid #ccc; padding: 20px; height:430px">
+                <div class="" style="margin-left: 35px;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4128/4128176.png" alt="Profile Picture" style="height: 200px; width: 200px;">
+                </div>
+                <div class="profile">
+                    <div class="profile-info">
+                        <br> <!-- You can adjust this line to control the spacing -->
+                        
+                            <p><strong>Name:</strong> <%= user.name %></p>
+                      
+                        <p><strong>Email:</strong>  <%= user.email %></p>
+                        <p><strong>Phone:</strong>+91 <%= user.mobile %></p>
+                        <button class="btn btn-secondary" id="profileEdit" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">Edit Profile</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Edit Form -->
+          <form action="/userProfileEdit" id="editForm" method="post">
+            <div class="mb-3">
+                <input type="hidden" name="userId" value="<% user._id %>">
+              <label for="editName" class="form-label">Name</label>
+              <input type="text" class="form-control" id="editName" name="name" value="<%= user.name %>">
+            </div>
+            <div class="mb-3">
+              <label for="editEmail" class="form-label">Email </label>
+              <input type="email" class="form-control" id="editEmail" name="email" value="<%= user.email %>">
+            </div>
+            <div class="mb-3">
+              <label for="editMobile" class="form-label">Mobile</label>
+              <input type="Mobile" class="form-control" id="editMobile" name="editMobile" value="<%= user.mobile %>">
+            </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" id="saveChanges">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+  
+                    </div>
+                </div>
+            </div>
+            
+            
+        
+    </div>
+</div>
+
+<script>
+// JavaScript to handle form submission and saving changes
+document.getElementById("saveChanges").addEventListener("click", function() {
+    // Add your logic to save changes here
+    // For example, you can retrieve the edited values from form fields
+    // and then close the modal
+    // Example:
+    // const editedValue = document.getElementById("editInput").value;
+    // console.log("Edited value:", editedValue);
+    // Close the modal
+    var myModal = new bootstrap.Modal(document.getElementById('editModal'));
+    myModal.hide();
+});
+</script>
+  <!-- Footer -->
+	<footer class="bg3 p-t-75 p-b-32">
+        
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Categories
+					</h4>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Women
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Men
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Shoes
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Watches
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Help
+					</h4>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Track Order
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Returns 
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Shipping
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								FAQs
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						GET IN TOUCH
+					</h4>
+
+					<p class="stext-107 cl7 size-201">
+						Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+					</p>
+
+					<div class="p-t-27">
+						<!-- <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"> -->
+							<i class="fa fa-facebook"></i>
+						</a>
+
+						<!-- <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"> -->
+							<i class="fa fa-instagram"></i>
+						</a>
+
+						<!-- <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"> -->
+							<i class="fa fa-pinterest-p"></i>
+						</a>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Newsletter
+					</h4>
+
+					<form>
+						<div class="wrap-input1 w-full p-b-4">
+							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
+							<div class="focus-input1 trans-04"></div>
+						</div>
+
+						<div class="p-t-18">
+							<button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+								Subscribe
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="p-t-40">
+				<div class="flex-c-m flex-w p-b-18">
+					<!-- <a href="#" class="m-all-1"> -->
+						<img src="/asset/vendor/images/icons/icon-pay-01.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="/asset/vendor/images/icons/icon-pay-02.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="/asset/vendor/images/icons/icon-pay-03.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="/asset/vendor/images/icons/icon-pay-04.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="/asset/vendor/images/icons/icon-pay-05.png" alt="ICON-PAY">
+					</a>
+				</div>
+
+				<p class="stext-107 cl6 txt-center">
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+				</p>
+			</div>
+		</div>
+	</footer>
+</body>
+
+
+   
+
+
+<!--===============================================================================================-->	
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/adminAsset/vendor/src/assets/libs/jquery/dist/jquery.min.js"></script>
+<script src="/adminAsset/vendor/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/adminAsset/vendor/src/assets/js/sidebarmenu.js"></script>
+<script src="/adminAsset/vendor/src/assets/js/app.min.js"></script>
+<script src="/adminAsset/vendor/src/assets/libs/simplebar/dist/simplebar.js"></script>
+
+<!--===============================================================================================-->	
+<script src="/asset/vendor/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/bootstrap/js/popper.js"></script>
+<script src="/asset/vendor/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/select2/select2.min.js"></script>
+<script>
+    $(".js-select2").each(function(){
+        $(this).select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $(this).next('.dropDownSelect2')
+        });
+    })
+</script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/daterangepicker/moment.min.js"></script>
+<script src="/asset/vendor/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/slick/slick.min.js"></script>
+<script src="/asset/vendor/js/slick-custom.js"></script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/parallax100/parallax100.js"></script>
+<script>
+    $('.parallax100').parallax100();
+</script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+<script>
+    $('.gallery-lb').each(function() { // the containers for all your galleries
+        $(this).magnificPopup({
+            delegate: 'a', // the selector for gallery item
+            type: 'image',
+            gallery: {
+                enabled:true
+            },
+            mainClass: 'mfp-fade'
+        });
+    });
+</script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/isotope/isotope.pkgd.min.js"></script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/sweetalert/sweetalert.min.js"></script>
+<script>
+    $('.js-addwish-b2, .js-addwish-detail').on('click', function(e){
+        e.preventDefault();
+    });
+
+    $('.js-addwish-b2').each(function(){
+        var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+        $(this).on('click', function(){
+            swal(nameProduct, "is added to wishlist !", "success");
+
+            $(this).addClass('js-addedwish-b2');
+            $(this).off('click');
+        });
+    });
+
+    $('.js-addwish-detail').each(function(){
+        var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+
+        $(this).on('click', function(){
+            swal(nameProduct, "is added to wishlist !", "success");
+
+            $(this).addClass('js-addedwish-detail');
+            $(this).off('click');
+        });
+    });
+
+    /*---------------------------------------------*/
+
+    $('.js-addcart-detail').each(function(){
+        var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+        $(this).on('click', function(){
+            swal(nameProduct, "is added to cart !", "success");
+        });
+    });
+
+</script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script>
+    $('.js-pscroll').each(function(){
+        $(this).css('position','relative');
+        $(this).css('overflow','hidden');
+        var ps = new PerfectScrollbar(this, {
+            wheelSpeed: 1,
+            scrollingThreshold: 1000,
+            wheelPropagation: false,
+        });
+
+        $(window).on('resize', function(){
+            ps.update();
+        })
+    });
+</script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/js/main.js"></script>
+<style>
+
+.row-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows the items to wrap onto multiple lines if needed */
+    gap: 20px; /* Adds space between the sidebar and the content */
+}
+
+/* Ensure the sidebar and content take up the full width on smaller screens */
+@media (max-width: 768px) {
+    .col-12 {
+        flex: 100%;
+    }
+    .sidebar-content {
+        flex: 100%;
+    }
+}
+
+.col-12 {
+    padding: 0; /* Removes default padding */
+}
+
+.profile-sidebar {
+    background-color: #f8f9fa; /* Light background color */
+    padding: 20px; /* Padding inside the sidebar */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.profile-options {
+    list-style-type: none; /* Removes default list styling */
+    padding: 0; /* Removes default padding */
+}
+
+.profile-options li {
+    margin-bottom: 10px; /* Space between list items */
+}
+
+.profile-options a {
+    display: block; /* Makes the links block elements */
+    padding: 10px; /* Padding inside the links */
+    color: #333; /* Text color */
+    text-decoration: none; /* Removes default underline */
+    border-radius: 5px; /* Rounded corners for links */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.profile-options a:hover {
+    background-color: #e9ecef; /* Background color on hover */
+    color: #007bff; /* Text color on hover */
+}
+
+.profile-options a.active {
+    background-color: #007bff; /* Active link background color */
+    color: #fff; /* Active link text color */
+}
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Aligns items to the center */
+    gap: 10px; /* Adds space between inputs */
+}
+
+.sidebar-content input {
+    padding: 5px;
+    border: none; /* Removes border */
+    border-radius: 3px;
+    width: 80%; /* Adjusts the width as needed */
+    margin-bottom: 10px; /* Adds space below each input */
+}
+
+.sidebar-content button {
+    padding: 5px 10px; /* Makes the button small */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 80%; /* Adjusts the width as needed */
+}
+
+.sidebar-content button:hover {
+    background-color: #0056b3;
+}
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Aligns items to the center */
+    gap: 10px; /* Adds space between inputs */
+}
+
+.sidebar-content label {
+    margin-bottom: 5px; /* Adds space below each label */
+}
+
+.sidebar-content input, .sidebar-content select {
+    padding: 5px;
+    border: 1px solid #ddd; /* Adds a border to the inputs */
+    border-radius: 3px;
+    width: 80%; /* Adjusts the width as needed */
+    margin-bottom: 10px; /* Adds space below each input */
+}
+
+.gender-options {
+    display: flex;
+    gap: 10px; /* Adds space between checkboxes */
+}
+
+.gender-options input[type="checkbox"] {
+    margin-right: 5px; /* Adds space to the right of each checkbox */
+}
+
+.sidebar-content button {
+    padding: 5px 10px; /* Makes the button small */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 80%; /* Adjusts the width as needed */
+}
+
+.sidebar-content button:hover {
+    background-color: #0056b3;
+}
+.sidebar-content .input-group {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* Aligns items to the top */
+    gap: 10px; /* Adds space between the label and input */
+    margin-bottom: 20px; /* Adds space below each input group */
+}
+
+.sidebar-content .input-group label {
+    margin-right: 10px; /* Adds space to the right of the label */
+}
+
+.sidebar-content .input-group input,
+.sidebar-content .input-group select {
+    flex-grow: 1; /* Allows the input to take up the remaining space */
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.gender-options {
+    display: flex;
+    flex-direction: row;
+    gap: 10px; /* Adds space between checkboxes */
+}
+
+.gender-options input[type="checkbox"] {
+    margin-right: 5px; /* Adds space to the right of each checkbox */
+}
+
+
+
+</style>
+
+<% include('../layouts/footer.ejs') %>

@@ -1,0 +1,1192 @@
+<% include('../layouts/header.ejs') %>
+
+<head>
+	<title>Product</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="/asset/vendor/images/icons/favicon.png"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/fonts/linearicons-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<!-- <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css"> -->
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/slick/slick.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/MagnificPopup/magnific-popup.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/css/main.css">
+<!--===============================================================================================-->
+<link rel="shortcut icon" type="image/png" href="/adminAsset/vendor/src/assets/images/logos/favicon.png" />
+<link rel="stylesheet" href="/adminAsset/vendor/src/assets/css/styles.min.css" />
+<!--===============================================================================================-->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+
+<style>
+    .icon-header-item {
+        margin-right:  20px; /* Adjust the value as needed */
+    }
+
+    .cart-icon {
+        margin-right:  20px; /* Adjust the value as needed */
+    }
+
+    .nav-icon-hover {
+        margin-right:  20px; /* Adjust the value as needed */
+    }
+
+    /* Existing styles */
+    .cart-icon img:hover {
+        filter: brightness(0) invert(1);
+    }
+    .left-sidebar{
+        position: relative;
+    }
+</style>
+
+</head>
+<header class="header-v4">
+    <!-- Header desktop -->
+    <div class="container-menu-desktop">
+        <!-- Topbar -->
+        <div class="top-bar">
+            <div class="content-topbar flex-sb-m h-full container">
+                <div class="left-top-bar">
+                    Free shipping for standard order over $100
+                </div>
+
+                <div class="right-top-bar flex-w h-full">
+                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        Help & FAQs
+                    </a>
+
+                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        My Account
+                    </a>
+
+                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        EN
+                    </a>
+
+                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        USD
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrap-menu-desktop how-shadow1">
+            <nav class="limiter-menu-desktop container">
+                
+                <!-- Logo desktop -->		
+                <a href="#" class="logo">
+                    <img src="/asset/vendor/images/icons/logo-01.png" alt="IMG-LOGO">
+                </a>
+
+                <!-- Menu desktop -->
+                <div class="menu-desktop">
+                    <ul class="main-menu">
+                        <li>
+                            <li class="active-menu">
+                            <a href="/">Home</a>
+                            
+                        </li>
+                        <li class="active-menu">
+                            <a href="product">Shop</a>
+                        </li>
+
+                        <li>
+                            <a href="about">About</a>
+                        </li>
+
+                        <li>
+                            <a href="contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>	
+
+                <!-- Icon header -->
+              <!-- Icon header -->
+<div class="wrap-icon-header flex-w flex-r-m">
+    <a href="/cart" class="dis-block icon-header-item cl2 p-l-22 p-r-11 cart-icon" width="20" height="20">
+        <i class="zmdi zmdi-favorite-outline"></i>
+    </a>
+
+    <a href="/cart" class="cart-icon">
+        <img src="/asset/vendor/images/1.cart.png" alt="image" class="hov-cl1 trans-04" width="28" height="27">
+        <p id="count"></p>
+    </a>
+
+    <a class="nav-link nav-icon-hover" href="/userProfile" id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="/adminAsset/vendor/src/assets/images/profile/user-1.jpg" alt="" width="30" height="30" class="rounded-circle">
+    </a>
+</div>
+
+            </nav>
+        </div>	
+    </div>
+
+    
+
+    <!-- Modal Search -->
+    <div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
+        <div class="container-search-header">
+            <button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
+                <img src="/asset/vendor/images/icons/icon-close2.png" alt="CLOSE">
+            </button>
+
+            <form class="wrap-search-header flex-w p-l-15">
+                <button class="flex-c-m trans-04">
+                    <i class="zmdi zmdi-search"></i>
+                </button>
+                <input class="plh3" type="text" name="search" placeholder="Search...">
+            </form>
+        </div>
+    </div>
+</header>
+
+<!-- 
+     <div>
+        Sidebar Start
+        <aside class="left-sidebar">
+          Sidebar scroll
+          <div>
+              <nav>
+            <div class="brand-logo d-flex align-items-center justify-content-between">
+              <a href="./index.html" class="text-nowrap logo-img">
+                <img src="/adminAsset/vendor/src/assets/images/logos/dark-logo.svg" width="180" alt="" />
+              </a>
+              <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+                <i class="ti ti-x fs-8"></i>
+              </div>
+            </div>
+            Sidebar navigation
+            <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+              <ul id="sidebarnav">
+                <li class="nav-small-cap">
+                  <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                  <span class="hide-menu">Home</span>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="dashboard" aria-expanded="false">
+                    <span>
+                      <i class="ti ti-layout-dashboard"></i>
+                    </span>
+                    <span class="hide-menu">Dashboard</span>
+                  </a>
+                </li>
+              
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="userDetails" aria-expanded="false">
+                    <span>
+                      <i class="ti ti-article"></i>
+                    </span>
+                    <span class="hide-menu">User Details</span>
+                  </a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="productDetails" aria-expanded="false">
+                    <span>
+                      <i class="ti ti-alert-circle"></i>
+                    </span>
+                    <span class="hide-menu">Product Details</span>
+                  </a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="category" aria-expanded="false">
+                    <span>
+                      <i class="ti ti-cards"></i>
+                    </span>
+                    <span class="hide-menu">Category</span>
+                  </a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
+                    <span>
+                      <i class="ti ti-file-description"></i>
+                    </span>
+                    <span class="hide-menu">Forms</span>
+                  </a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="./ui-typography.html" aria-expanded="false">
+                    <span>
+                      <i class="ti ti-typography"></i>
+                    </span>
+                    <span class="hide-menu">Typography</span>
+                  </a>
+                </li>
+                <li class="nav-small-cap">
+                  <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                  <span class="hide-menu">AUTH</span>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+                    <span>
+                      <i class="ti ti-login"></i>
+                    </span>
+                    <span class="hide-menu">Logout</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            End Sidebar navigation
+          </div>
+         dhgadrhgdrsgzdfh
+        </aside>
+     </div>
+     End Sidebar scroll
+     <body>
+zfdhzaafd
+--><div class="d-flex">
+    <div class="">
+        <div class="row-container">
+            <div class="col-12 col-md-5 col-lg-3">
+                <div class="profile-sidebar"  style="width: 300px;">
+                    <ul class="list-unstyled profile-options">
+                        <li><a href="/userProfile">Account</a></li>
+                        <li><a href="/userProfilepasswordchange">Change Password</a></li>
+                        <li><a href="/orderhistory" class="active">Order History</a></li>
+                        <li><a href="/cart">Shopping Cart</a></li>
+                        <li><a href="/wishlist">Wishlist</a></li>
+                        <li><a href="/address">Address</a></li>
+                        <li><a href="/addaddress">Add Address</a></li>
+                        <li><a href="/wallet">Wallet</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container"> 
+                <div class="order">
+                    <!-- Content for order history goes here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="" >
+        <div class="order-details-header">
+            <h1 class="d-flex align-items-center justify-content-center" style="height:100px;width: 1103px; background-color: rgb(133, 18, 18); color: rgb(239, 239, 239);"> Order Details</h1>
+        </div>
+        <style>
+           .box {
+            width: 1000px;
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid #7d1313;
+    border-radius: 10px;
+}
+
+        </style>
+ <style>
+    .box {
+        padding: 20px;
+        margin-bottom: 20px;
+        border: 2px solid #7d1313;
+        border-radius: 10px;
+    }
+
+    .product-row {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .product-name {
+        flex: 1;
+        margin-right: 20px;
+        font-weight: bold;
+    }
+
+    .product-details {
+        display: flex;
+        align-items: center;
+    }
+
+    .product-details > div {
+        margin-right: 20px;
+    }
+
+    .order-status {
+        color: #7d1313;
+        font-weight: bold;
+    }
+</style>
+
+<div class="" style="width: 1100px;">
+    <% if (orders.products.some(product => product.orderStatus === 'Delivered')) { %>
+        <button class="btn btn-danger" onclick="invoice('<%= orders._id %>')">Download Invoice</button>
+    <% } %>
+    
+
+        <div class="box">
+            <% orders.products.forEach((product,i) => { %>
+                
+                <div class="product-row">
+                    <div class="product-image" style="width:100px;">
+                        <img src="<%= product.productId.productImage[0] %>" alt="Product Image" style="width: 100px; height: 100px;">
+                    </div>
+                    
+                    <div class="product-name">
+                        &bull; <%= product.productId.productName %>
+                    </div>
+                    <div class="product-name">
+                        &bull; <%= product.Quantity %>
+                    </div>
+                    <div class="product-price" style="padding-right:10px;">
+                        &#8377;<%= product.productId.productPrice %>
+                    </div>
+                    <div class="product-details">
+                        <div class="user-mobile" style="padding-right:10px;">
+                            <%= orders.userId.mobile %>
+                        </div>
+                        <div class="payment-method">
+                          <%  if(orders.payment[0]  == "pending"){ %>
+                            <button type="button" class="btn btn-danger" id="Onlinepayment" name="Paymentmethod">Re-pay</button>  
+
+                           <% }else{ %>
+                            <%= orders.payment[0] %>
+
+                          <% } %>
+                        </div>
+                            <!-- HTML modal structure -->
+                            <div class="modal" id="cancelModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="cancelModalLabel">Confirm Order Cancellation</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Are you sure you want to cancel this order?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-danger" id="confirmCancelOrder">Yes, Cancel Order</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Button to trigger the modal -->
+                            <%  if(product.orderStatus  !== 'Accept' && product.orderStatus  !== 'Decline'){ %>
+
+                            <%  if(product.orderStatus  !== 'Request'){ %>
+                            <% if (product.orderStatus == 'Delivered') { %>
+
+                                <button type="button" class="btn btn-danger"  id="returnOrder" style="margin-right:30px;" 
+                                orderId="<%= orders._id %>"
+                                Productprice="<%= product.productId.productPrice %>"
+                                productId="<%= product._id %>"
+                                >
+                                    Return   
+                                </button>
+                            <% } else if (product.orderStatus !== 'Delivered' && product.orderStatus !== 'Returned'){%> 
+                                <% if(product.orderStatus !== 'cancelled'  ){ %>
+                                    <% if (orders.payment[0] !== 'pending') { %>
+
+                                <button type="button" class="btn btn-danger"  name="cancelOrder" id="cancelOrder" style="margin-right:30px;" 
+                                orderId="<%= orders._id %>"
+                                data-index="<%= i %>" 
+                                data-id="<%= product._id %>" 
+                                Productprice="<%= product.productId.productPrice %>"
+                                TotalAmount="<%= orders.TotalAmount %>"
+                                >
+                                    Cancel
+                                </button>
+                                <% } %>
+
+                                <% } %>
+
+                                <% } %>
+
+                                <% } %>
+                                <% } %>
+
+
+
+
+                        <div class="order-status">
+                            <%= product.orderStatus %>
+                        </div>
+                        <div class="size-209 p-t-1">
+                          
+                              
+                                     
+                        </div>
+                    </div>
+            
+            </div>
+            <div class="size-209 p-t-1">
+                <div class="mtext-110 cl2 TotalPrice" style="margin-left: 100px;" id="TotalPrice" data-orderId="<%= orders._id %>" data-totalAmount="<%= TotalAmountNumber %>">
+                    <% TotalAmountNumber %>                
+                </div>
+            </div>
+            
+          
+            <% }); %>
+        </div>
+        <div class="m-1 text-container " style=" display: inline-block; width: 1090px; height: 200px; background-color: rgb(133, 18, 18); margin-right: 10%;">
+            <div>
+                <% if( orders.address.length > 0 ) { %>  
+                <p><h1 class="p-3 styled-text" style="color: rgb(255, 255, 255);"> <%= orders.address[0].name %></h1></p>
+                <p class="" style="padding-left:15px; color: rgb(255, 255, 255);"> <%= orders.address[0].city %>, <%= orders.address[0].state %></p>
+                <p class="" style="padding-left:15px; color: rgb(255, 255, 255);"><%= orders.address[0].mobile %></p>
+                <p class="" style="padding-left:15px; color: rgb(255, 255, 255);"> <%= orders.address[0].pincode %>, <%= orders.address[0].area %></p>
+                <% }else{ %>
+                    <h1>No address available</h1>
+                <% } %>
+            </div>
+        </div>
+</div>
+  </div>   
+   
+</div>
+
+
+        <style>
+body {
+font-family: Arial, sans-serif; 
+color: #333; 
+}
+.styled-text {
+font-size: 24px; 
+font-weight: bold; 
+color: #7b2c50; 
+line-height: 1.5;
+letter-spacing: 1px; 
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+}
+
+        </style>
+
+        <script>
+let checkboxes;
+document.getElementById('Onlinepayment').addEventListener('click', function() {
+    const totalAmountElement = document.querySelector("#TotalPrice");
+    const amountString = totalAmountElement.innerText;
+    const amountNumber = Number(totalAmountElement.getAttribute('data-totalAmount'));
+    const orderIDE = totalAmountElement.getAttribute('data-orderId');
+    console.log(orderIDE)
+    const orderId = ""
+
+    console.log(typeof amountNumber)
+        console.log(typeof amountNumber, amountNumber);
+        console.log("OrderId:", orderId);
+        setupRazorpay(orderId, amountNumber);
+   
+});
+
+
+
+function setupRazorpay(orderId, amount) {
+            console.log("setupRazorpay");
+            // console.log(checkboxes);
+            var options = {
+                key: "rzp_test_Mufod828rplfnf",
+                amount: amount * 100,
+                currency: "INR",
+                name: "Coza store",
+                description: "Test Transaction",
+                image: "Coza white.png",
+                order_id: orderId,
+                handler: async function (response) {
+                    const paymentData = {
+                        payment_id: response.razorpay_payment_id,
+                        order_id: response.razorpay_order_id,
+                        signature: response.razorpay_signature,
+                    };
+                    let amount = document
+                        .querySelector("#TotalPrice")
+                        .innerText.replace("₹", "");
+                    console.log(amount);  
+                    const totalAmountElement = document.querySelector("#TotalPrice");
+
+                      const orderID = totalAmountElement.getAttribute('data-orderId');
+console.log('inside'+orderID)
+
+                    try {
+                        // console.log("verifyPayment");
+                        const response = await fetch("/verify-paymentOnOrders", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({paymentData,orderID}),
+                        });
+                        if (response.ok) {
+                            console.log(response)
+                // If the response is successful, assign "Onlinepayment" to the checkbox
+                    checkboxes = ["Onlinepayment"];
+                    console.log(checkboxes)
+            } else {
+                // If the response is not successful, assign "Pending" to the checkbox
+                    checkboxes = ["pending"];
+                    // console.log(checkboxes)
+
+            }
+                         
+                    } catch (error) {
+                        console.log(error);
+                    }
+                },
+                theme: {
+                    color: "#3399cc",
+                },
+            };
+            var rzp1 = new Razorpay(options);
+
+            rzp1.on("payment.failed", function (response) {
+                checkboxes=["pending"]
+                console.log(checkboxes)
+
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: 'Sugamanoo'
+                });
+            });
+            
+            rzp1.open();
+
+        }
+
+
+        </script>
+
+<script>
+    function invoice(orderId){
+        console.log(orderId)
+        fetch('/invoice',{
+            method:'post',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify({orderId})
+        })
+        .then((res)=>{
+           console.log(res)
+           return res.json()
+        })
+        .then((data)=>{
+            let orders = data.order;
+console.log('Received orders:', orders);
+
+let addresses = [];
+orders.forEach(order => {
+    let address = order.address[0]; // Assuming each order has only one address
+    addresses.push(address);
+    console.log('Received address for order', order._id, ':', address);
+});
+
+console.log('Received addresses:', addresses); // Check all collected addresses
+
+const doc = new window.jspdf.jsPDF('a4');
+
+const orderColumns = ['Sl No', 'Clients', 'Products', 'Product Quantity', 'Order Status', 'Payment', 'Total Amount'];
+const addressColumns = ['Sl No', 'Name', 'Mobile', 'Pincode', 'House Number', 'Area', 'City', 'State'];
+
+if (orders.length === 0) {
+    doc.autoTable({
+        head: [orderColumns],
+        body: [],
+    });
+    doc.text("No sales in this time period", 105, 70, { align: "center" });
+} else {
+    const orderRows = orders.map((order, index) => {
+        let productNames = order.products.map(product => product.productId.productName).join(', ');
+        let orderStatus = order.products.map(product => product.orderStatus).join(', ');
+        let productQuantity = isNaN(order.products.reduce((acc, curr) => acc + curr.Quantity, 0)) ? 'NaN' : order.products.reduce((acc, curr) => acc + curr.Quantity, 0);
+        return [
+            index + 1,
+            order.userId.name,
+            productNames,
+            productQuantity,
+            orderStatus,
+            order.payment.join(', '),
+            order.TotalAmount,
+        ];
+    });
+
+    doc.autoTable({
+        head: [orderColumns],
+        body: orderRows,
+    });
+}
+
+if (addresses.length === 0) {
+    doc.text("No addresses found", 105, doc.autoTable.previous.finalY + 20, { align: "center" });
+} else {
+    const addressRows = addresses.map((address, index) => {
+        return [
+            index + 1,
+            address.name,
+            address.mobile,
+            address.pincode,
+            address.houseNumber,
+            address.area,
+            address.city,
+            address.state,
+        ];
+    });
+
+    // Add address table
+    doc.autoTable({
+        head: [addressColumns],
+        body: addressRows,
+        startY: doc.autoTable.previous.finalY + 20,
+    });
+}
+
+const summary = `Summary:\n\n Your invoice data is available, orders data were shown.\n\nThe total orders of items ordered was above.`;
+doc.setFontSize(12);
+doc.text(summary, 14, doc.autoTable.previous.finalY + 10);
+
+// Save the PDF
+doc.save('Invoice.pdf');
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
+    }
+</script>
+
+
+<script>
+
+//============================cancel order    
+document.querySelectorAll('#cancelOrder').forEach(button => {
+    button.addEventListener('click', function(event) {
+        const orderId = this.getAttribute('orderId');
+        const index = this.dataset.index;
+        const id = this.dataset.id;
+        const productprice = this.getAttribute("Productprice");
+        const TotalAmount=this.getAttribute("TotalAmount");
+
+        const data = {
+            orderId: orderId,
+            index: index,
+            id: id, 
+            productprice:productprice,
+            TotalAmount:TotalAmount
+        };
+        console.log(data);
+
+        fetch('/orderDetail', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            window.location.reload();
+            Swal.fire({
+                    icon: 'success',
+                    title: 'Product cancelled to successfully',
+                    text: 'Your product has been cancelled successfully!'
+                });
+
+           
+            
+        })
+        .catch(error => {
+            window.location.reload();
+            Swal.fire({
+                    icon: 'success',
+                    title: 'Product cancelled to successfully',
+                    text: 'Your product has been cancelled successfully!'
+                });
+            // Handle error, show error message, or retry request
+        });
+    });
+});
+
+</script>
+<script>
+
+    //=================return order
+
+     document.getElementById('returnOrder').addEventListener('click',function() {
+    const orderId = this.getAttribute('orderId');
+    const productprice = this.getAttribute("Productprice");
+    const productId = this.getAttribute("productId");
+
+    const data={
+        orderId:orderId,
+        productprice:productprice,
+        productId:productId
+    }
+
+    fetch('/orderDetail1', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+       response.json()
+    }).then(data=>{
+        window.location.reload()
+        Swal.fire({
+                    icon: 'success',
+                    title: 'Product returned to successfully',
+                    text: 'Your product has been returned successfully!'
+                });
+       
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        // Handle error, show error message, or retry request
+    });
+});
+
+</script>
+  <!-- Footer -->
+	<footer class="bg3 p-t-75 p-b-32">
+        
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Categories
+					</h4>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Women
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Men
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Shoes
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Watches
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Help
+					</h4>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Track Order
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Returns 
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Shipping
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								FAQs
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						GET IN TOUCH
+					</h4>
+
+					<p class="stext-107 cl7 size-201">
+						Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+					</p>
+
+					<div class="p-t-27">
+						<!-- <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"> -->
+							<i class="fa fa-facebook"></i>
+						</a>
+
+						<!-- <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"> -->
+							<i class="fa fa-instagram"></i>
+						</a>
+
+						<!-- <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"> -->
+							<i class="fa fa-pinterest-p"></i>
+						</a>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Newsletter
+					</h4>
+
+					<form>
+						<div class="wrap-input1 w-full p-b-4">
+							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
+							<div class="focus-input1 trans-04"></div>
+						</div>
+
+						<div class="p-t-18">
+							<button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+								Subscribe
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="p-t-40">
+				<div class="flex-c-m flex-w p-b-18">
+					<!-- <a href="#" class="m-all-1"> -->
+						<img src="/asset/vendor/images/icons/icon-pay-01.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="/asset/vendor/images/icons/icon-pay-02.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="/asset/vendor/images/icons/icon-pay-03.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="/asset/vendor/images/icons/icon-pay-04.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="/asset/vendor/images/icons/icon-pay-05.png" alt="ICON-PAY">
+					</a>
+				</div>
+
+				<p class="stext-107 cl6 txt-center">
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+				</p>
+			</div>
+		</div>
+	</footer>
+</body>
+
+
+   
+
+
+<!--===============================================================================================-->	
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/adminAsset/vendor/src/assets/libs/jquery/dist/jquery.min.js"></script>
+<script src="/adminAsset/vendor/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/adminAsset/vendor/src/assets/js/sidebarmenu.js"></script>
+<script src="/adminAsset/vendor/src/assets/js/app.min.js"></script>
+<script src="/adminAsset/vendor/src/assets/libs/simplebar/dist/simplebar.js"></script>
+
+<!--===============================================================================================-->	
+<script src="/asset/vendor/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/bootstrap/js/popper.js"></script>
+<script src="/asset/vendor/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/select2/select2.min.js"></script>
+<script>
+    $(".js-select2").each(function(){
+        $(this).select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $(this).next('.dropDownSelect2')
+        });
+    })
+</script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/daterangepicker/moment.min.js"></script>
+<script src="/asset/vendor/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/slick/slick.min.js"></script>
+<script src="/asset/vendor/js/slick-custom.js"></script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/parallax100/parallax100.js"></script>
+<script>
+    $('.parallax100').parallax100();
+</script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+<script>
+    $('.gallery-lb').each(function() { // the containers for all your galleries
+        $(this).magnificPopup({
+            delegate: 'a', // the selector for gallery item
+            type: 'image',
+            gallery: {
+                enabled:true
+            },
+            mainClass: 'mfp-fade'
+        });
+    });
+</script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/isotope/isotope.pkgd.min.js"></script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/sweetalert/sweetalert.min.js"></script>
+<script>
+    $('.js-addwish-b2, .js-addwish-detail').on('click', function(e){
+        e.preventDefault();
+    });
+
+    $('.js-addwish-b2').each(function(){
+        var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+        $(this).on('click', function(){
+            swal(nameProduct, "is added to wishlist !", "success");
+
+            $(this).addClass('js-addedwish-b2');
+            $(this).off('click');
+        });
+    });
+
+    $('.js-addwish-detail').each(function(){
+        var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+
+        $(this).on('click', function(){
+            swal(nameProduct, "is added to wishlist !", "success");
+
+            $(this).addClass('js-addedwish-detail');
+            $(this).off('click');
+        });
+    });
+
+    /*---------------------------------------------*/
+
+    $('.js-addcart-detail').each(function(){
+        var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+        $(this).on('click', function(){
+            swal(nameProduct, "is added to cart !", "success");
+        });
+    });
+
+</script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script>
+    $('.js-pscroll').each(function(){
+        $(this).css('position','relative');
+        $(this).css('overflow','hidden');
+        var ps = new PerfectScrollbar(this, {
+            wheelSpeed: 1,
+            scrollingThreshold: 1000,
+            wheelPropagation: false,
+        });
+
+        $(window).on('resize', function(){
+            ps.update();
+        })
+    });
+</script>
+<!--===============================================================================================-->
+<script src="/asset/vendor/js/main.js"></script>
+<style>
+
+.row-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows the items to wrap onto multiple lines if needed */
+    gap: 20px; /* Adds space between the sidebar and the content */
+}
+
+/* Ensure the sidebar and content take up the full width on smaller screens */
+@media (max-width: 768px) {
+    .col-12 {
+        flex: 100%;
+    }
+    .sidebar-content {
+        flex: 100%;
+    }
+}
+
+.col-12 {
+    padding: 0; /* Removes default padding */
+}
+
+.profile-sidebar {
+    background-color: #f8f9fa; /* Light background color */
+    padding: 20px; /* Padding inside the sidebar */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.profile-options {
+    list-style-type: none; /* Removes default list styling */
+    padding: 0; /* Removes default padding */
+}
+
+.profile-options li {
+    margin-bottom: 10px; /* Space between list items */
+}
+
+.profile-options a {
+    display: block; /* Makes the links block elements */
+    padding: 10px; /* Padding inside the links */
+    color: #333; /* Text color */
+    text-decoration: none; /* Removes default underline */
+    border-radius: 5px; /* Rounded corners for links */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.profile-options a:hover {
+    background-color: #e9ecef; /* Background color on hover */
+    color: #007bff; /* Text color on hover */
+}
+
+.profile-options a.active {
+    background-color: #007bff; /* Active link background color */
+    color: #fff; /* Active link text color */
+}
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Aligns items to the center */
+    gap: 10px; /* Adds space between inputs */
+}
+
+.sidebar-content input {
+    padding: 5px;
+    border: none; /* Removes border */
+    border-radius: 3px;
+    width: 80%; /* Adjusts the width as needed */
+    margin-bottom: 10px; /* Adds space below each input */
+}
+
+.sidebar-content button {
+    padding: 5px 10px; /* Makes the button small */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 80%; /* Adjusts the width as needed */
+}
+
+.sidebar-content button:hover {
+    background-color: #0056b3;
+}
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Aligns items to the center */
+    gap: 10px; /* Adds space between inputs */
+}
+
+.sidebar-content label {
+    margin-bottom: 5px; /* Adds space below each label */
+}
+
+.sidebar-content input, .sidebar-content select {
+    padding: 5px;
+    border: 1px solid #ddd; /* Adds a border to the inputs */
+    border-radius: 3px;
+    width: 80%; /* Adjusts the width as needed */
+    margin-bottom: 10px; /* Adds space below each input */
+}
+
+.gender-options {
+    display: flex;
+    gap: 10px; /* Adds space between checkboxes */
+}
+
+.gender-options input[type="checkbox"] {
+    margin-right: 5px; /* Adds space to the right of each checkbox */
+}
+
+.sidebar-content button {
+    padding: 5px 10px; /* Makes the button small */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 80%; /* Adjusts the width as needed */
+}
+
+.sidebar-content button:hover {
+    background-color: #0056b3;
+}
+.sidebar-content .input-group {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* Aligns items to the top */
+    gap: 10px; /* Adds space between the label and input */
+    margin-bottom: 20px; /* Adds space below each input group */
+}
+
+.sidebar-content .input-group label {
+    margin-right: 10px; /* Adds space to the right of the label */
+}
+
+.sidebar-content .input-group input,
+.sidebar-content .input-group select {
+    flex-grow: 1; /* Allows the input to take up the remaining space */
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.gender-options {
+    display: flex;
+    flex-direction: row;
+    gap: 10px; /* Adds space between checkboxes */
+}
+
+.gender-options input[type="checkbox"] {
+    margin-right: 5px; /* Adds space to the right of each checkbox */
+}
+
+
+
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>  
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+
+<% include('../layouts/footer.ejs') %>

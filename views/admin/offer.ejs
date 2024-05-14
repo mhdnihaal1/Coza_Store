@@ -1,0 +1,366 @@
+<% include('../layouts/header.ejs') %>
+
+
+<head>
+  <!-- <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <title>Modernize Free</title>
+  <link rel="shortcut icon" type="image/png" href="/adminAsset/vendor/src/assets/images/logos/favicon.png" />
+  <link rel="stylesheet" href="/adminAsset/vendor/src/assets/css/styles.min.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
+
+</head>
+
+<body>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <a href="#" class="logo">
+            <img src="/asset/vendor/images/icons/logo-01.png" alt="IMG-LOGO" />
+          </a>
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-8"></i>
+          </div>
+        </div>
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">Home</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="dashboard" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Dashboard</span>
+              </a>
+            </li>
+          
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="userDetails" aria-expanded="false">
+                <span>
+                  <i class="ti ti-article"></i>
+                </span>
+                <span class="hide-menu">User Details</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="productDetails" aria-expanded="false">
+                <span>
+                  <i class="ti ti-alert-circle"></i>
+                </span>
+                <span class="hide-menu">Product Details</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="/category" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-file-description"></i>
+                  </span>
+                  <span class="hide-menu">Category</span>
+                </a>
+              </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/orders" aria-expanded="false">
+                <span>
+                  <i class="ti ti-file-description"></i>
+                </span>
+                <span class="hide-menu">Orders</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/offer" aria-expanded="false">
+                <span>
+                  <i class="ti ti-typography"></i>
+                </span>
+                <span class="hide-menu">Offers</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/coupon" aria-expanded="false">
+                <span>
+                  <i class="ti ti-typography"></i>
+                </span>
+                <span class="hide-menu">Coupon</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/discount" aria-expanded="false">
+                <span>
+                  <i class="ti ti-typography"></i>
+                </span>
+                <span class="hide-menu">Discount</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">AUTH</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-login"></i>
+                </span>
+                <span class="hide-menu">Logout</span>
+              </a>
+            </li>
+        
+          
+          
+          
+          </ul>
+
+        </nav>
+          </ul>
+
+        </nav>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+    <!--  Sidebar End -->
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      <!--  Header Start -->
+      <header class="app-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <ul class="navbar-nav">
+            <li class="nav-item d-block d-xl-none">
+              <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
+                <i class="ti ti-menu-2"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-icon-hover" href="javascript:void(0)">
+                <i class="ti ti-bell-ringing"></i>
+                <div class="notification bg-primary rounded-circle"></div>
+              </a>
+            </li>
+          </ul>
+          <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
+            <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+              <li class="nav-item dropdown">
+                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <img src="/adminAsset/vendor/src/assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
+                </a>
+                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
+                  <div class="message-body">
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-user fs-6"></i>
+                      <p class="mb-0 fs-3">My Profile</p>
+                    </a>
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-mail fs-6"></i>
+                      <p class="mb-0 fs-3">My Account</p>
+                    </a>
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-list-check fs-6"></i>
+                      <p class="mb-0 fs-3">My Task</p>
+                    </a>
+                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <style>
+        table {
+          border-collapse: collapse;
+          width: 100%;
+          border: 1px solid black; /* Set a strong 1px border for the table */
+        }
+    
+        th, td {
+          border: 1px solid black; /* Set a strong 1px border for table cells */
+          padding: 10px;
+          text-align: center;
+        }
+
+        input,
+    textarea {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 12px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+      </style>
+    </head>
+    
+    <body>
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-body"> 
+              <a href="addoffer">
+            <span>
+            <button>Add offer</button>
+          </span>
+            </a>
+            
+            <h5 class="card-title fw-semibold mb-4 text-center">Category Details</h5>
+
+         
+            <table id="table">
+                <thead>
+                  <tr>
+                    <th>offer Name</th>
+                    <th>offer Price</th>
+                    <th>offer Started</th>
+                    <th>offer End</th>
+               
+                  </tr>
+                </thead>
+
+                 <tbody>
+                      
+                  <% offer.forEach((offer) => { %>
+                       <tr>     
+                        <td><%= offer.offerName %></td>
+                        <td><%= offer.offerPrice %></td>
+                        <td><%= offer.offerStarted.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }) %></td>
+                        <td><%= offer.offerEnd.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }) %></td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+              </table>
+              
+          </div>
+        </div>
+      </div>
+    </body>
+
+   <script>
+
+
+document.querySelectorAll(".actionbtn").forEach(function(button) {
+    button.addEventListener("click", function() {
+        console.log('hello');
+
+        let categoryId = this.getAttribute('categoryId');
+        let categoryState = this.getAttribute('categoryState');
+
+        console.log(categoryId);
+        console.log(categoryState);
+
+        let url;
+
+        if (categoryState === 'List') {
+            url = '/category/UnList'; 
+        } else {
+            url = '/category/List'; 
+        }
+
+        console.log(url);
+        fetch(url, {
+            method: 'post',
+            headers: { 
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ categoryId:categoryId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if (data.message) {
+    console.log(data);
+    if (categoryState === 'List') { 
+        this.setAttribute('categoryState', 'UnList');
+        this.textContent = 'List';
+        this.classList.replace('actionbtn-danger', 'actionbtn-success'); // Corrected class names
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You want to List category",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, List it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "List",
+                    text: "Your category has been Listed",
+                    icon: "success"
+
+                }).then(() => {
+   
+            setTimeout(() => {
+                location.reload(); 
+            }); 
+        });
+            }
+          })
+    } else {
+        this.setAttribute('categoryState', 'List');
+        this.textContent = 'UnList';
+        this.classList.replace('actionbtn-success', 'actionbtn-danger'); // Corrected class names
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You want to UnList category",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, UnList it!"
+        }).then((result) => {
+    if (result.isConfirmed) {
+        Swal.fire({
+            title: "UnListed",
+            text: "Your category has been UnListed",
+            icon: "success",
+          
+        }).then(() => {
+
+          setTimeout(() => {
+                location.reload(); 
+            });
+        });
+    }
+});
+    }
+}
+
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+});
+
+    </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/adminAsset/vendor/src/assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="/adminAsset/vendor/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/adminAsset/vendor/src/assets/js/sidebarmenu.js"></script>
+  <script src="/adminAsset/vendor/src/assets/js/app.min.js"></script>
+  <script src="/adminAsset/vendor/src/assets/libs/simplebar/dist/simplebar.js"></script>
+</body>
+<script type="text/javascript" charset="utf8"
+src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.js"></script>
+<script>
+$(document).ready(function () {
+  $('#table').DataTable();
+});
+</script>
+
+<% include('../layouts/footer.ejs') %>

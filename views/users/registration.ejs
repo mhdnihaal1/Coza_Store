@@ -1,0 +1,317 @@
+<% include('../layouts/header.ejs') %>
+
+<head>
+    <style>
+
+        .row-container {
+            display: flex;
+            flex-wrap: wrap; /* Allows the items to wrap onto multiple lines if needed */
+            gap: 20px; /* Adds space between the sidebar and the content */
+        }
+        
+        /* Ensure the sidebar and content take up the full width on smaller screens */
+        @media (max-width: 768px) {
+            .col-12 {
+                flex: 100%;
+            }
+            .sidebar-content {
+                flex: 100%;
+            }
+        }
+        
+        .col-12 {
+            padding: 0; /* Removes default padding */
+        }
+        
+        .profile-sidebar {
+            background-color: #f8f9fa; /* Light background color */
+            padding: 20px; /* Padding inside the sidebar */
+            border-radius: 5px; /* Rounded corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+        
+        .profile-options {
+            list-style-type: none; /* Removes default list styling */
+            padding: 0; /* Removes default padding */
+        }
+        
+        .profile-options li {
+            margin-bottom: 10px; /* Space between list items */
+        }
+        
+        .profile-options a {
+            display: block; /* Makes the links block elements */
+            padding: 10px; /* Padding inside the links */
+            color: #333; /* Text color */
+            text-decoration: none; /* Removes default underline */
+            border-radius: 5px; /* Rounded corners for links */
+            transition: background-color 0.3s ease; /* Smooth background color transition */
+        }
+        
+        .profile-options a:hover {
+            background-color: #e9ecef; /* Background color on hover */
+            color: #007bff; /* Text color on hover */
+        }
+        
+        .profile-options a.active {
+            background-color: #007bff; /* Active link background color */
+            color: #fff; /* Active link text color */
+        }
+        .sidebar-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Aligns items to the center */
+            gap: 10px; /* Adds space between inputs */
+        }
+        
+        .sidebar-content input {
+            padding: 5px;
+            border: none; /* Removes border */
+            border-radius: 3px;
+            width: 80%; /* Adjusts the width as needed */
+            margin-bottom: 10px; /* Adds space below each input */
+        }
+        
+        .sidebar-content button {
+            padding: 5px 10px; /* Makes the button small */
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 80%; /* Adjusts the width as needed */
+        }
+        
+        .sidebar-content button:hover {
+            background-color: #0056b3;
+        }
+        .sidebar-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Aligns items to the center */
+            gap: 10px; /* Adds space between inputs */
+        }
+        
+        .sidebar-content label {
+            margin-bottom: 5px; /* Adds space below each label */
+        }
+        
+        .sidebar-content input, .sidebar-content select {
+            padding: 5px;
+            border: 1px solid #ddd; /* Adds a border to the inputs */
+            border-radius: 3px;
+            width: 80%; /* Adjusts the width as needed */
+            margin-bottom: 10px; /* Adds space below each input */
+        }
+        
+        .gender-options {
+            display: flex;
+            gap: 10px; /* Adds space between checkboxes */
+        }
+        
+        .gender-options input[type="checkbox"] {
+            margin-right: 5px; /* Adds space to the right of each checkbox */
+        }
+        
+        .sidebar-content button {
+            padding: 5px 10px; /* Makes the button small */
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 80%; /* Adjusts the width as needed */
+        }
+        
+        .sidebar-content button:hover {
+            background-color: #0056b3;
+        }
+        .sidebar-content .input-group {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start; /* Aligns items to the top */
+            gap: 10px; /* Adds space between the label and input */
+            margin-bottom: 20px; /* Adds space below each input group */
+        }
+        
+        .sidebar-content .input-group label {
+            margin-right: 10px; /* Adds space to the right of the label */
+        }
+        
+        .sidebar-content .input-group input,
+        .sidebar-content .input-group select {
+            flex-grow: 1; /* Allows the input to take up the remaining space */
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        
+        .gender-options {
+            display: flex;
+            flex-direction: row;
+            gap: 10px; /* Adds space between checkboxes */
+        }
+        
+        .gender-options input[type="checkbox"] {
+            margin-right: 5px; /* Adds space to the right of each checkbox */
+        }
+        
+        
+        
+        </style>
+    <style>
+        body {
+            background: url('https://source.unsplash.com/random/1920x1080') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            padding: 30px; /* Increased padding for better spacing */
+            max-width: 400px; /* Increased max-width for better responsiveness */
+            width: 100%;
+            text-align: center;
+        }
+
+        form {
+            max-width: 300px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px; /* Increased padding for input fields */
+            margin-bottom: 20px; /* Increased margin for better spacing */
+            box-sizing: border-box;
+            border: 2px solid #6c757d; /* Slightly thicker border */
+            border-radius: 8px; /* Rounded corners for form elements */
+        }
+
+        input[type="submit"] {
+            background-color: #1aff00;
+            border: 2px solid #1aff00;
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Smooth transition on background color change */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #00cc00;
+        }
+
+        h1, p.success-message {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        p.success-message {
+            color: green;
+            margin-top: 20px;
+        }
+        .text-red {
+        color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid py-5">
+        <div class="row">
+            <!-- Registration Form Container -->
+            <div class="col-md-6 mx-auto">
+                <div class="content-container">
+                    <h1>User Registration Form</h1>
+
+                    <form action="/register" method="post">
+                        <input type="text" name="name" id="name" placeholder="Enter Name" required>
+                        <input type="email" name="email" id="email" placeholder="Enter Email" required>
+                        <input type="text" name="mobile" id="mobile" placeholder="Enter Mobile No" required>
+                        <input type="password" name="password" id="password" placeholder="Enter Password" required>
+                        <input type="password" name="checkPassword" id="checkPassword"  placeholder="Confirm Password" required>
+                          <span class="text-red" id="message"></span>
+                          <input type="button" id="submitbtn" value="Register">
+                    </form>
+
+                    <% if (typeof message !== 'undefined') { %>
+                        <p class="success-message" style="text-decoration-color: red;"><%= message %></p>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+<script>
+   document.getElementById("submitbtn").addEventListener('click', async function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Get form data
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const mobile = document.getElementById('mobile').value;
+    const password = document.getElementById('password').value;
+    const checkPassword = document.getElementById('checkPassword').value;
+
+
+    // Prepare data to be sent
+    const data = {
+        name: name,
+        email: email,
+        mobile: mobile,
+        password: password,
+        checkPassword: checkPassword
+    };
+
+    try {
+        const response = await fetch('/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+            const responseData = await response.json();
+            if (responseData.ok) {
+                // alert(responseData.message);
+                // Redirect to the OTP generation page or dashboard
+                window.location.href = "/otpGenerator"; // Change "/otpGenerator" to the path of your desired page
+            } else {
+                document.getElementById('message').textContent = responseData.message;
+            }
+        } else {
+            const errorData = await response.json();
+            document.getElementById('message').textContent = errorData.message || 'An error occurred.';
+        }
+
+    } catch (error) {
+        console.error('Fetch error:', error);
+        console.error('Fetch error:', error.message);
+        document.getElementById('message').textContent = 'An error occurred.';
+    }
+});
+
+    </script>
+    
+
+
+
+
+    <% include('../layouts/footer.ejs') %>
+
+    

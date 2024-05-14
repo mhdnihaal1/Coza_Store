@@ -1,0 +1,299 @@
+<% include('../layouts/header.ejs')%>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Product</title>
+  <!-- <link rel="stylesheet" href="cropperjs/cropper.css">
+  <script src="cropperjs/cropper.js"></script> -->
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.css" integrity="sha512-bs9fAcCAeaDfA4A+NiShWR886eClUcBtqhipoY5DM60Y1V3BbVQlabthUBal5bq8Z8nnxxiyb1wfGX2n76N1Mw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+      body {
+        background-image: url('/adminAsset/vendor/src/assets/images/backgrounds/bg2.jpg');
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f8f8;
+
+        }
+    
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    input,
+    textarea {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 12px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+    .preview-div{
+    width:250px;
+    height: 150px;
+    border: 2px solid red;
+}
+.preview-div > img{
+    width: 100%;
+    object-fit: contain;
+}
+
+  </style>
+<body>
+
+<div class="container">
+    <a href="productDetails">
+        <span>
+        <button>Go to product</button>
+      </span>
+        </a>
+        
+  <h1>Add Product</h1>
+  <form action="addproduct" method="post" enctype="multipart/form-data" >
+    <label for="productName">Product Name:</label>
+    <input type="text" id="productName" name="productName" required>
+
+    <label for="productName">Product category:</label>
+    <select id="productCategory" name="productCategory" style="width: 100%; height: 40px;">
+      <option value="">Select Category</option>
+      <% category.forEach(category => { %>
+      <option value="<%= category.category %>">
+        <%= category.category %>
+      </option>
+      <% }); %>
+    </select>
+    <label for="productPrice">Product Price:</label>
+    <input type="number" id="productPrice" name="productPrice" min="0" step="1" required>
+
+    <label for="productQuantity">Quantity:</label>
+    <input type="number" id="productQuantity" name="productQuantity" min="0" step="1" required>
+    
+    <!-- <label for="productdiscount">discount:</label>
+    <input type="text" id="productdiscount" name="productdiscount"  required> -->
+
+    <label for="productDescription">Description:</label>
+    <textarea id="productDescription" name="productDescription" rows="4" required></textarea>
+
+    <label for="productDetails">Product Details:</label>
+    <textarea id="productDetails" name="productDetails" rows="4" required ></textarea>
+
+    <label for="productImage">Product Image URL:</label>
+    <!-- <input type="file" id="Images" name="Images" multiple required> -->
+    <style>
+      /* .cropper-container {
+          max-width: 200px;
+          max-height: 200px;
+      } */
+  </style>
+</head>
+
+<body>
+  <div class="main-container">
+  <div class="img-container">
+  <input type="file" class="custom-file-input" id="productImage1" name="productImage" accept="image/*" required>
+  <div class="preview-div">
+    <img id="previewImage1" src="#" alt="Preview Image" style="display: none;" class="preview-img">
+  </div>
+  <br>
+  <input type="file" class="custom-file-input" id="productImage2" name="productImage" accept="image/*" required>
+  <div class="preview-div">
+    <img id="previewImage2" src="#" alt="Preview Image" style="display: none;" class="preview-img">
+  </div>
+  <br>
+  <input type="file" class="custom-file-input" id="productImage3" name="productImage" accept="image/*" required>
+  <div class="preview-div">
+    <img id="previewImage3" src="#" alt="Preview Image" style="display: none;" class="preview-img">
+  </div>
+  <br>
+  <input type="file" class="custom-file-input" id="productImage4" name="productImage" accept="image/*" required>
+  <div class="preview-div">
+    <img id="previewImage4" src="#" alt="Preview Image" style="display: none;" class="preview-img">
+  </div>
+</div>
+<div class="cropped-container">
+  <img src="" alt="" id="output">
+</div >
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js" integrity="sha512-9KkIqdfN7ipEW6B6k+Aq20PV31bjODg4AA52W+tYtAE0jE0kMx49bjJ3FgvS56wzmyfMUHbQ4Km2b7l9+Y/+Eg==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+  <script>
+    const croppers = []
+      function handleFileSelect(input, preview) {
+          const file = input.files[0];
+          preview.style.display = "block";
+          preview.src = URL.createObjectURL(file);
+          // input.remove(); // Remove the input field after displaying the image
+
+//           if(croppers.length >0){
+// croppers[0].destroy();
+// croppers.pop()
+//           }
+
+          const cropper = new Cropper(preview,{
+            aspectRatio:0,
+          })
+          croppers.push(cropper)
+          
+      }
+// function handleFileSelect(input,preview) {
+//     const file = input.files[0];
+//     // Create a new image element for the preview
+//     const preview = document.createElement('img');
+//     preview.style.display = "block";
+//     preview.src = URL.createObjectURL(file);
+//     // Append the new image element to the document body or a specific container
+//     document.body.appendChild(preview); // Adjust this line to append to a specific container if needed
+
+//     // Initialize a new Cropper instance for the new image element
+//     const cropper = new Cropper(preview, {
+//         aspectRatio: 0,
+//     });
+//     croppers.push(cropper);
+
+//     // Optionally, remove the input field after displaying the image
+//     // input.remove(); // Uncomment this line if you want to remove the input field after displaying the image
+// }
+
+      async function submitForm(e){
+        e.preventDefault()
+        const formData = new FormData()
+        const elements = e.target.elements
+
+        for(let i = 0; i<croppers.length;i++){
+          const imgDataUrl = croppers[i].getCroppedCanvas().toDataURL('image/png')
+          const blob = dataURItoBlob(imgDataUrl);
+          formData.append('productImage',blob,`image${i}.png`)
+        }
+        formData.append('productName',elements.productName.value)
+        formData.append('productPrice',elements.productPrice.value)
+        formData.append('productQuantity',elements.productQuantity.value)
+        // formData.append('productdiscount',elements.productdiscount.value)
+        formData.append('productDescription',elements.productDescription.value)
+        formData.append('productDetails',elements.productDetails.value)
+        formData.append('productCategory',elements.productCategory.value)
+        
+        try {
+          
+          const res = await fetch('/addproduct',{
+            method:"POST",
+            body:formData
+          })
+          if(res.ok){
+            location.href = '/productDetails'
+          }
+        } catch (error) {
+          console.log(error.message);
+        }
+      }
+
+
+      function dataURItoBlob(dataURI) {
+        const byteString = atob(dataURI.split(",")[1]);
+        const mimeString = dataURI.split(",")[0].split(":")[1].split(";")[0];
+        const ab = new ArrayBuffer(byteString.length);
+        const ia = new Uint8Array(ab);
+        for (let i = 0; i < byteString.length; i++) {
+          ia[i] = byteString.charCodeAt(i);
+        }
+        return new Blob([ab], { type: mimeString});
+    }
+     
+
+      document.getElementById('productImage1').addEventListener('change', function() {
+          handleFileSelect(this, document.getElementById('previewImage1'));
+      });
+
+      document.getElementById('productImage2').addEventListener('change', function() {
+          handleFileSelect(this, document.getElementById('previewImage2'));
+      });
+
+      document.getElementById('productImage3').addEventListener('change', function() {
+          handleFileSelect(this, document.getElementById('previewImage3'));
+      });
+
+      document.getElementById('productImage4').addEventListener('change', function() {
+          handleFileSelect(this, document.getElementById('previewImage4'));
+      });
+  </script>
+    <button type="submit" class="btn btnaction">Add Product</button>
+  </form>
+
+              <% if (typeof message !== 'undefined') { %>
+                 <p class="success-message"><%= message %></p>
+              <% } %>
+</div>
+
+<script>
+  //==========================validation===========
+
+  function submitForm(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      // Validate form fields
+      const productName = document.getElementById('productName').value.trim();
+      const productCategory = document.getElementById('productCategory').value.trim();
+      const productDescription = document.getElementById('productDescription').value.trim();
+      const productDetails = document.getElementById('productDetails').value.trim();
+      // Validate product price and quantity for numbers with a space
+      const productPrice = document.getElementById('productPrice').value.trim();
+      const productQuantity = document.getElementById('productQuantity').value.trim();
+
+      const numberPattern = /^(\d+(\s\d+)*)?$/; // Regex pattern for numbers with a space
+      const namePattern = /^[a-zA-Z\s]*$/; // Regex pattern for names (letters and spaces only)
+
+      // Check if any field is blank or contains invalid input
+      if (!productName || !productCategory || !productDescription || !productDetails ||
+          !productPrice.match(numberPattern) || !productQuantity.match(numberPattern) ||
+          !productName || !productCategory.match(namePattern)) {
+          alert('Please fill in all fields with valid input');
+          return; // Stop form submission if any field is blank or contains invalid input
+      }
+
+      event.target.submit();
+  }
+</script>
+
+
+
+</body>
+<% include('../layouts/footer.ejs')%>

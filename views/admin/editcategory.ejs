@@ -1,0 +1,93 @@
+<% include('../layouts/header.ejs') %>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Category</title>
+  
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
+
+    <div style="width: 80%; margin: 0 auto; background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+
+        <h1 style="color: #333;">Edit Category</h1>
+
+        <form id="editCategoryForm" action="/editcategory" method="POST" style="margin-top: 20px;">
+
+            <!-- Category Name Input -->
+            <div style="margin-bottom: 20px;">
+                <label for="categoryName" style="font-weight: bold; display: block;">Category Name:</label>
+                <input name="categoryName" type="text" value="<%= Cats.category %>" required style="width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
+
+                <input type="hidden" name="categoryid" value="<%= Cats._id %>">
+            </div>
+
+            <!-- Other Fields if needed -->
+
+            <!-- Submit Button -->
+            <button type="button" class="actionbtn"  id="submitButton" style="background-color: #4caf50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;" 
+           >
+                Save Changes
+            </button>
+        </form>
+
+    </div>
+
+    <script>
+       const button = document.getElementById("submitButton");
+
+button.addEventListener('click', async function () { // Make the event listener function async
+    // Get the value from the input field
+    var categoryName = document.querySelector('input[name="categoryName"]').value;
+    var categoryid = document.querySelector('input[name="categoryid"]').value;
+
+    var data = {
+        categoryName: categoryName,
+        categoryid: categoryid
+    };
+
+    try {
+        // Make the POST request using the fetch API
+        const response = await fetch('/editcategory', { // Define response variable
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+            const data = await response.json(); // Define data variable
+            console.log("Response:", data);
+            alert(data.message);
+            window.location.href = "/category";
+        } else {
+            const errorData = await response.json();
+            console.error("Error:", errorData);
+            alert(errorData.message); 
+        }
+    } catch (error) {
+        console.error('Network error:', error);
+        // Handle network error
+    }
+});
+
+    </script>
+  <style>
+    .body {
+        background-image: url('/adminAsset/vendor/src/assets/images/backgrounds/bg2.jpg');
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f8f8;
+
+        }
+</style>
+
+    <% include('../layouts/footer.ejs') %>
+  
+
+</body>

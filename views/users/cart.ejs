@@ -1,0 +1,756 @@
+<% include('../layouts/header.ejs') %>
+
+	<title>Shoping Cart</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="/asset/vendor/images/icons/favicon.png" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/bootstrap/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/fonts/iconic/css/material-design-iconic-font.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/fonts/linearicons-v1.0.0/icon-font.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/animate/animate.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/css-hamburgers/hamburgers.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/animsition/css/animsition.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/select2/select2.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/vendor/perfect-scrollbar/perfect-scrollbar.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/asset/vendor/css/main.css">
+	<!--===============================================================================================-->
+	</head>
+
+	<body class="animsition">
+		<style>
+			/* Add these styles to your CSS file or in a <style> tag in your HTML */
+			.product-row {
+				border-bottom: 1px solid #ccc;
+			}
+
+			.product-name {
+				font-weight: bold;
+			}
+
+			.product-price,
+			.product-total {
+				font-weight: bold;
+				color: #ff6600;
+				/* Adjust the color as needed */
+			}
+
+			.btn {
+				/* Add your button styles here */
+				background-color: #0e1013;
+				color: #fff;
+				/* Add other styles as needed */
+			}
+
+			/* Add more styles as per your design requirements */
+		</style>
+		<!-- Header -->
+		<header class="header-v4">
+			<!-- Header desktop -->
+			<div class="container-menu-desktop">
+				<!-- Topbar -->
+				<div class="top-bar">
+					<div class="content-topbar flex-sb-m h-full container">
+						<div class="left-top-bar">
+							Free shipping for standard order over $100
+						</div>
+
+						<div class="right-top-bar flex-w h-full">
+							<!-- <a href="#" class="flex-c-m trans-04 p-lr-25"> -->
+							Help & FAQs
+							</a>
+
+							<a href="#" class="flex-c-m trans-04 p-lr-25">
+								My Account
+							</a>
+
+							<!-- <a href="#" class="flex-c-m trans-04 p-lr-25"> -->
+							EN
+							</a>
+
+							<!-- <a href="#" class="flex-c-m trans-04 p-lr-25"> -->
+							USD
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="wrap-menu-desktop how-shadow1" style="background-color: #eaeaea;">
+					<h1 class="d-flex" style="justify-content: center; padding-top: 20px;">Cart</h1>
+				</div>
+
+
+				<!-- <div class="wrap-menu-desktop how-shadow1">
+				<nav class="limiter-menu-desktop container">
+					
+					Logo desktop		
+					<a href="#" class="logo">
+						<img src="/asset/vendor/images/icons/logo-01.png" alt="IMG-LOGO">
+					</a>
+
+					Menu desktop
+					<div class="menu-desktop">
+						<ul class="main-menu">
+							<li>
+								<a href="/">Home</a>
+								
+							</li>
+
+							<li>
+								<a href="product">Shop</a>
+							</li>
+
+							<li>
+								<a href="about">About</a>
+							</li>
+
+							<li>
+								<a href="contact">Contact</a>
+							</li>
+						</ul>
+					</div>	
+
+					Icon header
+					<div class="wrap-icon-header flex-w flex-r-m">
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
+							<i class="zmdi zmdi-search"></i>
+						</div>
+
+					</div>
+				</nav>
+			</div>	
+		</div>
+
+		Header Mobile
+		<div class="wrap-header-mobile">
+			Logo moblie		
+			<div class="logo-mobile">
+				<a href="index.html"><img src="/asset/vendor/images/icons/logo-01.png" alt="IMG-LOGO"></a>
+			</div>
+
+			Icon header
+			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
+					<i class="zmdi zmdi-search"></i>
+				</div>
+
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="2">
+					<i class="zmdi zmdi-shopping-cart"></i>
+				</div>
+
+				<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
+					<i class="zmdi zmdi-favorite-outline"></i>
+				</a>
+			</div>
+
+			Button show menu
+			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</div>
+ -->
+
+
+
+
+
+
+
+				<!-- breadcrumb -->
+				<div class="container">
+					<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg" style="margin-top: 60px;">
+						<a href="/product" class="stext-109 cl8 hov-cl1 trans-04">
+							<span class="stext-109 cl4">
+								Shop
+							</span>
+							<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+						</a>
+
+						<a href="/productDetail" class="stext-109 cl8 hov-cl1 trans-04">
+							<span class="stext-109 cl4">
+								Product
+							</span>
+							<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+						</a>
+
+					</div>
+				</div>
+
+
+
+				<% if (cart && cart.products && cart.products.length> 0) { %>
+
+					<form class="bg0  ">
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50 " style="padding-top: 50px;">
+									<div class="m-l-25 m-r--38 m-lr-0-xl">
+										<div class="wrap-table-shopping-cart">
+											<table class="table-shopping-cart">
+												<tr class="table_head">
+													<th class="column-1">Product</th>
+													<th class="text-center">Price</th>
+													<th class="text-center">Quantity</th>
+													<th class="text-center">Total</th>
+													<th class="text-center">Action</th>
+
+												</tr>
+
+												<% for (let i=0; i < cart.products.length; i++) { %>
+													<tr class="table_row">
+														<td class="column-1">
+															<div class="how-itemcart1">
+																<% cart.products[i].productId.productImage.forEach((image,
+																	index)=> { %>
+																	<% if (index===0) { %>
+																		<img src="<%= image %>" alt="IMG">
+																		<% } %>
+																			<% }) %>
+															</div>
+															<br>
+
+															<p class="product-name">
+																<%= cart.products[i].productId.productName %>
+															</p>
+														</td>
+
+														<td class="product-price text-center inputprice" id="price"
+															data-price="<%=  cart.products[i].productId.productPrice %>">
+															<%= cart.products[i].productId.productPrice - cart.products[i].productId.discount[0].discountPrice %>
+														</td>
+
+														<td class="column-2">
+															<div class="wrap-num-product flex-w m-l-auto m-r-0">
+																<div
+																	class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m decrement">
+																	<i class="fs-16 zmdi zmdi-minus"></i>
+																</div>
+
+																<input class="mtext-104 cl3 txt-center num-product"
+																	type="number" name="Quantity"
+																	cartid="<%= cart._id %>"
+																	productid="<%= cart.products[i]._id %>"
+																	productId="<%= cart.products[i].productId %>"
+																	quantity="<%= cart.products[i].Quantity %>" min="1"
+																	max="5" 
+																	value="<%= cart.products[i].Quantity %>">
+
+																<div
+																	class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m increment">
+																	<i class="fs-16 zmdi zmdi-plus"></i>
+																</div>
+															</div>
+														</td>
+														<%
+														let subtotal = 0;
+														
+														for (let i = 0; i < cart.products.length; i++) {	
+															subtotal += cart.products[i].productId.productPrice * cart.products[i].Quantity;
+														}
+														%>
+														
+														<% 
+														for (let i = 0; i < cart.products.length; i++) { 
+															subtotal -= cart.products[i].productId.discount[0].discountPrice;
+													   } 
+													   %>
+														<td class="text-center product-total">
+															<% const productprices = cart.products[i].productId.productPrice - cart.products[i].productId.discount[0].discountPrice %>
+
+															<% const productIquantity = cart.products[i].Quantity *productprices %>
+															 <%= productIquantity %>
+														</td>
+
+
+
+														<td class="column-2">
+															<form action="/cart1" method="POST">
+																<input type="hidden" name="cartId"
+																	value="<%= cart._id %>">
+																<input type="hidden" name="productId"
+																	value="<%= cart.products[i].productId %>">
+																<div class="text-center">
+																	<button type="button"
+																		class="btn btn-danger remove-btn"
+																		id="removeCart" cartId="<%=cart._id %>"
+																		 index="<%= i %>"
+																		productId="<%= cart.products[i].productId,i %>">Remove</button>
+																</div>
+															</form>
+														</td>
+													</tr>
+													<% } %>
+											</table>
+										</div>
+
+										<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm"
+											style="margin-top: 40px;">
+
+											<input type="text" name="coupon" placeholder="Coupon Code" value="">
+
+											<button type="submit" class="" onclick="Applycoupon()">
+												Apply coupon
+											</button>
+
+
+
+											<div
+												class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
+												Update Cart
+											</div>
+										</div>
+									</div>
+								</div>
+
+								
+								
+							
+							
+								<%
+								let subtotal = 0;
+							
+								for (const product of cart.products) {
+									const productPrice = product.productId.productPrice;
+									const discountPrice = product.productId.discount[0].discountPrice;
+									const discountedPrice = productPrice - discountPrice;
+									const productQuantity = product.Quantity;
+									subtotal += discountedPrice * productQuantity;
+								}
+							%>
+							
+							<div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
+								<div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
+									<h4 class="mtext-109 cl2 p-b-30">
+										Cart Totals
+									</h4>
+							
+									<div class="flex-w flex-t p-t-27 p-b-33" style="width: 400px;">
+										<div class="size-208" style="width: 100px;">
+											<span class="mtext-101 cl2">
+												Sub Total:
+											</span>
+										</div>
+										<div class="size-209 p-t-1">
+											<span class="mtext-110 cl2" style="margin-left: 100px;">
+												&#8377;<%= subtotal %>
+											</span>
+										</div>
+									</div>
+							
+									<div class="flex-w flex-t p-t-27 p-b-33" style="width: 400px;">
+										<div class="size-208" style="width: 200px;">
+											<span class="mtext-101 cl2">
+												Total Amount:
+											</span>
+										</div>
+										<div class="size-209 p-t-1" style="width: 100px;">
+											<span class="mtext-110 cl2">
+												&#8377;<%= subtotal %>
+											</span>
+												</div>
+										</div>
+										
+										<!-- <a href="/checkout"> -->
+											<% var hasExceededQuantity = false; %>
+					<% for (let i = 0; i < cart.products.length; i++) { %>
+						<% if (cart.products[i].productId.productQuantity <= 0) { %>
+							<% hasExceededQuantity = true; %>
+						<% } %>
+					<% } %>
+
+					<% if (hasExceededQuantity) { %>
+						<button class="btn bg-primary text-light" id="ordercheck" style="height:40px; width:120px; margin-top:30px;">Proceed to Checkout</button>
+						<script>
+							document.getElementById('ordercheck').addEventListener('click', function () {
+								Swal.fire({
+									icon: 'ERROR',
+									title: 'Quantity of product exceeds the limit',
+									text: 'Your Quantity has exceeded productQuantity!'
+								});
+							});
+						</script>
+					<% } else { %>
+						<a href="/checkout" class="btn bg-primary " style="width:300px; height:50px">
+							<h5 class="p-t-5">Proceed to Checkout</h5>
+						</a>
+					<% } %>
+
+										
+										<!-- </a> -->
+
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+
+					<% }else{ %>
+						<div class=" text-center">
+							<img src="data:image/png;base64,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"
+								width="400" height="500" alt="">
+						</div>
+						<% } %>
+
+
+							<!-- Footer -->
+							<footer class="bg3 p-t-75 p-b-32">
+								<div class="container">
+									<div class="row">
+										<div class="col-sm-6 col-lg-3 p-b-50">
+											<h4 class="stext-301 cl0 p-b-30">
+												Categories
+											</h4>
+
+											<ul>
+												<li class="p-b-10">
+													<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+														Women
+													</a>
+												</li>
+
+												<li class="p-b-10">
+													<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+														Men
+													</a>
+												</li>
+
+												<li class="p-b-10">
+													<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+														Shoes
+													</a>
+												</li>
+
+												<li class="p-b-10">
+													<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+														Watches
+													</a>
+												</li>
+											</ul>
+										</div>
+
+										<div class="col-sm-6 col-lg-3 p-b-50">
+											<h4 class="stext-301 cl0 p-b-30">
+												Help
+											</h4>
+
+											<ul>
+												<li class="p-b-10">
+													<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+														Track Order
+													</a>
+												</li>
+
+												<li class="p-b-10">
+													<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+														Returns
+													</a>
+												</li>
+
+												<li class="p-b-10">
+													<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+														Shipping
+													</a>
+												</li>
+
+												<li class="p-b-10">
+													<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+														FAQs
+													</a>
+												</li>
+											</ul>
+										</div>
+
+										<div class="col-sm-6 col-lg-3 p-b-50">
+											<h4 class="stext-301 cl0 p-b-30">
+												GET IN TOUCH
+											</h4>
+
+											<p class="stext-107 cl7 size-201">
+												Any questions? Let us know in store at 8th floor, 379 Hudson St, New
+												York, NY 10018 or call us on (+1) 96 716 6879
+											</p>
+
+											<div class="p-t-27">
+												<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+													<i class="fa fa-facebook"></i>
+												</a>
+
+												<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+													<i class="fa fa-instagram"></i>
+												</a>
+
+												<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+													<i class="fa fa-pinterest-p"></i>
+												</a>
+											</div>
+										</div>
+
+										<div class="col-sm-6 col-lg-3 p-b-50">
+											<h4 class="stext-301 cl0 p-b-30">
+												Newsletter
+											</h4>
+
+											<form>
+												<div class="wrap-input1 w-full p-b-4">
+													<input class="input1 bg-none plh1 stext-107 cl7" type="text"
+														name="email" placeholder="email@example.com">
+													<div class="focus-input1 trans-04"></div>
+												</div>
+
+												<div class="p-t-18">
+													<button
+														class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+														Subscribe
+													</button>
+												</div>
+											</form>
+										</div>
+									</div>
+
+									<div class="p-t-40">
+										<div class="flex-c-m flex-w p-b-18">
+											<a href="#" class="m-all-1">
+												<img src="/asset/vendor/images/icons/icon-pay-01.png" alt="ICON-PAY">
+											</a>
+
+											<a href="#" class="m-all-1">
+												<img src="/asset/vendor/images/icons/icon-pay-02.png" alt="ICON-PAY">
+											</a>
+
+											<a href="#" class="m-all-1">
+												<img src="/asset/vendor/images/icons/icon-pay-03.png" alt="ICON-PAY">
+											</a>
+
+											<a href="#" class="m-all-1">
+												<img src="/asset/vendor/images/icons/icon-pay-04.png" alt="ICON-PAY">
+											</a>
+
+											<a href="#" class="m-all-1">
+												<img src="/asset/vendor/images/icons/icon-pay-05.png" alt="ICON-PAY">
+											</a>
+										</div>
+
+										<p class="stext-107 cl6 txt-center">
+											<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+											Copyright &copy;
+											<script>document.write(new Date().getFullYear());</script> All rights
+											reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
+												href="https://colorlib.com" target="_blank">Colorlib</a> &amp;
+											distributed by <a href="https://themewagon.com"
+												target="_blank">ThemeWagon</a>
+											<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+										</p>
+									</div>
+								</div>
+							</footer>
+
+							<script>
+
+								//  ==========================================remove cart==========
+								document.querySelectorAll('.remove-btn').forEach(function(button) {
+									button.addEventListener('click', function() {
+										const productId = this.getAttribute('productId');
+										const cartId = this.getAttribute('cartId');
+                                        const index = this.getAttribute('index')
+
+										// Prepare the data object
+										const data = {
+											index:index,
+											cartId: cartId,
+											productId: productId
+										};
+										console.log(data)
+										return 
+
+										// Send the fetch request
+										fetch('/cart1', {
+											method: 'POST',
+											headers: {
+												'Content-Type': 'application/json'
+											},
+											body: JSON.stringify(data)
+										})
+										.then(response => {
+											if (response.ok) {
+												// Reload the page if the response is OK
+												window.location.reload();
+										
+											} else {
+												// Handle other response statuses if needed
+												console.error('Error:', response.statusText);
+											}
+										})
+										.catch(error => {
+											console.error('Error:', error);
+										});
+									});
+								});
+
+							</script>
+							<script>
+
+								//==================================increment and decrement
+
+								const quantityChange = function (input, change) {
+										let currentValue = parseInt(input.value);
+										const minValue = parseInt(input.getAttribute('min'));
+										const maxValue = parseInt(input.getAttribute('max'));
+
+										// Update the quantity within the specified range
+										currentValue = Math.max(minValue, Math.min(currentValue + change, maxValue));
+										// console.log(currentValue+'currentvalue');
+
+										// Update the input field with the new quantity
+										// input.value = currentValue;
+										
+
+										// Update the price based on quantity
+										updatePrice(input);
+
+
+									};
+
+									//================================price update
+									const updatePrice = function (input) {
+										const productid = input.getAttribute('productid');
+										const productId = input.getAttribute('productId');
+										const cartId = input.getAttribute('cartid');
+										const productPrice = parseInt(input.getAttribute('data-price'));
+                                        console.log(productId);
+										console.log(productid + 'product');
+										console.log(cartId + 'cart');
+										console.log(productPrice + 'price');
+
+										const newPrice = parseInt(input.value) * productPrice;
+										console.log(input.value + 'inputvalue');
+
+										const priceElement = document.getElementById(`price-${productId}`);
+										if (priceElement) {
+											priceElement.textContent = newPrice.toFixed(2);
+										}
+
+										const data = {
+											cartId: cartId,
+											productid: productid,
+											productId:productId,
+											Quantity: input.value
+										};
+
+										fetch('/cart2', {
+											method: 'POST',
+											headers: {
+												'Content-Type': 'application/json'
+											},
+											body: JSON.stringify(data)
+										})
+											.then(response => {
+												if (response.ok) {
+													console.log(response);
+													window.location.reload(); // Reload the page if quantity data is present
+													return 
+													// alert(res)
+													// console.log(res);
+												}else{
+													Swal.fire({
+													icon: 'ERROR',
+													title: 'Quantity of product exceeds the limit',
+													text: 'Your Quantity has exceeds productQuantity!'
+												});
+												
+												}
+											})
+											.catch(error => {
+												console.error('Error:', error);
+												// Handle any errors here
+											});
+									};
+
+
+								document.addEventListener('DOMContentLoaded', function () {
+
+									//==================================button increment and decrement
+
+									// Attach event listeners to all num-product elements
+									const quantityChangeButtons = document.querySelectorAll('.num-product');
+									quantityChangeButtons.forEach(function (input) {
+										const decrement = input.parentNode.querySelector('.decrement');
+										const increment = input.parentNode.querySelector('.increment');
+										// console.log(decrement);
+										// console.log(increment);
+
+										decrement.addEventListener('click', function () {
+											quantityChange(input, -1);
+										});
+
+										increment.addEventListener('click', function () {
+											quantityChange(input, 1);
+										});
+
+										// updatePrice(input);
+									});
+								});
+
+
+							</script>
+
+
+
+
+							<!--===============================================================================================-->
+							<script src="/asset/vendor/vendor/jquery/jquery-3.2.1.min.js"></script>
+							<!--===============================================================================================-->
+							<script src="/asset/vendor/vendor/animsition/js/animsition.min.js"></script>
+							<!--===============================================================================================-->
+							<script src="/asset/vendor/vendor/bootstrap/js/popper.js"></script>
+							<script src="/asset/vendor/vendor/bootstrap/js/bootstrap.min.js"></script>
+							<!--===============================================================================================-->
+							<script src="/asset/vendor/vendor/select2/select2.min.js"></script>
+							<script>
+								$(".js-select2").each(function () {
+									$(this).select2({
+										minimumResultsForSearch: 20,
+										dropdownParent: $(this).next('.dropDownSelect2')
+									});
+								})
+							</script>
+							<!--===============================================================================================-->
+							<script src="/asset/vendor/vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+							<!--===============================================================================================-->
+							<script src="/asset/vendor/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+							<script>
+								$('.js-pscroll').each(function () {
+									$(this).css('position', 'relative');
+									$(this).css('overflow', 'hidden');
+									var ps = new PerfectScrollbar(this, {
+										wheelSpeed: 1,
+										scrollingThreshold: 1000,
+										wheelPropagation: false,
+									});
+
+									$(window).on('resize', function () {
+										ps.update();
+									})
+								});
+							</script>
+							<!--===============================================================================================-->
+							<script src="/asset/vendor/js/main.js"></script>
+							<!-- Example: Include SweetAlert from CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+	</body>
+	<% include('../layouts/footer.ejs') %>
