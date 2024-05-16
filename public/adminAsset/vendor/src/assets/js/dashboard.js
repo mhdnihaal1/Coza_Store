@@ -6,7 +6,7 @@ $(function () {
 
 
 var chartbrand = {
-  series: [{ name: "Earnings this month:", data: [0,0,0] }],
+  series: [{ name: "Earnings this month:", data: [11,25,0] }],
 
   chart: {
     type: "bar",
@@ -91,7 +91,8 @@ var chartbrand = {
     },
   ],
 };
-
+var brandgraph = new ApexCharts(document.querySelector("#chartbrand"), chartbrand);
+brandgraph.render();  
 
 $(document).ready(function () {
   $("#chartbrand").click(function () {

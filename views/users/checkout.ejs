@@ -398,9 +398,9 @@
                                 <% } %>
                             </select>
                             <% if (cart.couponPrice == 0 ) { %>
-                                <button class="btn btn-muted" id="applycoupon" style="width: 100px;  height: 24px; padding-top: 0%;" onclick="applycoupon('<%= subtotal %>')">Apply</button>
+                                <button class="btn btn-muted" id="applycoupon" style="width: 100px;  height: 24px; padding-top: 0%;" onclick="applycoupon('<%= subtotal %>')" value="Apply">Apply</button>
                             <% } else { %>
-                                <button class="btn btn-muted" id="removecoupon" style="width: 100px;  height: 24px; padding-top: 0%; padding-left: 20px;" onclick="removecoupon()">Remove</button>
+                                <button class="btn btn-muted" id="removecoupon" style="width: 100px;  height: 24px; padding-top: 0%; padding-left: 20px;" onclick="removecoupon()" value="Remove">Remove</button>
                             <% } %>
 
                         </div>
@@ -449,8 +449,14 @@
                                 console.log(totalprice)
 
                                 var select = document.getElementById("mySelect");
+
+                                // if (select.innerHTML .trim() === "Apply") {
+                                //     select.innerHTML  = "Remove";
+                                //     }
+                               
                                 var selectedCouponPrice = select.options[select.selectedIndex].value;
-                                
+
+
 
                             let data ={
                                 couponPrice:selectedCouponPrice,
@@ -472,14 +478,15 @@
                                     if (!res.ok) {
                                         throw new Error('Response not okay');
                                     }
-                                  const removeCouponButton =  document.getElementById("removecoupon");
-                                    removeCouponButton.innerHTML = '';
+                                  window.location.reload()
+                                //   const removeCouponButton =  document.getElementById("removecoupon");
+                                //     removeCouponButton.innerHTML = '';
 
-                                    // Create a new text node with the desired text
-                                    const newText = document.createTextNode("Remove");
+                                //     // Create a new text node with the desired text
+                                //     const newText = document.createTextNode("Remove");
 
-                                    // Append the new text node to the button
-                                    removeCouponButton.appendChild(newText);
+                                //     // Append the new text node to the button
+                                //     removeCouponButton.appendChild(newText);
                                     return res.json();
                                 })
                                 .then(data => {
@@ -496,8 +503,12 @@
 
                             function removecoupon (){
 
-                            var select = document.getElementById("mySelect");
-                            var selectedCouponPrice = select.options[select.selectedIndex].value;
+                                var select = document.getElementById("mySelect");
+
+                        // if (select.textContent.trim() === "Remove") {
+                        //     select.textContent = "Apply";
+                        //     }      
+                          var selectedCouponPrice = select.options[select.selectedIndex].value;
 
                             let data ={
                             couponPrice:selectedCouponPrice
@@ -515,6 +526,8 @@
                             if (!res.ok) {
                                 throw new Error('Network response was not ok');
                             }
+                            // window.location.reload()
+
                              res.json();
                         })
                         .then(data => {

@@ -281,6 +281,7 @@ zfdhzaafd
                                     <tr class="table_head">
                                         <th class="column-1">Product</th>
                                         <th class="text-center">Price</th>
+                                        <th class="text-center">Remove</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                 
@@ -315,6 +316,36 @@ zfdhzaafd
                                                     </div>
                                                 </form>
                                             </td>
+                                                
+                                            <td class="column-2" style="padding-left: 7%;">
+
+                                                <% if(product.productId.productQuantity > 0) { %>
+
+                                            <a href="/cart"></a>
+                                                <button type="button" class="btn btn-danger ADD-btn" id="addToCartButton"  productId="<%= product.productId %>">
+                                                    <span style="color: lightcyan;">Add to cart</span>
+                                                </button>
+                                            </a>
+                                            <% } else { %>
+                                                    <button type="button" class="btn btn-danger ADD-btn" onclick="showModal()">
+                                                        <span style="color: lightcyan;">Add to cart</span>
+                                                    </button>
+                                                    <% } %>
+
+                                                </td>
+                                                <script>
+                                                    function showModal() {
+                                                        Swal.fire({
+                                                            title: 'Stock Unavailable',
+                                                            text: 'There is no stock available, therefore purchase another one!',
+                                                            icon: 'error', 
+                                                            confirmButtonText: 'OK'
+                                                        });
+                                                    }
+                                                </script>
+
+                                           
+
                                         </tr>
                                     <% } %>
                                     
@@ -329,6 +360,55 @@ zfdhzaafd
                 </div>
             </div>
      </div>
+
+
+
+     <script>
+
+//==============================add to cart
+
+const addToCartButtons = document.querySelectorAll('.ADD-btn');
+addToCartButtons.forEach(button => {
+    button.addEventListener('click', function() {		
+			const productId = this.getAttribute('productId');
+            console.log(productId)
+			const count = this.getAttribute('value');
+			
+			let url ='/wishlistCart'
+		
+			fetch(url,{
+				method: 'post', // Adjust the method based on your server-side route
+				headers: {
+					'Content-Type': 'application/json', // Adjust the content type if needed
+				},
+				body:JSON.stringify({productId,count})
+		
+			})
+			.then(response => {
+				if (response.ok) {
+					const res= response.json();
+                    function showModal() {
+                           Swal.fire({
+                              title: 'Stock Unavailable',
+                              text: 'There is no stock available, therefore purchase another one!',
+                              icon: 'error', 
+                              confirmButtonText: 'OK'
+                                    });
+                                 }
+                   				}else{
+					throw new Error(`HTTP error! Status: ${response.status}`);
+				}
+			})
+			.then(data => {
+				// alert(data)
+				console.log(data);
+			})
+			.catch(error => {
+				console.error('Fetch error:', error);
+			});
+		});
+    });
+			</script>
 
 <script>
 //  ==========================================remove wishlist

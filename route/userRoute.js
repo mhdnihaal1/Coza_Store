@@ -72,6 +72,7 @@ user_route.post('/product',userController.addproduct)
 
 user_route.get('/productDetail/:id',userblockMiddle.isBlock,userController.productDetailsLoad)
 user_route.post('/productDetail',userController.productdetails)
+user_route.post('/wishlistCart',userController.wishlistCart)
 
 
 
@@ -110,6 +111,7 @@ user_route.post('/userProfilepasswordchange',userMiddle.isLogin,userblockMiddle.
 //======================wishlist
 user_route.get('/wishlist',userController.wishlist)
 user_route.post('/wishlist1',userController.removewishlist)
+// user_route.post('/wishlistaddtocart',userController.wishlistCart)
 
 
 //=======================checkout
