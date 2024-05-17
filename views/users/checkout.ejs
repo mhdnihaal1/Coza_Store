@@ -562,7 +562,10 @@
                 <div class="input-group d-flex">
                     <label for="Paymentmethod">Payment method :</label> 
                     <div class="Paymentmethod-options " style="margin-left: 50px; margin-top: 20px;">
-
+                     <% if(walletn >   Total-50 ){ %>
+                        <label for="Wallet">Wallet :</label>
+                        <input type="radio" id="Wallet" name="Paymentmethod" value="Wallet">
+                    <% } %>
                                 <label for="Cashondelivery">COD :</label>
                                 <input type="radio" id="Cashondelivery" name="Paymentmethod" value="COD">
 
@@ -713,29 +716,33 @@ function setupRazorpay(orderId, amount) {
         }
 
 
+        document.getElementById('Wallet').addEventListener('click',function(){
+            checkboxes = ['Wallet'];
+    console.log(checkboxes);
+        })
         
 
      document.getElementById('Cashondelivery').addEventListener('click', function() {
     checkboxes = ['COD'];
     console.log(checkboxes);
 
-    const amountString = document.querySelector("#TotalPrice").innerText;
-const amount5 = parseInt(amountString.replace("₹", ""), 10);
+//     const amountString = document.querySelector("#TotalPrice").innerText;
+// const amount5 = parseInt(amountString.replace("₹", ""), 10);
 
-   if( amount5 > 50000 ){
+//    if( amount5 > 50000 ){
  
-    const amountString = document.querySelector("#TotalPrice").innerText;
-const amount1 = parseInt(amountString.replace("₹", ""), 10);
-console.log(amount1)
-    const orderId = ''; 
+//     const amountString = document.querySelector("#TotalPrice").innerText;
+// const amount1 = parseInt(amountString.replace("₹", ""), 10);
+// console.log(amount1)
+//     const orderId = ''; 
 
-    const amount2 = amount1 / 2;
-const amount3 = amount1 - amount2;
-console.log(amount3)
+//     const amount2 = amount1 / 2;
+// const amount3 = amount1 - amount2;
+// console.log(amount3)
 
-setupRazorpayCOD(orderId,amount3)
+// setupRazorpayCOD(orderId,amount3)
 
-   }
+//    }
 
 });
 
