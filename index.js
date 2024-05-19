@@ -23,9 +23,9 @@ require('dotenv').config();
 
  //========================this is for google login in===================
 
-function isLoggedIn(req,res,next){
-req.user ? next() :res.sendStatus(401)
-}
+// function isLoggedIn(req,res,next){
+// req.user ? next() :res.sendStatus(401)
+// }
 
 //  app.get('/',(req,res)=>{
 //     res.sendFile('index.html');
@@ -46,33 +46,6 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session())
-
-//  app.get('/auth/google',
-//  passport.authenticate('google', { scope:
-//      ['email','profile'] }
-// ));
-
-// app.get('/auth/google/callback',
-//    passport.authenticate( 'google', {
-//        successRedirect: '/auth/google/success',
-//        failureRedirect: '/auth/google/failure'
-// }));
-
-
-// app.get('/auth/google/failure',isLoggedIn,(req,res)=>{
-//     res.send('Something  wrong happens in login!')
-// })
-
-// app.get('/auth/google/success',isLoggedIn,(req,res)=>{
-//     let name =req.user.displayName;
-//     res.send(`Login Success ${name}`)
-// })
-
-// app.use('/auth/logout',(req,res)=>{
-//     req.session.destroy();
-//     res.send(' Session destroy');
-// })
-//===============================================================
 
 //----------for admin routes
 

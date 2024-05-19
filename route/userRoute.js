@@ -66,7 +66,7 @@ user_route.post('/resendOTP',userController.resendOTP)
 
 //-----------------------------------product ----------------------
 
-user_route.get('/product',userblockMiddle.isBlock,userController.productLoad)
+user_route.get('/product',userController.productLoad)
 user_route.post('/product',userController.addproduct)
 // user_route.get('/product',userController.productfilter)
 
@@ -78,12 +78,12 @@ user_route.post('/wishlistCart',userController.wishlistCart)
 
 //---------------------about
 
-user_route.get('/about',userblockMiddle.isBlock,userController.aboutLoad)
+user_route.get('/about',userController.aboutLoad)
 
 
 //-------------------------contact
 
-user_route.get('/contact',userblockMiddle.isBlock,userController.contactLoad)
+user_route.get('/contact',userController.contactLoad)
 
 //------------------------------cart
 
