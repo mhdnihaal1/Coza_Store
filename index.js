@@ -71,7 +71,7 @@ const productRoute = require('./route/productRoute')
 app.use('/',productRoute)
 
 
-const port =8000;
+const port =3000;
 
 app.listen(port,()=>{
 console.log('server is working...')
