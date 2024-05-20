@@ -1,6 +1,9 @@
 
 const mongoose=require('mongoose')
-mongoose.connect('mongodb://127.0.0.1:27017/User_Managment_Database');
+require('dotenv').config();
+
+const mongoUri = process.env.MONGODBATLAS;
+mongoose.connect(mongoUri); 
 const path = require('path');
 
 const express=require('express')
@@ -12,7 +15,6 @@ const app=express()
 const passport = require('passport')
 app.use(express.static(path.resolve(__dirname,'public')));
 app.use('/uploads',express.static('uploads'));
-require('dotenv').config();
 
 
 
