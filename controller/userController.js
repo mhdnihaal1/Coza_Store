@@ -726,7 +726,7 @@ const quantity = async (req, res) => {
 
       cart.products.forEach((product) => {
         const productQuantity = product.productId.productQuantity;
-        console.log("Product Quantity:", productQuantity);
+        // console.log("Product Quantity:", productQuantity);
 
         if (productQuantity < Quantity) {
           exceedsLimit = true;

@@ -575,10 +575,9 @@
                 </div>
                 
                 <!-- <a href="/order"> -->
-                    <% if(address){%>
+                 
                     <button class="btn bg-muted text-light" id="orderplaced" style="height:40px; width:120px; margin-top:30px;" data-userid="<%= address.address.userId %>" style="background-color: #333;">Place Order</button>
-                    <% }else{ %>
-                        <% } %>
+               
                 <!-- </a> -->
             </div>
         </div>
@@ -716,100 +715,19 @@ function setupRazorpay(orderId, amount) {
         }
 
 
+        document.getElementById('Cashondelivery').addEventListener('click', function() {
+    checkboxes = ['COD'];
+    console.log(checkboxes);
+
+});
+
         document.getElementById('Wallet').addEventListener('click',function(){
             checkboxes = ['Wallet'];
     console.log(checkboxes);
         })
         
 
-     document.getElementById('Cashondelivery').addEventListener('click', function() {
-    checkboxes = ['COD'];
-    console.log(checkboxes);
 
-//     const amountString = document.querySelector("#TotalPrice").innerText;
-// const amount5 = parseInt(amountString.replace("₹", ""), 10);
-
-//    if( amount5 > 50000 ){
- 
-//     const amountString = document.querySelector("#TotalPrice").innerText;
-// const amount1 = parseInt(amountString.replace("₹", ""), 10);
-// console.log(amount1)
-//     const orderId = ''; 
-
-//     const amount2 = amount1 / 2;
-// const amount3 = amount1 - amount2;
-// console.log(amount3)
-
-// setupRazorpayCOD(orderId,amount3)
-
-//    }
-
-});
-
-    function setupRazorpayCOD(orderId, amount) {
-            console.log("setupRazorpayCOD");
-            console.log(checkboxes);
-
-            var options = {
-                key: "rzp_test_Mufod828rplfnf",
-                amount: amount * 100,
-                currency: "INR",
-                name: "Coza store",
-                description: "Test Transaction",
-                image: "Coza white.png",
-                order_id: orderId,
-                handler: async function (response) {
-                    const paymentData = {
-                        payment_id: response.razorpay_payment_id,
-                        order_id: response.razorpay_order_id,
-                        signature: response.razorpay_signature,
-                    };
-                    let amount = document
-                        .querySelector("#TotalPrice")
-                        .innerText.replace("₹", "");
-                    console.log(amount);
-                    try {
-                        console.log("verifyPayment");
-                        const response = await fetch("/verify-paymentCODonline", {
-                            method: "POST",
-                            headers: {
-                                "Content-Type": "application/json",
-                            },
-                            body: JSON.stringify(paymentData),
-                        });
-                        if (response.ok) {
-
-                            // checkboxes = ["Onlinepayment"];
-                    // console.log(checkboxes)
-            } else {
-
-                // checkboxes = ["pending"];
-                    // console.log(checkboxes)
-
-            }
-                         
-                    } catch (error) {
-                        console.log(error);
-                    }
-                },
-                theme: {
-                    color: "#3399cc",
-                },
-            };
-            var rzp1 = new Razorpay(options);
-
-            rzp1.on("payment.failed", function (response) {
-                // checkboxes=["pending"]
-                // console.log(checkboxes)
-
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: response.error.description
-                });
-            });
-            rzp1.open();
-        }
 
    
 

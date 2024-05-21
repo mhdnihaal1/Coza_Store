@@ -637,10 +637,10 @@
 										const newPrice = parseInt(input.value) * productPrice;
 										console.log(input.value + 'inputvalue');
 
-										const priceElement = document.getElementById(`price-${productId}`);
-										if (priceElement) {
-											priceElement.textContent = newPrice.toFixed(2);
-										}
+										// const priceElement = document.getElementById(`price-${productId}`);
+										// if (priceElement) {
+										// 	priceElement.textContent = newPrice.toFixed(2);
+										// }
 
 										const data = {
 											cartId: cartId,
@@ -660,7 +660,7 @@
 												if (response.ok) {
 													console.log(response);
 													window.location.reload(); // Reload the page if quantity data is present
-													return 
+													
 													// alert(res)
 													// console.log(res);
 												}else{
@@ -683,23 +683,26 @@
 
 									//==================================button increment and decrement
 
-									// Attach event listeners to all num-product elements
 									const quantityChangeButtons = document.querySelectorAll('.num-product');
 									quantityChangeButtons.forEach(function (input) {
-										const decrement = input.parentNode.querySelector('.decrement');
+										
+										if(input == 1){
+											const decrement = input.parentNode.querySelector('.decrement');
+											decrement.addEventListener('click', function () {
+										    quantityChange(input, 1);
+								        	});
+										}
 										const increment = input.parentNode.querySelector('.increment');
-										// console.log(decrement);
-										// console.log(increment);
+									
 
-										decrement.addEventListener('click', function () {
-											quantityChange(input, -1);
-										});
+										
+										
+										
 
-										increment.addEventListener('click', function () {
-											quantityChange(input, 1);
-										});
+											increment.addEventListener('click', function () {
+												quantityChange(input, 1);
+											});
 
-										// updatePrice(input);
 									});
 								});
 
