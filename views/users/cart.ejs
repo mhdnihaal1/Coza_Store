@@ -686,12 +686,12 @@
 									const quantityChangeButtons = document.querySelectorAll('.num-product');
 									quantityChangeButtons.forEach(function (input) {
 										
-										if(input == 1){
+										
 											const decrement = input.parentNode.querySelector('.decrement');
 											decrement.addEventListener('click', function () {
 										    quantityChange(input, 1);
 								        	});
-										}
+										
 										const increment = input.parentNode.querySelector('.increment');
 									
 
@@ -701,8 +701,7 @@
 
 											increment.addEventListener('click', function () {
 												quantityChange(input, 1);
-											});
-
+										});
 									});
 								});
 
