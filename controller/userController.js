@@ -707,6 +707,17 @@ const quantity = async (req, res) => {
     console.log("quantity ");
     const { cartId, productid, productId, Quantity } = req.body;
 
+  //   const product = await Product.findOne({_id:productId});
+
+  
+
+  //   if (Quantity >= product.productQuantity) {
+  //     return res.status(400).json({ error: `Requested quantity exceeds available stock. Available quantity: ${product.productQuantity}` });
+  // }
+  
+    
+   
+
     const cart = await Cart.findOne({ _id: cartId }).populate(
       "products.productId"
     );

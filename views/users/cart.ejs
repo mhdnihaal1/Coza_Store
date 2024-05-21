@@ -244,7 +244,7 @@
 																	productid="<%= cart.products[i]._id %>"
 																	productId="<%= cart.products[i].productId %>"
 																	quantity="<%= cart.products[i].Quantity %>" min="1"
-																	max="5" 
+																	max="<%= cart.products[i].productId.productQuantity %>" 
 																	value="<%= cart.products[i].Quantity %>">
 
 																<div
@@ -295,7 +295,7 @@
 											</table>
 										</div>
 
-										<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm"
+										<!-- <div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm"
 											style="margin-top: 40px;">
 
 											<input type="text" name="coupon" placeholder="Coupon Code" value="">
@@ -310,7 +310,7 @@
 												class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
 												Update Cart
 											</div>
-										</div>
+										</div> -->
 									</div>
 								</div>
 
