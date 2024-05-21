@@ -562,12 +562,12 @@
                 <div class="input-group d-flex">
                     <label for="Paymentmethod">Payment method :</label> 
                     <div class="Paymentmethod-options " style="margin-left: 50px; margin-top: 20px;">
-                     <% if(walletn >   Total-50 ){ %>
+                     <% if(walletn >=   Total-50 ){ %>
                         <label for="Wallet">Wallet :</label>
                         <input type="radio" id="Wallet" name="Paymentmethod" value="Wallet">
                     <% } %>
-                                <label for="Cashondelivery">COD :</label>
-                                <input type="radio" id="Cashondelivery" name="Paymentmethod" value="COD">
+                            <label for="Cashondelivery">COD :</label>
+                            <input type="radio" id="Cashondelivery" name="Paymentmethod" value="COD">
 
                         <label for="Onlinepayment">Online payment :</label>
                         <input type="radio" id="Onlinepayment" name="Paymentmethod" value="Onlinepayment">
@@ -715,16 +715,40 @@ function setupRazorpay(orderId, amount) {
         }
 
 
-        document.getElementById('Cashondelivery').addEventListener('click', function() {
-    checkboxes = ['COD'];
+
+        
+        document.addEventListener('DOMContentLoaded', function () {
+    const walletRadio = document.getElementById('Wallet');
+    const codRadio = document.getElementById('Cashondelivery');
+    const onlinePaymentRadio = document.getElementById('Onlinepayment');
+
+    if (walletRadio) {
+        walletRadio.checked = true;
+        checkboxes = ['Wallet'];
+    } else {
+        codRadio.checked = true;
+        checkboxes = ['COD'];
+    }
+
     console.log(checkboxes);
 
+    walletRadio?.addEventListener('click', function() {
+        checkboxes = ['Wallet'];
+        console.log(checkboxes);
+    });
+
+    codRadio.addEventListener('click', function() {
+        checkboxes = ['COD'];
+        console.log(checkboxes);
+    });
+
+    onlinePaymentRadio.addEventListener('click', function() {
+        checkboxes = ['Onlinepayment'];
+        console.log(checkboxes);
+    });
 });
 
-        document.getElementById('Wallet').addEventListener('click',function(){
-            checkboxes = ['Wallet'];
-    console.log(checkboxes);
-        })
+
         
 
 
@@ -734,19 +758,20 @@ function setupRazorpay(orderId, amount) {
   
 console.log(index,userid+'hlkoo');
     document.getElementById('orderplaced').addEventListener('click', function() {   
+        console.log(123)
 
         const subtotalElement = document.getElementById('subtotal1');
         const couponPrice = subtotalElement.textContent;
         const value = couponPrice.replace('₹', '');
         const couponprice = parseFloat(value);
-        console.log(couponprice);
+        // console.log(couponprice);
 
-        console.log(index,userid+'Inside');
+        // console.log(index,userid+'Inside');
 
         const userId = document.getElementById('userId');
         const TotalPrice = document.querySelector("#TotalPrice").innerText;
-        console.log(TotalPrice);
-        console.log(checkboxes+'123');
+        // console.log(TotalPrice);
+        // console.log(checkboxes+'123');
    
      
             const data = {
@@ -759,8 +784,6 @@ console.log(index,userid+'hlkoo');
 
         }
         console.log(data);
-
-      console.log(data);
 
          fetch('/checkout', {
             method: 'POST',
