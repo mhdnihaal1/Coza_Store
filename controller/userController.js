@@ -361,7 +361,7 @@ const productLoad = async (req, res) => {
     const nameOfuser = req.session.USER ? req.session.USER.name : null;
     const { id, search } = req.query;
 
-    console.log(search);
+    // console.log(search);
 
     let searchproduct = [];
     let product = [];
@@ -374,7 +374,7 @@ const productLoad = async (req, res) => {
       product = await Product.find();
     }
 
-    console.log('search'+product);
+    // console.log('search'+product);
 
 
     
