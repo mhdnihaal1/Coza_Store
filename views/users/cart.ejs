@@ -253,26 +253,12 @@
 																</div>
 															</div>
 														</td>
-														<%
-														let subtotal = 0;
 														
-														for (let i = 0; i < cart.products.length; i++) {	
-															subtotal += cart.products[i].productId.productPrice * cart.products[i].Quantity;
-														}
-														%>
-														
-														<% 
-														for (let i = 0; i < cart.products.length; i++) { 
-															subtotal -= cart.products[i].productId.discount[0].discountPrice;
-													   } 
-													   %>
-														<td class="text-center product-total">
-															<% const productprices = cart.products[i].productId.productPrice - cart.products[i].productId.discount[0].discountPrice %>
-
-															<% const productIquantity = cart.products[i].Quantity *productprices %>
-															 <%= productIquantity %>
+													
+														<td class="text-center product-total" id="product-total-<%= cart.products[i].productId %>" priceId="<%= cart.products[i].productId %>">
+															<span class="product-price"><%= discountedPrice %></span>
 														</td>
-
+														
 
 
 														<td class="column-2">
@@ -318,17 +304,7 @@
 								
 							
 							
-								<%
-								let subtotal = 0;
 							
-								for (const product of cart.products) {
-									const productPrice = product.productId.productPrice;
-									const discountPrice = product.productId.discount[0].discountPrice;
-									const discountedPrice = productPrice - discountPrice;
-									const productQuantity = product.Quantity;
-									subtotal += discountedPrice * productQuantity;
-								}
-							%>
 							
 							<div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
 								<div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
@@ -343,8 +319,8 @@
 											</span>
 										</div>
 										<div class="size-209 p-t-1">
-											<span class="mtext-110 cl2" style="margin-left: 100px;">
-												&#8377;<%= subtotal %>
+											<span class="mtext-110 cl2 abc" style="margin-left: 100px;">
+												&#8377;<%= discountedPrice %>
 											</span>
 										</div>
 									</div>
@@ -356,8 +332,8 @@
 											</span>
 										</div>
 										<div class="size-209 p-t-1" style="width: 100px;">
-											<span class="mtext-110 cl2">
-												&#8377;<%= subtotal %>
+											<span class="mtext-110 cl2 abc">
+												&#8377;<%= discountedPrice %>
 											</span>
 												</div>
 										</div>
@@ -629,13 +605,13 @@
 										const productId = input.getAttribute('productId');
 										const cartId = input.getAttribute('cartid');
 										const productPrice = parseInt(input.getAttribute('data-price'));
-                                        console.log(productId);
-										console.log(productid + 'product');
-										console.log(cartId + 'cart');
-										console.log(productPrice + 'price');
+                                        // console.log(productId);
+										// console.log(productid + 'product');
+										// console.log(cartId + 'cart');
+										// console.log(productPrice + 'price');
 
 										const newPrice = parseInt(input.value) * productPrice;
-										console.log(input.value + 'inputvalue');
+										// console.log(input.value + 'inputvalue');
 
 										// const priceElement = document.getElementById(`price-${productId}`);
 										// if (priceElement) {
@@ -659,10 +635,15 @@
 											.then(response => {
 												if (response.ok) {
 													console.log(response);
-													window.location.reload(); // Reload the page if quantity data is present
-													
-													// alert(res)
-													// console.log(res);
+													const Quantity = response.Quantity;
+													console.log(Quantity)
+ 
+													const productId = document.getElementById(priceId); 
+													const productTotalElement = document.querySelector(`#product-total-${productId} .product-price`);
+
+													const productTotalContent = productTotalElement.innerHTML; 
+													 productTotalContent * Quantity
+													console.log(nw);
 												}else{
 													Swal.fire({
 													icon: 'ERROR',
@@ -677,6 +658,22 @@
 												// Handle any errors here
 											});
 									};
+
+																	
+									
+									const updateSubtotal = function () {
+									let subtotal = 0;
+									const productPrices = document.querySelectorAll('.product-price');
+
+									productPrices.forEach(function (priceElement) {
+										subtotal += parseFloat(priceElement.textContent);
+									});
+
+									const subtotalElement = document.getElementById('subtotal');
+									if (subtotalElement) {
+										subtotalElement.textContent = `&#8377;${subtotal.toFixed(2)}`;
+									}
+								};
 
 
 								document.addEventListener('DOMContentLoaded', function () {

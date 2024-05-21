@@ -663,7 +663,18 @@ const cartLoad = async (req, res) => {
       const cart = await Cart.findOne({ userId: userId })
         .populate("userId")
         .populate("products.productId");
-      res.render("cart", { cart, coupon });
+
+        let discountedPrice = 0;
+													
+        for (const product of cart.products) {
+          const productPrice = product.productId.productPrice;
+          const discountPrice = product.productId.discount[0].discountPrice;
+           discountedPrice = productPrice - discountPrice;
+          // const productQuantity = product.Quantity;
+          // subtotal += discountedPrice * productQuantity;
+        }
+        
+      res.render("cart", {discountedPrice, cart, coupon });
     } else {
       res.redirect("/");
     }
@@ -707,16 +718,7 @@ const quantity = async (req, res) => {
     console.log("quantity ");
     const { cartId, productid, productId, Quantity } = req.body;
 
-  //   const product = await Product.findOne({_id:productId});
-
-  
-
-  //   if (Quantity >= product.productQuantity) {
-  //     return res.status(400).json({ error: `Requested quantity exceeds available stock. Available quantity: ${product.productQuantity}` });
-  // }
-  
-    
-   
+    res.json({Quantity}); 
 
     const cart = await Cart.findOne({ _id: cartId }).populate(
       "products.productId"
@@ -747,8 +749,9 @@ const quantity = async (req, res) => {
     // }
     if (!saved) {
       return res.status(404).json({ message: "Cart or product not found." });
-    }
-    return res.status(200).json({ message: "quantity moved" });
+    } 
+    return 
+   
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: "Internal Server Error" });
