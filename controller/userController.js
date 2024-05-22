@@ -717,8 +717,8 @@ const quantity = async (req, res) => {
   try {
     console.log("quantity ");
     const { cartId, productid, productId, Quantity } = req.body;
+  
 
-    res.json({Quantity}); 
 
     const cart = await Cart.findOne({ _id: cartId }).populate(
       "products.productId"
@@ -750,7 +750,8 @@ const quantity = async (req, res) => {
     if (!saved) {
       return res.status(404).json({ message: "Cart or product not found." });
     } 
-    return 
+ return       res.status(200).json({ message: "Cart or product not found." });
+
    
   } catch (error) {
     console.log(error);

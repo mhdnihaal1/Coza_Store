@@ -242,7 +242,7 @@
 																	type="number" name="Quantity"
 																	cartid="<%= cart._id %>"
 																	productid="<%= cart.products[i]._id %>"
-																	productId="<%= cart.products[i].productId %>"
+																	productId="<%= cart.products[i].productId,i %>"
 																	quantity="<%= cart.products[i].Quantity %>" min="1"
 																	max="<%= cart.products[i].productId.productQuantity %>" 
 																	value="<%= cart.products[i].Quantity %>">
@@ -256,7 +256,7 @@
 														
 													
 														<td class="text-center product-total" id="product-total-<%= cart.products[i].productId %>" priceId="<%= cart.products[i].productId %>">
-															<span class="product-price"><%= discountedPrice %></span>
+															<span class="product-price"><%= discountedPrice*cart.products[i].Quantity %></span>
 														</td>
 														
 
@@ -299,11 +299,13 @@
 										</div> -->
 									</div>
 								</div>
+<% let sub =0%>
+								
+                           <% for (let i=0; i < cart.products.length; i++) { 
+							
+							sub += discountedPrice*cart.products[i].Quantity 
 
-								
-								
-							
-							
+						     	}%>
 							
 							
 							<div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
@@ -320,7 +322,7 @@
 										</div>
 										<div class="size-209 p-t-1">
 											<span class="mtext-110 cl2 abc" style="margin-left: 100px;">
-												&#8377;<%= discountedPrice %>
+												&#8377;<%= sub %>
 											</span>
 										</div>
 									</div>
@@ -333,7 +335,7 @@
 										</div>
 										<div class="size-209 p-t-1" style="width: 100px;">
 											<span class="mtext-110 cl2 abc">
-												&#8377;<%= discountedPrice %>
+												&#8377;<%= sub %>
 											</span>
 												</div>
 										</div>
@@ -602,7 +604,11 @@
 									//================================price update
 									const updatePrice = function (input) {
 										const productid = input.getAttribute('productid');
-										const productId = input.getAttribute('productId');
+										const inputElement = document.querySelector('.num-product');
+
+                                       const productId = inputElement.getAttribute('productId');
+
+										// const productId = input.getAttribute('productId');
 										const cartId = input.getAttribute('cartid');
 										const productPrice = parseInt(input.getAttribute('data-price'));
                                         // console.log(productId);
@@ -635,15 +641,8 @@
 											.then(response => {
 												if (response.ok) {
 													console.log(response);
-													const Quantity = response.Quantity;
-													console.log(Quantity)
- 
-													const productId = document.getElementById(priceId); 
-													const productTotalElement = document.querySelector(`#product-total-${productId} .product-price`);
-
-													const productTotalContent = productTotalElement.innerHTML; 
-													 productTotalContent * Quantity
-													console.log(nw);
+													window.location.reload()
+												
 												}else{
 													Swal.fire({
 													icon: 'ERROR',
