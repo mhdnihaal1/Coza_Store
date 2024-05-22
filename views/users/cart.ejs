@@ -242,7 +242,7 @@
 																	type="number" name="Quantity"
 																	cartid="<%= cart._id %>"
 																	productid="<%= cart.products[i]._id %>"
-																	productId="<%= cart.products[i].productId,i %>"
+																	productId="<%= cart.products[i].productId %>"
 																	quantity="<%= cart.products[i].Quantity %>" min="1"
 																	max="<%= cart.products[i].productId.productQuantity %>" 
 																	value="<%= cart.products[i].Quantity %>">
@@ -253,20 +253,26 @@
 																</div>
 															</div>
 														</td>
+														<%
+														let subtotal = 0;
 														
-													<%	let discountedprice = 0;
-													
-														for (const product of cart.products) {
-														  const productPrice = product.productId.productPrice;
-														  const discountPrice = product.productId.discount[0].discountPrice;
-														   discountedPrice = productPrice - discountPrice;
-														   const productQuantity = product.Quantity;
-														   <!-- discountedprice += discountedPrice * productQuantity; -->
-														}%>
-														<td class="text-center product-total" id="product-total-<%= cart.products[i].productId %>" priceId="<%= cart.products[i].productId %>">
-															<span class="product-price"><%= productQuantity*discountedPrice %></span>
+														for (let i = 0; i < cart.products.length; i++) {	
+															subtotal += cart.products[i].productId.productPrice * cart.products[i].Quantity;
+														}
+														%>
+														
+														<% 
+														for (let i = 0; i < cart.products.length; i++) { 
+															subtotal -= cart.products[i].productId.discount[0].discountPrice;
+													   } 
+													   %>
+														<td class="text-center product-total">
+															<% const productprices = cart.products[i].productId.productPrice - cart.products[i].productId.discount[0].discountPrice %>
+
+															<% const productIquantity = cart.products[i].Quantity *productprices %>
+															 <%= productIquantity %>
 														</td>
-														
+
 
 
 														<td class="column-2">
@@ -307,15 +313,22 @@
 										</div> -->
 									</div>
 								</div>
-								<%	let discountedprice = 0;
-													
+
+								
+								
+							
+							
+								<%
+								let subtotal = 0;
+							
 								for (const product of cart.products) {
-								  const productPrice = product.productId.productPrice;
-								  const discountPrice = product.productId.discount[0].discountPrice;
-								   discountedPrice = productPrice - discountPrice;
-								   const productQuantity = product.Quantity;
-								   discountedprice += discountedPrice * productQuantity;
-								}%>
+									const productPrice = product.productId.productPrice;
+									const discountPrice = product.productId.discount[0].discountPrice;
+									const discountedPrice = productPrice - discountPrice;
+									const productQuantity = product.Quantity;
+									subtotal += discountedPrice * productQuantity;
+								}
+							%>
 							
 							<div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
 								<div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
@@ -331,7 +344,7 @@
 										</div>
 										<div class="size-209 p-t-1">
 											<span class="mtext-110 cl2 abc" style="margin-left: 100px;">
-												&#8377;<%= discountedprice %>
+												&#8377;<%= subtotal %>
 											</span>
 										</div>
 									</div>
@@ -344,7 +357,7 @@
 										</div>
 										<div class="size-209 p-t-1" style="width: 100px;">
 											<span class="mtext-110 cl2 abc">
-												&#8377;<%= discountedprice %>
+												&#8377;<%= subtotal %>
 											</span>
 												</div>
 										</div>
@@ -613,20 +626,16 @@
 									//================================price update
 									const updatePrice = function (input) {
 										const productid = input.getAttribute('productid');
-										const inputElement = document.querySelector('.num-product');
-
-                                       const productId = inputElement.getAttribute('productId');
-
-										// const productId = input.getAttribute('productId');
+										const productId = input.getAttribute('productId');
 										const cartId = input.getAttribute('cartid');
 										const productPrice = parseInt(input.getAttribute('data-price'));
-                                        // console.log(productId);
-										// console.log(productid + 'product');
-										// console.log(cartId + 'cart');
-										// console.log(productPrice + 'price');
+                                        console.log(productId);
+										console.log(productid + 'product');
+										console.log(cartId + 'cart');
+										console.log(productPrice + 'price');
 
 										const newPrice = parseInt(input.value) * productPrice;
-										// console.log(input.value + 'inputvalue');
+										console.log(input.value + 'inputvalue');
 
 										// const priceElement = document.getElementById(`price-${productId}`);
 										// if (priceElement) {
@@ -650,8 +659,10 @@
 											.then(response => {
 												if (response.ok) {
 													console.log(response);
-													window.location.reload()
-												
+													window.location.reload();
+													
+													// alert(res)
+													// console.log(res);
 												}else{
 													Swal.fire({
 													icon: 'ERROR',
@@ -666,22 +677,6 @@
 												// Handle any errors here
 											});
 									};
-
-																	
-									
-									const updateSubtotal = function () {
-									let subtotal = 0;
-									const productPrices = document.querySelectorAll('.product-price');
-
-									productPrices.forEach(function (priceElement) {
-										subtotal += parseFloat(priceElement.textContent);
-									});
-
-									const subtotalElement = document.getElementById('subtotal');
-									if (subtotalElement) {
-										subtotalElement.textContent = `&#8377;${subtotal.toFixed(2)}`;
-									}
-								};
 
 
 								document.addEventListener('DOMContentLoaded', function () {
