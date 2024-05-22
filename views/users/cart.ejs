@@ -254,17 +254,17 @@
 															</div>
 														</td>
 														
-													<%	let discountedPrice = 0;
+													<%	let discountedprice = 0;
 													
 														for (const product of cart.products) {
 														  const productPrice = product.productId.productPrice;
 														  const discountPrice = product.productId.discount[0].discountPrice;
 														   discountedPrice = productPrice - discountPrice;
 														   const productQuantity = product.Quantity;
-														   subtotal += discountedPrice * productQuantity;
+														   discountedprice += discountedPrice * productQuantity;
 														}%>
 														<td class="text-center product-total" id="product-total-<%= cart.products[i].productId %>" priceId="<%= cart.products[i].productId %>">
-															<span class="product-price"><%= discountedPrice * cart.products[i].Quantity %></span>
+															<span class="product-price"><%= discountedprice %></span>
 														</td>
 														
 
@@ -307,14 +307,14 @@
 										</div> -->
 									</div>
 								</div>
-								<%	let discountedPrice = 0;
+								<%	let discountedprice = 0;
 													
 								for (const product of cart.products) {
 								  const productPrice = product.productId.productPrice;
 								  const discountPrice = product.productId.discount[0].discountPrice;
 								   discountedPrice = productPrice - discountPrice;
 								   const productQuantity = product.Quantity;
-								   subtotal += discountedPrice * productQuantity;
+								   discountedprice += discountedPrice * productQuantity;
 								}%>
 							
 							<div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
@@ -331,7 +331,7 @@
 										</div>
 										<div class="size-209 p-t-1">
 											<span class="mtext-110 cl2 abc" style="margin-left: 100px;">
-												&#8377;<%= discountedPrice %>
+												&#8377;<%= discountedprice %>
 											</span>
 										</div>
 									</div>
@@ -344,7 +344,7 @@
 										</div>
 										<div class="size-209 p-t-1" style="width: 100px;">
 											<span class="mtext-110 cl2 abc">
-												&#8377;<%= discountedPrice %>
+												&#8377;<%= discountedprice %>
 											</span>
 												</div>
 										</div>
