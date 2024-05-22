@@ -261,10 +261,10 @@
 														  const discountPrice = product.productId.discount[0].discountPrice;
 														   discountedPrice = productPrice - discountPrice;
 														   const productQuantity = product.Quantity;
-														   discountedprice += discountedPrice * productQuantity;
+														   <!-- discountedprice += discountedPrice * productQuantity; -->
 														}%>
 														<td class="text-center product-total" id="product-total-<%= cart.products[i].productId %>" priceId="<%= cart.products[i].productId %>">
-															<span class="product-price"><%= discountedprice %></span>
+															<span class="product-price"><%= productQuantity*discountedPrice %></span>
 														</td>
 														
 
