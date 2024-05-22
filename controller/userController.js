@@ -1018,7 +1018,11 @@ const checkoutLoad = async (req, res) => {
     const id = req.session.USER._id;
 
     const wallet = await Wallet.findOne({ userId: id });
-      const  walletn = Number(wallet.balance);
+   let walletn=0;
+    if(wallet){
+        walletn = Number(wallet.balance);
+    }
+     
  
 
      const coupon = await Coupon.find();
