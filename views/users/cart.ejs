@@ -256,7 +256,7 @@
 														
 													
 														<td class="text-center product-total" id="product-total-<%= cart.products[i].productId %>" priceId="<%= cart.products[i].productId %>">
-															<span class="product-price"><%= discountedPrice*cart.products[i].Quantity %></span>
+															<span class="product-price"><%= discountedPrice * cart.products[i].Quantity %></span>
 														</td>
 														
 
@@ -299,14 +299,14 @@
 										</div> -->
 									</div>
 								</div>
-<% let sub =0%>
+                                  <% let subtotal =0%>
 								
-                           <% for (let i=0; i < cart.products.length; i++) { 
-							
-							sub += discountedPrice*cart.products[i].Quantity 
-
-						     	}%>
-							
+                           
+								 <% for (const product of cart.products) {
+									
+									 const productQuantity = product.Quantity;
+									 subtotal += discountedPrice * productQuantity;
+								  }%>
 							
 							<div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
 								<div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
@@ -322,7 +322,7 @@
 										</div>
 										<div class="size-209 p-t-1">
 											<span class="mtext-110 cl2 abc" style="margin-left: 100px;">
-												&#8377;<%= sub %>
+												&#8377;<%= subtotal %>
 											</span>
 										</div>
 									</div>
@@ -335,7 +335,7 @@
 										</div>
 										<div class="size-209 p-t-1" style="width: 100px;">
 											<span class="mtext-110 cl2 abc">
-												&#8377;<%= sub %>
+												&#8377;<%= subtotal %>
 											</span>
 												</div>
 										</div>
