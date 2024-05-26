@@ -226,14 +226,7 @@ const verifyLogin = async (req, res) => {
       const newWallet = new Wallet({
         userId: userId,
         balance: '0',
-        history: [
-          {
-            Reason: "returnedproduct",
-            amount: '0',
-            transaction: "Deposit",
-            date: new Date(),
-          },
-        ],
+  
       });
   
       await newWallet.save();
@@ -1050,7 +1043,7 @@ const checkoutLoad = async (req, res) => {
       .populate("products.productId");
 
      if(!address){
-      res.send("error") 
+      res.send("no address") 
      }
 
       let walletn=0;
