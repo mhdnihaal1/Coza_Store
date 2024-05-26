@@ -1011,35 +1011,53 @@ const removewishlist = async (req, res) => {
 
 //=======================checkout
 
+
 const checkoutLoad = async (req, res) => {
   try {
     console.log("Checkout process started");
 
     const id = req.session.USER._id;
 
-    const wallet = await Wallet.findOne({ userId: id });
-   let walletn=0;
-    if(wallet){
-        walletn = Number(wallet.balance);
-    }
-     
- 
-
-     const coupon = await Coupon.find();
-     const address = await Address.findOne({ userId: id });
-
-     if(!address){
-      return
-     }
-     const cart = await Cart.findOne({ userId: id })
+    // Using mongoose query with a timeout of 10 seconds
+    const walletPromise = Wallet.findOne({ userId: id }).maxTimeMS(10000).exec();
+    const couponPromise = Coupon.find().maxTimeMS(10000).exec();
+    const addressPromise = Address.findOne({ userId: id }).maxTimeMS(10000).exec();
+    const cartPromise = Cart.findOne({ userId: id })
       .populate("userId")
-      .populate("products.productId");
-      
-    res.render("checkout", { walletn,address, cart, coupon });
+      .populate("products.productId")
+      .maxTimeMS(10000)
+      .exec();
+
+    // Awaiting all promises concurrently
+    const [wallet, coupon, address, cart] = await Promise.all([
+      walletPromise,
+      couponPromise,
+      addressPromise,
+      cartPromise,
+    ]);
+
+    let walletn = 0;
+    if (wallet) {
+      walletn = Number(wallet.balance);
+    }
+
+    if (!address) {
+      return res.status(404).send("Address not found");
+    }
+
+    res.render("checkout", { walletn, address, cart, coupon });
   } catch (error) {
     console.log(error);
+
+    if (error instanceof mongoose.Error || error.name === 'MongoNetworkError') {
+      // Handling database-specific errors
+      return res.status(500).send("Database error occurred");
+    }
+
+    res.status(500).send("An error occurred");
   }
 };
+
 
 const checkout = async (req, res) => {
   try {
