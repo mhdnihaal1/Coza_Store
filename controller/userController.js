@@ -1049,14 +1049,6 @@ const checkoutLoad = async (req, res) => {
       .populate("userId")
       .populate("products.productId");
 
-    if(!coupon){
-      res.send("error") 
-    }
-
-     if(!cart){
-      res.send("error") 
-     }
-      
      if(!address){
       res.send("error") 
      }

@@ -785,7 +785,7 @@ console.log(index,userid+'hlkoo');
         }
         console.log(data);
 
-         fetch('/checkout1', {
+         fetch('/checkout', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -793,8 +793,9 @@ console.log(index,userid+'hlkoo');
             body: JSON.stringify(data)
         }).then(res => {
             console.log(res);
-            if(res.ok){
             window.location.href='/order'
+
+            if(res.ok){
             }else{
                 Swal.fire({
 				icon: 'ERROR',
