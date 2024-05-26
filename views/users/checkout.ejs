@@ -562,10 +562,10 @@
                 <div class="input-group d-flex">
                     <label for="Paymentmethod">Payment method :</label> 
                     <div class="Paymentmethod-options " style="margin-left: 50px; margin-top: 20px;">
-                     <!-- <% if(walletn >=   Total-50 ){ %>
+                     <% if(walletn >   Total-50 ){ %>
                         <label for="Wallet">Wallet :</label>
                         <input type="radio" id="Wallet" name="Paymentmethod" value="Wallet">
-                    <% } %> -->
+                    <% } %>
                             <label for="Cashondelivery">COD :</label>
                             <input type="radio" id="Cashondelivery" name="Paymentmethod" value="COD">
 
@@ -785,7 +785,7 @@ console.log(index,userid+'hlkoo');
         }
         console.log(data);
 
-         fetch('/checkout', {
+         fetch('/checkout1', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

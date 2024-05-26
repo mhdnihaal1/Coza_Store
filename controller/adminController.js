@@ -764,7 +764,8 @@ const addoffer = async (req, res) => {
 
 const Loadcoupon = async(req,res)=>{
   try{
-    const coupon=await Coupon.find();
+    const coupon=await Coupon.find().sort({couponStarted:-1}); 
+    
 
      res.render('coupon',{coupon})
   }catch(error){

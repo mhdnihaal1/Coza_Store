@@ -1017,20 +1017,25 @@ const checkoutLoad = async (req, res) => {
 
     const id = req.session.USER._id;
 
-  //   const wallet = await Wallet.findOne({ userId: id });
-  //  let walletn=0;
-  //   if(wallet){
-  //       walletn = Number(wallet.balance);
-  //   }
+    const wallet = await Wallet.findOne({ userId: id });
+   let walletn=0;
+    if(wallet){
+        walletn = Number(wallet.balance);
+    }
      
  
 
      const coupon = await Coupon.find();
      const address = await Address.findOne({ userId: id });
+
+     if(!address){
+      return
+     }
      const cart = await Cart.findOne({ userId: id })
       .populate("userId")
       .populate("products.productId");
-    res.render("checkout", { address, cart, coupon, });
+      
+    res.render("checkout", { walletn,address, cart, coupon });
   } catch (error) {
     console.log(error);
   }

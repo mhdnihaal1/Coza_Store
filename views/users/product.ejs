@@ -515,11 +515,11 @@
 						<div class="block2-pic hov-img0">
 							<% if (product[i].productImage && Array.isArray(product[i].productImage)) { %>
 								<img src="<%= product[i].productImage[0] %>" alt="productImage" width="20px" height="180px" productId="<% product._id%>">
-							
-							<a href="/productDetail/<%= product._id %>" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+							<% } %>
+							<a href="/productDetail/<%= product[i]._id %>" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 								Quick View
 							</a>
-							<% } %>
+							
 						</div>
 			
 						<div class="block2-txt flex-w flex-t p-t-14">

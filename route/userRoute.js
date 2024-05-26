@@ -117,7 +117,7 @@ user_route.post('/wishlist1',userController.removewishlist)
 //=======================checkout
 
 user_route.get('/checkout',userController.checkoutLoad)
-user_route.post('/checkout',userController.checkout)
+user_route.post('/checkout1',userController.checkout)
 user_route.post('/checkoutAddress',userController.checkoutAddress)
 user_route.post('/checkoutEditAddress',userController.checkouteditaddress)
 user_route.post('/chooseAddress',userController.chooseAddress)
