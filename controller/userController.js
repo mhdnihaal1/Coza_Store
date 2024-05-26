@@ -1017,7 +1017,7 @@ const checkoutLoad = async (req, res) => {
 
     const id = req.session.USER._id;
 
-     const wallet = await Wallet.findOne({ userId: id });
+     const wallet = await Wallet.find({ userId: id });
      const coupon = await Coupon.find();
      const address = await Address.findOne({ userId: id });
      const cart = await Cart.findOne({ userId: id })
@@ -1025,15 +1025,15 @@ const checkoutLoad = async (req, res) => {
       .populate("products.productId");
 
     if(!coupon){
-      return 
+      res.send("error") 
     }
 
      if(!cart){
-      return 
+      res.send("error") 
      }
       
      if(!address){
-      return 
+      res.send("error") 
      }
 
       let walletn=0;
