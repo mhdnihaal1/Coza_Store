@@ -152,6 +152,8 @@ const submitOTP = async (req, res) => {
     } else {
       res.status(400).json({ message: "Wrong OTP" });
     }
+
+    
   } catch (error) {
     console.log("submitOTP has an error: ", error.message);
     return res
@@ -217,6 +219,29 @@ const verifyLogin = async (req, res) => {
     }
 
     req.session.USER = USER;
+
+    const wallet = await Wallet.findOne({userId:req.session.USER._id});
+
+    if(!wallet){
+      const newWallet = new Wallet({
+        userId: userId,
+        balance: '0',
+        history: [
+          {
+            Reason: "returnedproduct",
+            amount: '0',
+            transaction: "Deposit",
+            date: new Date(),
+          },
+        ],
+      });
+  
+      await newWallet.save();
+  
+      console.log("New wallet created for the user.");
+    }
+
+
 
     res.redirect("/");
   } catch (error) {
@@ -1017,7 +1042,7 @@ const checkoutLoad = async (req, res) => {
 
     const id = req.session.USER._id;
 
-     const wallet = await Wallet.find({ userId: id });
+     const wallet = await Wallet.findOne({ userId: id });
      const coupon = await Coupon.find();
      const address = await Address.findOne({ userId: id });
      const cart = await Cart.findOne({ userId: id })
