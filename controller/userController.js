@@ -1042,14 +1042,13 @@ const checkoutLoad = async (req, res) => {
       .populate("userId")
       .populate("products.productId");
 
-     if(!address){
-      res.send("no address") 
-     }
+   
 
       let walletn=0;
       if(wallet){
           walletn = Number(wallet.balance);
       }
+      console.log(walletn)
       
     res.render("checkout", { walletn,address, cart, coupon });
   } catch (error) {
@@ -1064,13 +1063,27 @@ const checkout = async (req, res) => {
     const { index, userid, addressid, TotalPrice, paymentmethod, couponprice } =req.body;
     const user = req.session.USER._id;
 
-    if (paymentmethod === 'Wallet') {
+    // console.log(typeof TotalPrice)
+    if (paymentmethod == 'Wallet') {
       const wallet = await Wallet.findOne({ userId: user });
-  
-  
 
-       const Wallet=  wallet.balance - TotalPrice
-         await Wallet.save()
+      let totalPrice = Number(TotalPrice.replace('₹', '').trim());
+
+
+      if(wallet){
+       let walletBalance = Number(wallet.balance);
+     
+
+
+      let walletbalance = walletBalance-totalPrice;
+      let swalletbalance = walletbalance.toString();
+      wallet.balance = swalletbalance
+
+     await wallet.save();
+        console.log('Wallet balance updated successfully');
+      
+      }
+   
   }
   
   

@@ -561,17 +561,23 @@
                 </div>
                 <div class="input-group d-flex">
                     <label for="Paymentmethod">Payment method :</label> 
-                    <div class="Paymentmethod-options " style="margin-left: 50px; margin-top: 20px;">
-                     <% if(walletn >   Total-50 ){ %>
-                        <label for="Wallet">Wallet :</label>
-                        <input type="radio" id="Wallet" name="Paymentmethod" value="Wallet">
-                    <% } %>
-                            <label for="Cashondelivery">COD :</label>
-                            <input type="radio" id="Cashondelivery" name="Paymentmethod" value="COD">
-
+                    <div class="Paymentmethod-options" style="margin-left: 50px; margin-top: 20px;">
+                        <% 
+                        const totalValue = Number(Total); // Ensure Total is treated as a number
+                        if (!isNaN(totalValue) && walletn > (totalValue - 50)) { 
+                        %>
+                          <label for="Wallet">Wallet :</label>
+                          <input type="radio" id="Wallet" name="Paymentmethod" value="Wallet" onclick="Wallet('Wallet')">
+                        <% 
+                        } 
+                        %>
+                        
+                        <label for="Cashondelivery">COD :</label>
+                        <input type="radio" id="Cashondelivery" name="Paymentmethod" value="COD" onclick="COD('COD')">
+                      
                         <label for="Onlinepayment">Online payment :</label>
-                        <input type="radio" id="Onlinepayment" name="Paymentmethod" value="Onlinepayment">
-                    </div>
+                        <input type="radio" id="Onlinepayment" name="Paymentmethod" value="Onlinepayment" >
+                      </div>
                 </div>
                 
                 <!-- <a href="/order"> -->
@@ -715,45 +721,17 @@ function setupRazorpay(orderId, amount) {
         }
 
 
-
         
-        document.addEventListener('DOMContentLoaded', function () {
-    const walletRadio = document.getElementById('Wallet');
-    const codRadio = document.getElementById('Cashondelivery');
-    const onlinePaymentRadio = document.getElementById('Onlinepayment');
+function COD(value){
+    checkboxes=['COD'];
+}
 
-    if (walletRadio) {
-        walletRadio.checked = true;
-        checkboxes = ['Wallet'];
-    } else {
-        codRadio.checked = true;
-        checkboxes = ['COD'];
-    }
+function Wallet(value){
+    checkboxes=['Wallet'];
+}
 
-    console.log(checkboxes);
-
-    walletRadio?.addEventListener('click', function() {
-        checkboxes = ['Wallet'];
-        console.log(checkboxes);
-    });
-
-    codRadio.addEventListener('click', function() {
-        checkboxes = ['COD'];
-        console.log(checkboxes);
-    });
-
-    onlinePaymentRadio.addEventListener('click', function() {
-        checkboxes = ['Onlinepayment'];
-        console.log(checkboxes);
-    });
-});
-
-
+console.log(checkboxes)
         
-
-
-
-   
 
   
 console.log(index,userid+'hlkoo');
